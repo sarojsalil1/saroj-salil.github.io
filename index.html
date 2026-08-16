@@ -30,7 +30,7 @@ nav {
     top: 0;
     z-index: 1000;
     background: #102f4c;
-    padding: 15px 6%;
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,14 +45,15 @@ nav .logo {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 22px;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 15px;
-    transition: 0.3s;
+    font-size: 14px;
 }
 
 nav ul li a:hover {
@@ -67,7 +68,7 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 60px 20px;
+    padding: 70px 20px;
     background: linear-gradient(135deg, #102f4c, #1c557c);
     color: white;
 }
@@ -78,46 +79,45 @@ nav ul li a:hover {
 
 .hero h1 {
     font-size: 58px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .hero h2 {
     font-size: 25px;
     font-weight: normal;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     color: #bde7ff;
 }
 
 .hero p {
     font-size: 18px;
-    max-width: 750px;
+    max-width: 760px;
     margin: auto;
 }
 
 .buttons {
-    margin-top: 30px;
+    margin-top: 32px;
 }
 
 .btn {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 13px 27px;
     margin: 7px;
     border-radius: 30px;
     background: white;
     color: #123b5d;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
 }
 
 .btn:hover {
     transform: translateY(-3px);
 }
 
-/* GENERAL SECTIONS */
+/* SECTIONS */
 
 section {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
     padding: 80px 25px;
 }
@@ -172,10 +172,6 @@ section h2 {
 .card h3 {
     color: #164d73;
     margin-bottom: 12px;
-}
-
-.card p {
-    color: #596b7a;
 }
 
 /* TIMELINE */
@@ -234,6 +230,7 @@ section h2 {
     color: #60839a;
     font-size: 18px;
     text-align: center;
+    padding: 20px;
 }
 
 .project-content {
@@ -250,7 +247,7 @@ section h2 {
 .certificate-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 28px;
+    gap: 30px;
 }
 
 .certificate {
@@ -265,13 +262,13 @@ section h2 {
     transform: translateY(-7px);
 }
 
-.certificate img {
+.certificate-image {
     width: 100%;
-    height: 210px;
-    object-fit: cover;
-    display: block;
-    cursor: pointer;
+    height: 230px;
+    object-fit: contain;
     background: #edf3f7;
+    padding: 10px;
+    display: block;
 }
 
 .certificate-info {
@@ -287,6 +284,17 @@ section h2 {
 .certificate-info p {
     color: #667788;
     font-size: 14px;
+}
+
+.certificate-link {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: #164d73;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
 }
 
 /* CV */
@@ -316,11 +324,6 @@ section h2 {
     text-align: center;
 }
 
-.contact a {
-    color: #145b88;
-    text-decoration: none;
-}
-
 /* FOOTER */
 
 footer {
@@ -340,9 +343,7 @@ footer {
     }
 
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
+        gap: 10px;
     }
 
     .hero h1 {
@@ -356,13 +357,16 @@ footer {
     section {
         padding: 60px 18px;
     }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
+
 
 <!-- NAVIGATION -->
 
@@ -371,6 +375,7 @@ footer {
 <div class="logo">Saroj Salil</div>
 
 <ul>
+
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#education">Education</a></li>
@@ -380,6 +385,7 @@ footer {
 <li><a href="#certificates">Certificates</a></li>
 <li><a href="#cv">CV</a></li>
 <li><a href="#contact">Contact</a></li>
+
 </ul>
 
 </nav>
@@ -436,13 +442,13 @@ applications of geospatial technologies.
 
 <p>
 I have experience working with GIS and Remote Sensing datasets and
-software including ArcGIS, ArcGIS Pro, QGIS, ERDAS Imagine and Python-based
-geospatial and statistical analysis.
+software including ArcGIS, ArcGIS Pro, QGIS, ERDAS Imagine and
+Python-based geospatial and statistical analysis.
 </p>
 
 <p>
-Currently, my research work also involves spatial analysis and impact
-assessment related to skill development among tribal youth in Jharkhand.
+My current research also involves spatial analysis and impact assessment
+related to skill development among tribal youth in Jharkhand.
 </p>
 
 </div>
@@ -462,13 +468,11 @@ assessment related to skill development among tribal youth in Jharkhand.
 
 <h3>M.A. Geography</h3>
 
-<p>
-University of Mumbai
-</p>
+<p><strong>University of Mumbai</strong></p>
 
 <p>
-Master's research focused on long-term rainfall variability and trends
-in the Bhima River Basin.
+Master's research focused on long-term rainfall variability
+and trends in the Bhima River Basin.
 </p>
 
 </div>
@@ -478,9 +482,7 @@ in the Bhima River Basin.
 
 <h3>Post Graduate Diploma in Applied Geoinformatics</h3>
 
-<p>
-Jadavpur University
-</p>
+<p><strong>Jadavpur University</strong></p>
 
 <p>
 Training in GIS, Remote Sensing, spatial analysis and geoinformatics.
@@ -493,9 +495,7 @@ Training in GIS, Remote Sensing, spatial analysis and geoinformatics.
 
 <h3>B.A. (Hons.) Geography</h3>
 
-<p>
-University of Delhi
-</p>
+<p><strong>University of Delhi</strong></p>
 
 </div>
 
@@ -519,11 +519,11 @@ hydrology and geospatial technologies.
 
 <div class="card">
 
-<h3>Climate Variability</h3>
+<h3>🌧 Climate Variability</h3>
 
 <p>
-Analysis of rainfall variability, trends and changing climate conditions
-using long-term climate datasets.
+Rainfall variability, long-term trends, climate variability
+and changing hydro-climatic conditions.
 </p>
 
 </div>
@@ -531,11 +531,11 @@ using long-term climate datasets.
 
 <div class="card">
 
-<h3>Rainfall & Extreme Events</h3>
+<h3>🌧 Rainfall & Extreme Events</h3>
 
 <p>
-Investigation of rainfall patterns, anomalies, erosivity and extreme
-precipitation using statistical and spatial techniques.
+Rainfall anomalies, extreme precipitation, rainfall erosivity
+and statistical trend analysis.
 </p>
 
 </div>
@@ -543,11 +543,11 @@ precipitation using statistical and spatial techniques.
 
 <div class="card">
 
-<h3>Hydrology & Water Resources</h3>
+<h3>💧 Hydrology & Water Resources</h3>
 
 <p>
-Geospatial analysis of watersheds, terrain, drainage and environmental
-processes relevant to water-resource management.
+Geospatial analysis of watersheds, terrain, drainage and
+water-resource systems.
 </p>
 
 </div>
@@ -555,11 +555,11 @@ processes relevant to water-resource management.
 
 <div class="card">
 
-<h3>Spatial Research</h3>
+<h3>📍 Spatial Research</h3>
 
 <p>
-Application of GIS and spatial methods to understand geographical
-patterns and accessibility.
+GIS-based investigation of geographical patterns,
+accessibility and environmental systems.
 </p>
 
 </div>
@@ -576,7 +576,7 @@ patterns and accessibility.
 <h2>GIS & Remote Sensing</h2>
 
 <p class="section-intro">
-Geospatial tools and techniques used in research and applied spatial analysis.
+Geospatial technologies and analytical methods used in research.
 </p>
 
 <div class="skills">
@@ -590,7 +590,6 @@ Geospatial tools and techniques used in research and applied spatial analysis.
 <span class="skill">DEM Analysis</span>
 <span class="skill">Terrain Analysis</span>
 <span class="skill">Spatial Analysis</span>
-<span class="skill">Land Surface Analysis</span>
 <span class="skill">Climate Data</span>
 <span class="skill">IMD Rainfall Data</span>
 <span class="skill">SRTM DEM</span>
@@ -607,9 +606,9 @@ Geospatial tools and techniques used in research and applied spatial analysis.
 <h2>Projects & Analysis</h2>
 
 <p class="section-intro">
-Selected research and geospatial projects. Analysis images will be added here.
+Selected research and geospatial projects. Analysis images will be
+added to this portfolio as the work is documented.
 </p>
-
 
 <div class="grid">
 
@@ -617,7 +616,7 @@ Selected research and geospatial projects. Analysis images will be added here.
 <div class="project-card">
 
 <div class="project-image">
-Future Bhima Basin rainfall analysis image
+Future Bhima Basin rainfall analysis
 </div>
 
 <div class="project-content">
@@ -625,8 +624,8 @@ Future Bhima Basin rainfall analysis image
 <h3>Rainfall Variability in Bhima Basin</h3>
 
 <p>
-Long-term analysis of rainfall variability and trends using gridded
-rainfall data and statistical methods.
+Long-term analysis of rainfall variability and trends using
+gridded rainfall data and statistical methods.
 </p>
 
 </div>
@@ -637,7 +636,7 @@ rainfall data and statistical methods.
 <div class="project-card">
 
 <div class="project-image">
-Future PMKVY GIS analysis image
+Future PMKVY GIS analysis
 </div>
 
 <div class="project-content">
@@ -645,8 +644,8 @@ Future PMKVY GIS analysis image
 <h3>PMKVY Spatial Analysis in Jharkhand</h3>
 
 <p>
-Geospatial investigation of skill-development centres, accessibility,
-terrain and spatial patterns among tribal youth in Jharkhand.
+Geospatial investigation of skill-development centres,
+accessibility, terrain and spatial patterns among tribal youth.
 </p>
 
 </div>
@@ -657,7 +656,7 @@ terrain and spatial patterns among tribal youth in Jharkhand.
 <div class="project-card">
 
 <div class="project-image">
-Future GIS / DEM analysis image
+Future GIS / DEM analysis
 </div>
 
 <div class="project-content">
@@ -665,17 +664,19 @@ Future GIS / DEM analysis image
 <h3>GIS & Terrain Analysis Portfolio</h3>
 
 <p>
-A collection of GIS, DEM, remote-sensing and spatial-analysis projects.
+A collection of GIS, DEM, Remote Sensing and spatial-analysis
+projects will be presented here.
 </p>
 
 </div>
 
 </div>
 
-
 </div>
 
 </section>
+
+
 <!-- CERTIFICATES -->
 
 <section id="certificates">
@@ -683,162 +684,346 @@ A collection of GIS, DEM, remote-sensing and spatial-analysis projects.
 <h2>Certificates & Training</h2>
 
 <p class="section-intro">
-A collection of professional training, academic learning,
-GIS, Remote Sensing, climate and Earth observation certificates.
+Professional training, academic learning, GIS, Remote Sensing,
+climate and Earth observation certificates.
 </p>
 
 
 <div class="certificate-grid">
 
 
+<!-- 1 -->
+
 <div class="certificate">
-<a href="certificates/gis-for-climate-action.jpg" target="_blank">
-<img src="certificates/gis-for-climate-action.jpg"
-alt="GIS for Climate Action">
+
+<a href="./certificates/gis-for-climate-action.jpg" target="_blank">
+
+<img class="certificate-image"
+src="./certificates/gis-for-climate-action.jpg"
+alt="GIS for Climate Action Certificate">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>GIS for Climate Action</h3>
+
 <p>Esri | GIS & Climate Action</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/gis-for-climate-action.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 2 -->
 
 <div class="certificate">
-<a href="certificates/geospatial-modelling-watershed-management.jpg" target="_blank">
-<img src="certificates/geospatial-modelling-watershed-management.jpg"
+
+<a href="./certificates/geospatial-modelling-watershed-management.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/geospatial-modelling-watershed-management.jpg"
 alt="Geospatial Modelling for Watershed Management">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>Geospatial Modelling for Watershed Management</h3>
+
 <p>IIRS / ISRO</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/geospatial-modelling-watershed-management.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 3 -->
 
 <div class="certificate">
-<a href="certificates/nasa-arset-flood-training.jpg" target="_blank">
-<img src="certificates/nasa-arset-flood-training.jpg"
+
+<a href="./certificates/nasa-arset-flood-training.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/nasa-arset-flood-training.jpg"
 alt="NASA ARSET Flood Training">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>Monitoring and Predicting Floods Using Earth Observations</h3>
+
 <p>NASA ARSET</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/nasa-arset-flood-training.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 4 -->
 
 <div class="certificate">
-<a href="certificates/wekeo-for-climate-change.jpg" target="_blank">
-<img src="certificates/wekeo-for-climate-change.jpg"
+
+<a href="./certificates/wekeo-for-climate-change.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/wekeo-for-climate-change.jpg"
 alt="WEkEO for Climate Change">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>WEkEO for Climate Change</h3>
+
 <p>Copernicus / Mercator Ocean International</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/wekeo-for-climate-change.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 5 -->
 
 <div class="certificate">
-<a href="certificates/enso-weather-training.jpg" target="_blank">
-<img src="certificates/enso-weather-training.jpg"
+
+<a href="./certificates/enso-weather-training.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/enso-weather-training.jpg"
 alt="El Niño Southern Oscillation Training">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>Monitoring the El Niño–Southern Oscillation</h3>
+
 <p>Climate & Weather Training</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/enso-weather-training.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 6 -->
 
 <div class="certificate">
-<a href="certificates/climate-justice-climate-law.jpg" target="_blank">
-<img src="certificates/climate-justice-climate-law.jpg"
+
+<a href="./certificates/climate-justice-climate-law.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/climate-justice-climate-law.jpg"
 alt="Climate Justice and Climate Law">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>Climate Justice and Climate Law</h3>
+
 <p>NLU Delhi & SOAS</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/climate-justice-climate-law.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 7 -->
 
 <div class="certificate">
-<a href="certificates/ncess-research-internship.jpg" target="_blank">
-<img src="certificates/ncess-research-internship.jpg"
+
+<a href="./certificates/ncess-research-internship.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/ncess-research-internship.jpg"
 alt="NCESS Research Internship">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>Research Internship</h3>
+
 <p>National Centre for Earth Science Studies</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/ncess-research-internship.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 8 -->
 
 <div class="certificate">
-<a href="certificates/field-investigator-cgu.jpg" target="_blank">
-<img src="certificates/field-investigator-cgu.jpg"
+
+<a href="./certificates/field-investigator-cgu.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/field-investigator-cgu.jpg"
 alt="Field Investigator Certificate">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>Field Investigator</h3>
+
 <p>CV Raman Global University</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/field-investigator-cgu.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 9 -->
 
 <div class="certificate">
-<a href="certificates/rmsi-gis-engineer-experience.jpg" target="_blank">
-<img src="certificates/rmsi-gis-engineer-experience.jpg"
+
+<a href="./certificates/rmsi-gis-engineer-experience.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/rmsi-gis-engineer-experience.jpg"
 alt="RMSI GIS Engineer Experience Certificate">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>GIS Engineer Experience</h3>
+
 <p>RMSI</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/rmsi-gis-engineer-experience.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 10 -->
 
 <div class="certificate">
-<a href="certificates/certificate-appreciation-2025.jpg" target="_blank">
-<img src="certificates/certificate-appreciation-2025.jpg"
+
+<a href="./certificates/certificate-appreciation-2025.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/certificate-appreciation-2025.jpg"
 alt="Certificate of Appreciation">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>Certificate of Appreciation</h3>
+
 <p>Academic / Professional Recognition</p>
-</div>
+
+<a class="certificate-link"
+href="./certificates/certificate-appreciation-2025.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
 
+</div>
+
+
+<!-- 11 -->
 
 <div class="certificate">
-<a href="certificates/training-certificate-2025.jpg" target="_blank">
-<img src="certificates/training-certificate-2025.jpg"
-alt="Training Certificate">
+
+<a href="./certificates/training-certificate-2025.jpg"
+target="_blank">
+
+<img class="certificate-image"
+src="./certificates/training-certificate-2025.jpg"
+alt="Professional Training Certificate">
+
 </a>
 
 <div class="certificate-info">
+
 <h3>Professional Training</h3>
+
 <p>Training Certificate | 2025</p>
+
+<a class="certificate-link"
+href="./certificates/training-certificate-2025.jpg"
+target="_blank">
+View Certificate
+</a>
+
 </div>
+
 </div>
 
 
 </div>
 
 </section>
-
-
 
 
 <!-- CV -->
@@ -852,12 +1037,12 @@ alt="Training Certificate">
 <h3>Academic & Professional CV</h3>
 
 <p>
-View my academic background, research experience, technical skills,
-projects and professional experience.
+My academic background, research experience, professional experience,
+technical skills and selected projects.
 </p>
 
 <a class="cv-btn"
-href="documents/Saroj_Salil_CV.pdf"
+href="./documents/Saroj_Salil_CV.pdf"
 target="_blank">
 
 View / Download CV
@@ -879,7 +1064,7 @@ View / Download CV
 
 <p>
 For academic collaboration, research opportunities and professional
-communication, please contact me through the details provided in my CV.
+communication, please contact me through my professional channels.
 </p>
 
 </div>
@@ -891,7 +1076,9 @@ communication, please contact me through the details provided in my CV.
 
 <footer>
 
-<p>© 2026 Saroj Salil | Geography • GIS • Remote Sensing • Climate Research</p>
+<p>
+© 2026 Saroj Salil | Geography • GIS • Remote Sensing • Climate Research
+</p>
 
 </footer>
 
