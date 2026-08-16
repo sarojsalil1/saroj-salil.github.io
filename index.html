@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +18,9 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.7;
+    background: #f4f7fa;
     color: #243447;
-    background: #f5f8fa;
+    line-height: 1.7;
 }
 
 /* NAVIGATION */
@@ -28,16 +29,16 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #102a43;
-    padding: 16px 6%;
+    background: #102f4c;
+    padding: 15px 6%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
+nav .logo {
     color: white;
-    font-size: 23px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -47,26 +48,28 @@ nav ul {
     gap: 22px;
 }
 
-nav a {
+nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-nav a:hover {
-    color: #7dd3fc;
+nav ul li a:hover {
+    color: #8fd3ff;
 }
 
 /* HERO */
 
 .hero {
-    min-height: 650px;
+    min-height: 88vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #e8f4f8, #ffffff);
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #102f4c, #1c557c);
+    color: white;
 }
 
 .hero-content {
@@ -75,91 +78,91 @@ nav a:hover {
 
 .hero h1 {
     font-size: 58px;
-    color: #102a43;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .hero h2 {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: normal;
-    color: #486581;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    color: #bde7ff;
 }
 
 .hero p {
+    font-size: 18px;
     max-width: 750px;
     margin: auto;
-    font-size: 18px;
-    color: #52606d;
 }
 
 .buttons {
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
-.button {
+.btn {
     display: inline-block;
-    padding: 13px 25px;
+    padding: 12px 25px;
     margin: 7px;
-    border-radius: 7px;
-    background: #126782;
-    color: white;
+    border-radius: 30px;
+    background: white;
+    color: #123b5d;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-.button:hover {
-    background: #0b4f66;
+.btn:hover {
+    transform: translateY(-3px);
 }
 
 /* GENERAL SECTIONS */
 
 section {
-    padding: 80px 7%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 25px;
 }
 
-.section-title {
+section h2 {
     text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title h2 {
     font-size: 36px;
-    color: #102a43;
+    color: #123b5d;
+    margin-bottom: 45px;
 }
 
-.section-title p {
-    color: #627d98;
+.section-intro {
+    max-width: 800px;
+    margin: -20px auto 40px;
+    text-align: center;
+    color: #596b7a;
 }
 
 /* ABOUT */
 
 .about {
-    max-width: 1000px;
-    margin: auto;
-    font-size: 17px;
+    background: white;
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
 }
 
 .about p {
     margin-bottom: 18px;
 }
 
-/* RESEARCH CARDS */
+/* CARDS */
 
-.cards {
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
-    max-width: 1150px;
-    margin: auto;
 }
 
 .card {
     background: white;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    transition: transform 0.25s;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    transition: 0.3s;
 }
 
 .card:hover {
@@ -167,132 +170,164 @@ section {
 }
 
 .card h3 {
-    color: #126782;
+    color: #164d73;
     margin-bottom: 12px;
-    font-size: 21px;
 }
 
-/* RESEARCH */
+.card p {
+    color: #596b7a;
+}
 
-.research-card {
+/* TIMELINE */
+
+.timeline {
+    border-left: 3px solid #1c6a98;
+    margin-left: 20px;
+    padding-left: 30px;
+}
+
+.timeline-item {
     background: white;
-    padding: 35px;
+    margin-bottom: 25px;
+    padding: 25px;
     border-radius: 12px;
-    max-width: 1050px;
-    margin: 25px auto;
     box-shadow: 0 5px 20px rgba(0,0,0,0.06);
 }
 
-.research-card h3 {
-    color: #102a43;
-    font-size: 24px;
-    margin-bottom: 10px;
+.timeline-item h3 {
+    color: #164d73;
 }
 
-/* EDUCATION */
+/* SKILLS */
 
-.education-item {
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.skill {
+    background: #e3f1f9;
+    color: #123b5d;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+/* PROJECTS */
+
+.project-card {
     background: white;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 25px;
-    border-left: 5px solid #126782;
-    border-radius: 8px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
 }
 
-.education-item h3 {
-    color: #102a43;
+.project-image {
+    width: 100%;
+    height: 240px;
+    background: #e7f0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #60839a;
+    font-size: 18px;
+    text-align: center;
+}
+
+.project-content {
+    padding: 28px;
+}
+
+.project-content h3 {
+    color: #164d73;
+    margin-bottom: 10px;
 }
 
 /* CERTIFICATES */
 
-.certificate-placeholder {
-    min-height: 220px;
-    background: #eaf1f5;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #627d98;
-    margin-bottom: 18px;
-    text-align: center;
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.certificate {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.certificate:hover {
+    transform: translateY(-7px);
+}
+
+.certificate img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    background: #edf3f7;
+}
+
+.certificate-info {
     padding: 20px;
 }
 
-.certificate-card {
-    background: white;
-    padding: 18px;
-    border-radius: 10px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-}
-
-.certificate-card h3 {
+.certificate-info h3 {
+    color: #164d73;
     font-size: 18px;
-    color: #102a43;
+    margin-bottom: 8px;
 }
 
-.view-button {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 8px 16px;
-    background: #126782;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.certificate-info p {
+    color: #667788;
+    font-size: 14px;
 }
 
-/* PORTFOLIO */
+/* CV */
 
-.portfolio-placeholder {
-    height: 230px;
-    background: #e4edf2;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #627d98;
+.cv-box {
     text-align: center;
-    padding: 20px;
+    background: white;
+    padding: 50px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
 }
 
-/* DOCUMENTS */
-
-.document-box {
-    max-width: 900px;
-    margin: 20px auto;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+.cv-btn {
+    display: inline-block;
+    background: #164d73;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 /* CONTACT */
 
 .contact {
     text-align: center;
-    background: #102a43;
-    color: white;
-}
-
-.contact h2 {
-    color: white;
 }
 
 .contact a {
-    color: #7dd3fc;
+    color: #145b88;
     text-decoration: none;
 }
 
 /* FOOTER */
 
 footer {
+    background: #102f4c;
+    color: white;
     text-align: center;
-    padding: 25px;
-    background: #081c2c;
-    color: #cbd5e1;
+    padding: 30px;
 }
 
 /* MOBILE */
@@ -314,14 +349,18 @@ footer {
         font-size: 40px;
     }
 
-    section {
-        padding: 60px 5%;
+    .hero h2 {
+        font-size: 20px;
     }
 
+    section {
+        padding: 60px 18px;
+    }
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -334,11 +373,11 @@ footer {
 <ul>
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
 <li><a href="#research">Research</a></li>
 <li><a href="#gis">GIS & Remote Sensing</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#certificates">Certificates</a></li>
-<li><a href="#education">Education</a></li>
 <li><a href="#cv">CV</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
@@ -348,69 +387,62 @@ footer {
 
 <!-- HOME -->
 
-<section class="hero" id="home">
+<header class="hero" id="home">
 
 <div class="hero-content">
 
 <h1>Saroj Salil</h1>
 
-<h2>Geography • GIS • Remote Sensing • Climate Research</h2>
+<h2>Geography | GIS & Remote Sensing | Climate Research</h2>
 
 <p>
-Researcher working at the intersection of geography,
-climate variability, rainfall analysis, GIS,
-remote sensing and environmental systems.
+Geography researcher working at the intersection of climate variability,
+rainfall analysis, GIS, remote sensing, spatial analysis and environmental research.
 </p>
 
 <div class="buttons">
 
-<a class="button" href="#research">
-Explore My Research
-</a>
+<a class="btn" href="#about">Explore My Work</a>
 
-<a class="button" href="#cv">
-View CV
-</a>
+<a class="btn" href="#cv">View CV</a>
 
 </div>
 
 </div>
 
-</section>
+</header>
 
 
 <!-- ABOUT -->
 
 <section id="about">
 
-<div class="section-title">
-
 <h2>About Me</h2>
-
-<p>Geography, geospatial analysis and climate research</p>
-
-</div>
 
 <div class="about">
 
 <p>
-I am a Geography researcher with academic and professional
-experience in climate variability, rainfall analysis,
-GIS, remote sensing and geospatial data analysis.
+I am a Geography researcher with an academic and professional background
+in GIS, Remote Sensing, climate variability and environmental analysis.
+My work focuses on understanding geographical and environmental processes
+through spatial data, Earth observation and quantitative analysis.
 </p>
 
 <p>
-My academic background includes Geography and Applied
-Geoinformatics, with research experience involving
-climate datasets, rainfall variability, spatial analysis,
-terrain analysis and environmental applications of GIS.
+My research interests include climate variability, rainfall variability,
+extreme weather events, hydrology, water resources and environmental
+applications of geospatial technologies.
 </p>
 
 <p>
-My research interests broadly focus on climate variability,
-extreme weather events, rainfall, hydrology, water resources,
-geospatial technologies and the relationship between
-environmental change and society.
+I have experience working with GIS and Remote Sensing datasets and
+software including ArcGIS, ArcGIS Pro, QGIS, ERDAS Imagine and Python-based
+geospatial and statistical analysis.
+</p>
+
+<p>
+Currently, my research work also involves spatial analysis and impact
+assessment related to skill development among tribal youth in Jharkhand.
 </p>
 
 </div>
@@ -418,50 +450,118 @@ environmental change and society.
 </section>
 
 
-<!-- RESEARCH INTERESTS -->
+<!-- EDUCATION -->
+
+<section id="education">
+
+<h2>Education</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>M.A. Geography</h3>
+
+<p>
+University of Mumbai
+</p>
+
+<p>
+Master's research focused on long-term rainfall variability and trends
+in the Bhima River Basin.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<h3>Post Graduate Diploma in Applied Geoinformatics</h3>
+
+<p>
+Jadavpur University
+</p>
+
+<p>
+Training in GIS, Remote Sensing, spatial analysis and geoinformatics.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<h3>B.A. (Hons.) Geography</h3>
+
+<p>
+University of Delhi
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RESEARCH -->
 
 <section id="research">
 
-<div class="section-title">
+<h2>Research</h2>
 
-<h2>Research Interests</h2>
+<p class="section-intro">
+My research interests combine geographical analysis, climate science,
+hydrology and geospatial technologies.
+</p>
 
-<p>Areas I explore through geography and geospatial science</p>
+<div class="grid">
+
+<div class="card">
+
+<h3>Climate Variability</h3>
+
+<p>
+Analysis of rainfall variability, trends and changing climate conditions
+using long-term climate datasets.
+</p>
 
 </div>
 
-<div class="cards">
 
 <div class="card">
-<h3>🌧 Climate & Rainfall</h3>
+
+<h3>Rainfall & Extreme Events</h3>
+
 <p>
-Rainfall variability, long-term trends, extreme rainfall,
-climate variability and hydro-climatic analysis.
+Investigation of rainfall patterns, anomalies, erosivity and extreme
+precipitation using statistical and spatial techniques.
 </p>
+
 </div>
 
-<div class="card">
-<h3>🛰 GIS & Remote Sensing</h3>
-<p>
-Spatial analysis, satellite data, thematic mapping,
-environmental monitoring and geospatial modelling.
-</p>
-</div>
 
 <div class="card">
-<h3>⛰ Terrain & Hydrology</h3>
+
+<h3>Hydrology & Water Resources</h3>
+
 <p>
-DEM analysis, slope, terrain characteristics,
-watersheds, water resources and environmental systems.
+Geospatial analysis of watersheds, terrain, drainage and environmental
+processes relevant to water-resource management.
 </p>
+
 </div>
 
+
 <div class="card">
-<h3>📊 Spatial Data Analysis</h3>
+
+<h3>Spatial Research</h3>
+
 <p>
-Climate datasets, statistical analysis, visualization,
-Python-based data processing and spatial modelling.
+Application of GIS and spatial methods to understand geographical
+patterns and accessibility.
 </p>
+
 </div>
 
 </div>
@@ -473,47 +573,27 @@ Python-based data processing and spatial modelling.
 
 <section id="gis">
 
-<div class="section-title">
-
 <h2>GIS & Remote Sensing</h2>
 
-<p>Geospatial skills and analytical capabilities</p>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h3>GIS Analysis</h3>
-<p>
-Spatial analysis, thematic mapping, overlay analysis,
-buffering, accessibility analysis and cartographic visualization.
+<p class="section-intro">
+Geospatial tools and techniques used in research and applied spatial analysis.
 </p>
-</div>
 
-<div class="card">
-<h3>Remote Sensing</h3>
-<p>
-Satellite imagery, image interpretation,
-environmental monitoring and remote-sensing applications.
-</p>
-</div>
+<div class="skills">
 
-<div class="card">
-<h3>DEM & Terrain Analysis</h3>
-<p>
-Elevation, slope, hillshade, terrain ruggedness,
-topographic position and terrain-based spatial analysis.
-</p>
-</div>
-
-<div class="card">
-<h3>Climate Data Analysis</h3>
-<p>
-Processing and analysing rainfall and climate datasets
-using statistical and geospatial approaches.
-</p>
-</div>
+<span class="skill">ArcGIS</span>
+<span class="skill">ArcGIS Pro</span>
+<span class="skill">QGIS</span>
+<span class="skill">ERDAS Imagine</span>
+<span class="skill">Python</span>
+<span class="skill">Remote Sensing</span>
+<span class="skill">DEM Analysis</span>
+<span class="skill">Terrain Analysis</span>
+<span class="skill">Spatial Analysis</span>
+<span class="skill">Land Surface Analysis</span>
+<span class="skill">Climate Data</span>
+<span class="skill">IMD Rainfall Data</span>
+<span class="skill">SRTM DEM</span>
 
 </div>
 
@@ -524,67 +604,74 @@ using statistical and geospatial approaches.
 
 <section id="projects">
 
-<div class="section-title">
+<h2>Projects & Analysis</h2>
 
-<h2>Selected Research & Projects</h2>
-
-<p>Research and geospatial work</p>
-
-</div>
-
-
-<div class="research-card">
-
-<h3>Long-term Rainfall Variability in the Bhima Basin</h3>
-
-<p>
-Research examining long-term rainfall variability and
-trends using gridded rainfall data and statistical
-trend analysis.
+<p class="section-intro">
+Selected research and geospatial projects. Analysis images will be added here.
 </p>
 
+
+<div class="grid">
+
+
+<div class="project-card">
+
+<div class="project-image">
+Future Bhima Basin rainfall analysis image
+</div>
+
+<div class="project-content">
+
+<h3>Rainfall Variability in Bhima Basin</h3>
+
 <p>
-<strong>Methods:</strong>
-Mann-Kendall test, Sen's slope estimation,
-rainfall variability indices and GIS mapping.
+Long-term analysis of rainfall variability and trends using gridded
+rainfall data and statistical methods.
 </p>
 
-<div class="portfolio-placeholder">
-Future research map / analysis image
 </div>
 
 </div>
 
 
-<div class="research-card">
+<div class="project-card">
+
+<div class="project-image">
+Future PMKVY GIS analysis image
+</div>
+
+<div class="project-content">
 
 <h3>PMKVY Spatial Analysis in Jharkhand</h3>
 
 <p>
-Geospatial investigation of skill-development centres,
-accessibility, terrain and spatial patterns among
-tribal youth in Jharkhand.
+Geospatial investigation of skill-development centres, accessibility,
+terrain and spatial patterns among tribal youth in Jharkhand.
 </p>
 
-<div class="portfolio-placeholder">
-Future PMKVY GIS analysis image
 </div>
 
 </div>
 
 
-<div class="research-card">
+<div class="project-card">
+
+<div class="project-image">
+Future GIS / DEM analysis image
+</div>
+
+<div class="project-content">
 
 <h3>GIS & Terrain Analysis Portfolio</h3>
 
 <p>
-A collection of GIS, DEM, remote-sensing and spatial
-analysis projects will be presented here.
+A collection of GIS, DEM, remote-sensing and spatial-analysis projects.
 </p>
 
-<div class="portfolio-placeholder">
-Future GIS / Remote Sensing images
 </div>
+
+</div>
+
 
 </div>
 
@@ -595,70 +682,217 @@ Future GIS / Remote Sensing images
 
 <section id="certificates">
 
-<div class="section-title">
-
 <h2>Certificates & Training</h2>
 
-<p>Professional development and specialised training</p>
-
-</div>
-
-<div class="cards">
-
-
-<div class="certificate-card">
-
-<div class="certificate-placeholder">
-Certificate Image
-</div>
-
-<h3>GIS & Geospatial Training</h3>
-
-<p>
-Certificate and training details will be displayed here.
+<p class="section-intro">
+Selected professional, academic, GIS, Remote Sensing and climate-related
+training certificates.
 </p>
 
-<a class="view-button" href="#">
-View Certificate
+
+<h3 style="color:#164d73; margin:35px 0 20px;">
+GIS, Remote Sensing & Earth Observation
+</h3>
+
+<div class="certificate-grid">
+
+
+<div class="certificate">
+
+<a href="certificates/gis-for-climate-action.jpg" target="_blank">
+
+<img src="certificates/gis-for-climate-action.jpg"
+alt="GIS for Climate Action Certificate">
+
 </a>
 
+<div class="certificate-info">
+
+<h3>GIS for Climate Action</h3>
+
+<p>Esri | GIS & Climate Action</p>
+
+</div>
+
 </div>
 
 
-<div class="certificate-card">
+<div class="certificate">
 
-<div class="certificate-placeholder">
-Certificate Image
-</div>
+<a href="certificates/watershed-management.jpg" target="_blank">
 
-<h3>Remote Sensing & Earth Observation</h3>
+<img src="certificates/watershed-management.jpg"
+alt="Geospatial Modelling for Watershed Management">
 
-<p>
-Certificate and training details will be displayed here.
-</p>
-
-<a class="view-button" href="#">
-View Certificate
 </a>
 
+<div class="certificate-info">
+
+<h3>Geospatial Modelling for Watershed Management</h3>
+
+<p>IIRS / ISRO</p>
+
+</div>
+
 </div>
 
 
-<div class="certificate-card">
+<div class="certificate">
 
-<div class="certificate-placeholder">
-Certificate Image
-</div>
+<a href="certificates/nasa-arset-floods.jpg" target="_blank">
 
-<h3>Climate & Environmental Training</h3>
+<img src="certificates/nasa-arset-floods.jpg"
+alt="NASA ARSET Flood Training Certificate">
 
-<p>
-Certificate and training details will be displayed here.
-</p>
-
-<a class="view-button" href="#">
-View Certificate
 </a>
+
+<div class="certificate-info">
+
+<h3>Monitoring and Predicting Floods Using Earth Observations</h3>
+
+<p>NASA ARSET</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<h3 style="color:#164d73; margin:50px 0 20px;">
+Climate & Earth Observation
+</h3>
+
+<div class="certificate-grid">
+
+
+<div class="certificate">
+
+<a href="certificates/wekeo-climate-change.jpg" target="_blank">
+
+<img src="certificates/wekeo-climate-change.jpg"
+alt="WEkEO for Climate Change Certificate">
+
+</a>
+
+<div class="certificate-info">
+
+<h3>WEkEO for Climate Change</h3>
+
+<p>Copernicus / Mercator Ocean International</p>
+
+</div>
+
+</div>
+
+
+<div class="certificate">
+
+<a href="certificates/enso.jpg" target="_blank">
+
+<img src="certificates/enso.jpg"
+alt="El Nino Southern Oscillation Certificate">
+
+</a>
+
+<div class="certificate-info">
+
+<h3>Monitoring the El Niño–Southern Oscillation</h3>
+
+<p>Climate & Weather Training</p>
+
+</div>
+
+</div>
+
+
+<div class="certificate">
+
+<a href="certificates/climate-justice.jpg" target="_blank">
+
+<img src="certificates/climate-justice.jpg"
+alt="Climate Justice Certificate">
+
+</a>
+
+<div class="certificate-info">
+
+<h3>Climate Justice and Climate Law</h3>
+
+<p>NLU Delhi & SOAS</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<h3 style="color:#164d73; margin:50px 0 20px;">
+Research & Professional Experience
+</h3>
+
+<div class="certificate-grid">
+
+
+<div class="certificate">
+
+<a href="certificates/ncess.jpg" target="_blank">
+
+<img src="certificates/ncess.jpg"
+alt="NCESS Internship Certificate">
+
+</a>
+
+<div class="certificate-info">
+
+<h3>Research Internship</h3>
+
+<p>National Centre for Earth Science Studies</p>
+
+</div>
+
+</div>
+
+
+<div class="certificate">
+
+<a href="certificates/cv-raman.jpg" target="_blank">
+
+<img src="certificates/cv-raman.jpg"
+alt="Field Investigator Certificate">
+
+</a>
+
+<div class="certificate-info">
+
+<h3>Field Investigator</h3>
+
+<p>CV Raman Global University</p>
+
+</div>
+
+</div>
+
+
+<div class="certificate">
+
+<a href="certificates/rmsi-experience.jpg" target="_blank">
+
+<img src="certificates/rmsi-experience.jpg"
+alt="RMSI Experience Certificate">
+
+</a>
+
+<div class="certificate-info">
+
+<h3>GIS Engineer</h3>
+
+<p>RMSI</p>
+
+</div>
 
 </div>
 
@@ -668,141 +902,61 @@ View Certificate
 </section>
 
 
-<!-- EDUCATION -->
-
-<section id="education">
-
-<div class="section-title">
-
-<h2>Education</h2>
-
-<p>Academic background</p>
-
-</div>
-
-
-<div class="education-item">
-
-<h3>B.A. (Hons.) Geography</h3>
-
-<p>
-University of Delhi
-</p>
-
-</div>
-
-
-<div class="education-item">
-
-<h3>M.A. Geography</h3>
-
-<p>
-University of Mumbai
-</p>
-
-</div>
-
-
-<div class="education-item">
-
-<h3>PG Diploma in Applied Geoinformatics</h3>
-
-<p>
-Jadavpur University
-</p>
-
-</div>
-
-</section>
-
-
-<!-- CV & DOCUMENTS -->
+<!-- CV -->
 
 <section id="cv">
 
-<div class="section-title">
+<h2>Curriculum Vitae</h2>
 
-<h2>CV & Academic Documents</h2>
+<div class="cv-box">
 
-<p>Curriculum vitae and selected academic documents</p>
+<h3>Academic & Professional CV</h3>
 
-</div>
+<p>
+View my academic background, research experience, technical skills,
+projects and professional experience.
+</p>
 
+<a class="cv-btn"
+href="documents/Saroj_Salil_CV.pdf"
+target="_blank">
 
-<div class="document-box">
-
-<div>
-
-<h3>Curriculum Vitae</h3>
-
-<p>Academic and professional CV</p>
-
-</div>
-
-<a class="view-button" href="#">
 View / Download CV
+
 </a>
 
 </div>
-
-
-<div class="document-box">
-
-<div>
-
-<h3>Academic Transcripts</h3>
-
-<p>Academic records and transcripts</p>
-
-</div>
-
-<a class="view-button" href="#">
-View Transcript
-</a>
-
-</div>
-
 
 </section>
 
 
 <!-- CONTACT -->
 
-<section class="contact" id="contact">
-
-<div class="section-title">
+<section id="contact">
 
 <h2>Contact</h2>
 
+<div class="contact">
+
 <p>
-For research collaboration, academic opportunities
-and professional enquiries.
+For academic collaboration, research opportunities and professional
+communication, please contact me through the details provided in my CV.
 </p>
 
 </div>
 
-<p>
-Email:
-<a href="mailto:your-email@example.com">
-your-email@example.com
-</a>
-</p>
-
-<br>
-
-<p>
-LinkedIn • Google Scholar • GitHub
-</p>
-
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-© 2026 Saroj Salil | Geography • GIS • Remote Sensing • Climate Research
+<p>© 2026 Saroj Salil | Geography • GIS • Remote Sensing • Climate Research</p>
 
 </footer>
 
 
 </body>
+
 </html>
