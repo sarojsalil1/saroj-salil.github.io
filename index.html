@@ -208,7 +208,7 @@ section h2::after {
     }
 }
 
-/* CARDS (Research, Projects) */
+/* CARDS (Research, Projects, Creative Works) */
 
 .grid {
     display: grid;
@@ -234,6 +234,60 @@ section h2::after {
     color: #1a3644;
     margin-bottom: 15px;
     font-size: 20px;
+}
+
+/* CREATIVE WORKS CONTAINER */
+
+.creative-container {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-left: 6px solid #48a9a6;
+}
+
+.creative-item h3 {
+    color: #1a3644;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.creative-item p {
+    color: #455a64;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.creative-media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.creative-media-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eef2f5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    text-align: center;
+}
+
+.creative-media-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    padding: 10px;
+    background: #ffffff;
+    display: block;
+}
+
+.creative-media-card .caption {
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a3644;
 }
 
 /* TIMELINE (Experience & Education) */
@@ -359,6 +413,55 @@ section h2::after {
     margin-bottom: 10px;
 }
 
+/* PARTICIPATIONS */
+
+.participations-container {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 6px solid #1a3644;
+}
+
+.part-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.part-item {
+    position: relative;
+    padding-left: 25px;
+}
+
+.part-item::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #48a9a6;
+    font-size: 14px;
+}
+
+.part-title {
+    font-weight: bold;
+    color: #1a3644;
+    font-size: 17px;
+}
+
+.part-meta {
+    font-size: 13px;
+    color: #788a98;
+    font-weight: 600;
+    margin: 2px 0 6px 0;
+}
+
+.part-desc {
+    color: #455a64;
+    font-size: 15px;
+}
+
 /* CERTIFICATES */
 
 .certificate-grid {
@@ -421,71 +524,6 @@ section h2::after {
 .certificate-link:hover {
     background: #1a3644;
     color: white;
-}
-
-/* CONFERENCES & SEMINARS */
-
-.conferences-container {
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-top: 6px solid #1a3644;
-}
-
-.conf-group {
-    margin-bottom: 35px;
-}
-
-.conf-group:last-child {
-    margin-bottom: 0;
-}
-
-.conf-group h3 {
-    color: #1a3644;
-    font-size: 22px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #eef3f5;
-    padding-bottom: 8px;
-}
-
-.conf-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.conf-item {
-    position: relative;
-    padding-left: 25px;
-}
-
-.conf-item::before {
-    content: "■";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #48a9a6;
-    font-size: 14px;
-}
-
-.conf-title {
-    font-weight: bold;
-    color: #1a3644;
-    font-size: 16px;
-}
-
-.conf-meta {
-    font-size: 13px;
-    color: #788a98;
-    font-weight: 600;
-    margin: 2px 0 6px 0;
-}
-
-.conf-desc {
-    color: #455a64;
-    font-size: 15px;
 }
 
 /* CV & CONTACT */
@@ -556,7 +594,8 @@ footer {
         <li><a href="#skills">Skills</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#conferences">Conferences</a></li>
+        <li><a href="#creative">Creative Works</a></li>
+        <li><a href="#participations">Participations</a></li>
         <li><a href="#certificates">Certificates</a></li>
         <li><a href="#cv">CV</a></li>
     </ul>
@@ -580,7 +619,7 @@ footer {
 <section id="about">
     <h2>About Me</h2>
     <div class="about-container">
-        <!-- New Profile Image -->
+        <!-- Profile Image -->
         <img src="photo_2026-08-18_00-46-10.jpg" alt="Saroj Salil" class="about-photo">
         <div class="about-text">
             <p>Dedicated to leveraging my expertise in environmental science and climate change, with a focus on weather patterns in regions like the Himalayas, to drive sustainable solutions and community resilience. Committed to applying my knowledge and skills to address pressing environmental challenges, fostering a healthier planet through impactful, science-driven actions.</p>
@@ -802,70 +841,69 @@ footer {
 </section>
 
 
-<!-- CONFERENCES & SEMINARS -->
-<section id="conferences">
-    <h2>Conferences & Seminars</h2>
-    <p class="section-intro">Academic participations, technical assistance roles, workshops, and specialized courses.</p>
-
-    <div class="conferences-container">
-        
-        <div class="conf-group">
-            <h3>Conference Participations & Volunteering</h3>
-            <ul class="conf-list">
-                <li class="conf-item">
-                    <div class="conf-title">Student Volunteer & Technical Assistant | Asia Oceania Geosciences Society (AOGS) Conference 2025</div>
-                    <div class="conf-meta">27/07/2025 – 31/07/2025 | Singapore</div>
-                    <div class="conf-desc">Served as a technical assistant and volunteer supporting international technical sessions, logistics, and presentation flow.</div>
-                </li>
-                <li class="conf-item">
-                    <div class="conf-title">Participant | Digital Transformation: An India Story</div>
-                    <div class="conf-meta">2023 | Carnegie India & Meta India (G20 Framework)</div>
-                    <div class="conf-desc">Attended high-level discussions on digital infrastructure, governance, and technology implementation in India.</div>
-                </li>
-                <li class="conf-item">
-                    <div class="conf-title">Participant | Youth Vision for Circular Economy</div>
-                    <div class="conf-meta">2023 | IIT Delhi, IYCN & EU-RE</div>
-                    <div class="conf-desc">Engaged in youth-led dialogues focusing on circular economic models, resource efficiency, and sustainability.</div>
-                </li>
-                <li class="conf-item">
-                    <div class="conf-title">Participant | Sensitization Program on Drug Abuse Prevention</div>
-                    <div class="conf-meta">ARSD College, University of Delhi</div>
-                    <div class="conf-desc">Participated in a one-day workshop jointly organized by the National Institute of Social Defence (NISD), Ministry of Social Justice and Empowerment, and the NSS Unit, ARSD College.</div>
-                </li>
-                <li class="conf-item">
-                    <div class="conf-title">Participant & Volunteer | MTNL Perfect Health Mela</div>
-                    <div class="conf-meta">Talkatora Stadium, New Delhi</div>
-                    <div class="conf-desc">Participated in community health and environmental awareness campaigns organized by Heart Care Foundation of India and Delhi Government.</div>
-                </li>
-            </ul>
+<!-- CREATIVE WORKS -->
+<section id="creative">
+    <h2>Creative Works</h2>
+    <div class="creative-container">
+        <div class="creative-item">
+            <h3>Achievement | 2019</h3>
+            <p>
+                Received appreciation from FM Fever Radio 104.0 and Gautam Gambhir (Member of Parliament, East Delhi Constituency) for the innovative idea of refusing single-use plastic to beat plastic pollution—specifically, bringing reusable steel cutlery for daily lunch and refreshments. Featured in <em>Punjab Kesari</em> newspaper for outstanding work in a cleanliness drive in DDA Flats, as part of the <strong>Swachh Bharat Se Swasth Bharat</strong> campaign. The primary objective was driving behavioral change, as human behavior plays a critical role in environmental sustainability.
+            </p>
+            
+            <div class="creative-media-grid">
+                <div class="creative-media-card">
+                    <a href="Screenshot 2026-08-18 220818.png" target="_blank">
+                        <img src="Screenshot 2026-08-18 220818.png" alt="Cleanliness Drive Coverage">
+                    </a>
+                    <div class="caption">News Feature / Document</div>
+                </div>
+                
+                <div class="creative-media-card">
+                    <a href="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" target="_blank">
+                        <img src="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" alt="Fever FM / Gautam Gambhir Appreciation Event">
+                    </a>
+                    <div class="caption">Appreciation Event / Campaign Photo</div>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
 
-        <div class="conf-group">
-            <h3>Specialized Courses & Training</h3>
-            <ul class="conf-list">
-                <li class="conf-item">
-                    <div class="conf-title">Monitoring the El Niño Southern Oscillation (ENSO) and Its Impacts on Weather</div>
-                    <div class="conf-meta">June 18, 25, 27 & July 16, 2024 | Virtual Short Course</div>
-                    <div class="conf-desc">Short course focusing on climate dynamics, teleconnections, and meteorological impacts of ENSO cycles.</div>
-                </li>
-                <li class="conf-item">
-                    <div class="conf-title">Climate Justice and Climate Law: South-North Perspectives</div>
-                    <div class="conf-meta">2023 | NLU-Delhi & SOAS Joint Summer School</div>
-                    <div class="conf-desc">Examined international environmental governance, legal climate adaptation frameworks, and Global South-North policy perspectives.</div>
-                </li>
-                <li class="conf-item">
-                    <div class="conf-title">Geospatial Modelling for Watershed Management</div>
-                    <div class="conf-meta">2021 | IIRS & ISRO</div>
-                    <div class="conf-desc">Short course on GIS-based hydrological modeling, watershed delineation, and spatial water resource assessment.</div>
-                </li>
-                <li class="conf-item">
-                    <div class="conf-title">GIS for Climate Action</div>
-                    <div class="conf-meta">Esri MOOC</div>
-                    <div class="conf-desc">Training in applying ArcGIS tools, spatial data science, and analytical workflows toward climate mitigation and adaptation modeling.</div>
-                </li>
-            </ul>
-        </div>
 
+<!-- PARTICIPATIONS -->
+<section id="participations">
+    <h2>Participations</h2>
+    <p class="section-intro">Conferences, seminars, community workshops, and event volunteering.</p>
+
+    <div class="participations-container">
+        <ul class="part-list">
+            <li class="part-item">
+                <div class="part-title">Student Volunteer & Technical Assistant | Asia Oceania Geosciences Society (AOGS) Conference 2025</div>
+                <div class="part-meta">27/07/2025 – 31/07/2025 | Singapore</div>
+                <div class="part-desc">Worked as Technical Assistant and Student Volunteer assisting international delegates, session organization, and logistics during the annual geosciences conference.</div>
+            </li>
+            <li class="part-item">
+                <div class="part-title">Participant | Sensitization Program on Prevention of Drug Abuse</div>
+                <div class="part-meta">ARSD College, University of Delhi</div>
+                <div class="part-desc">Participated in a one-day awareness initiative jointly organized by the National Institute of Social Defence (NISD), Ministry of Social Justice and Empowerment, and the NSS Unit, ARSD College.</div>
+            </li>
+            <li class="part-item">
+                <div class="part-title">Participant & Volunteer | MTNL Perfect Health Mela</div>
+                <div class="part-meta">Talkatora Stadium, New Delhi</div>
+                <div class="part-desc">Engaged in community health and wellness outreach campaigns organized by the Heart Care Foundation of India (HCFI) in collaboration with the Government of NCT of Delhi.</div>
+            </li>
+            <li class="part-item">
+                <div class="part-title">Participant | Digital Transformation: An India Story</div>
+                <div class="part-meta">2023 | New Delhi</div>
+                <div class="part-desc">Attended discussions on technological innovation and digital public infrastructure, organized by Carnegie India in collaboration with Meta India under the G20 framework.</div>
+            </li>
+            <li class="part-item">
+                <div class="part-title">Participant | Youth Vision for Circular Economy</div>
+                <div class="part-meta">2023 | IIT Delhi</div>
+                <div class="part-desc">Contributed to youth climate action dialogues on sustainable resource frameworks, organized by the Indian Youth Climate Network (IYCN) in partnership with EU-Resource Efficiency and IIT Delhi.</div>
+            </li>
+        </ul>
     </div>
 </section>
 
@@ -1018,6 +1056,42 @@ footer {
                 <h3>Machine Learning for Earth Systems Modelling</h3>
                 <p>ECMWF | Destination Earth</p>
                 <a class="certificate-link" href="Certificate_of_Completion.pdf" target="_blank">View Document</a>
+            </div>
+        </div>
+
+        <!-- 13: NISD Drug Abuse Prevention -->
+        <div class="certificate">
+            <a href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">
+                <img class="certificate-image" src="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" alt="NISD Drug Abuse Prevention Certificate">
+            </a>
+            <div class="certificate-info">
+                <h3>Drug Abuse Prevention Sensitization</h3>
+                <p>NISD | Ministry of Social Justice & Empowerment</p>
+                <a class="certificate-link" href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">View Document</a>
+            </div>
+        </div>
+
+        <!-- 14: NSS Volunteer -->
+        <div class="certificate">
+            <a href="nss.png" target="_blank">
+                <img class="certificate-image" src="nss.png" alt="NSS Volunteer Certificate">
+            </a>
+            <div class="certificate-info">
+                <h3>National Service Scheme (NSS) Volunteer</h3>
+                <p>NSS Unit | ARSD College, University of Delhi</p>
+                <a class="certificate-link" href="nss.png" target="_blank">View Document</a>
+            </div>
+        </div>
+
+        <!-- 15: Swachh Bharat Summer Internship -->
+        <div class="certificate">
+            <a href="summer_internship.png" target="_blank">
+                <img class="certificate-image" src="summer_internship.png" alt="Swachh Bharat Summer Internship Certificate">
+            </a>
+            <div class="certificate-info">
+                <h3>Swachh Bharat Summer Internship</h3>
+                <p>Ministry of Jal Shakti / Youth Affairs & Sports</p>
+                <a class="certificate-link" href="summer_internship.png" target="_blank">View Document</a>
             </div>
         </div>
 
