@@ -1,277 +1,1267 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saroj Sali | Graduate Researcher Portfolio</title>
-  <style>
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      background-color: #f8f9fa;
-      color: #2b2d42;
-      line-height: 1.6;
-    }
+<title>Saroj Salil | Geography, GIS & Climate Research</title>
 
-    /* Navigation */
-    nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      z-index: 100;
-    }
+<style>
 
-    .nav-logo {
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 1.3rem;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-    }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    /* Subtle Spatial/Map Grid Background */
+    background-image: linear-gradient(#e5eaea 1px, transparent 1px), linear-gradient(90deg, #e5eaea 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #2c3e50;
+    line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-    .nav-links a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: opacity 0.3s ease;
-    }
+/* NAVIGATION */
 
-    .nav-links a:hover {
-      opacity: 0.8;
-    }
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #1a3644;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-    /* Hero Banner with Custom Background Image */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 80vh;
-      background: url('photo_2026-08-12_19-29-10.jpg') no-repeat center center/cover;
-    }
+nav .logo {
+    color: #ecf0f1;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
 
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 10, 25, 0.35),
-        rgba(15, 10, 25, 0.75)
-      );
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
+nav .logo span {
+    color: #48a9a6; /* Map teal accent */
+}
 
-    .hero-title {
-      color: #ffffff;
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-    .hero-subtitle {
-      color: #e0e1dd;
-      font-size: 1.25rem;
-      font-weight: 400;
-      max-width: 650px;
-      margin-bottom: 30px;
-      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-    }
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: 0.3s;
+    cursor: pointer;
+}
 
-    .hero-btn {
-      display: inline-block;
-      padding: 12px 32px;
-      background-color: #d97706;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
-      transition: all 0.3s ease;
-    }
+nav ul li a:hover,
+nav ul li a.active {
+    background: #48a9a6;
+    color: white;
+}
 
-    .hero-btn:hover {
-      background-color: #b45309;
-      transform: translateY(-2px);
-    }
+/* MAIN CONTENT VIEW CONTAINER */
 
-    /* Main Section Container */
-    .container {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 0 20px 60px 20px;
-    }
+main {
+    flex: 1;
+}
 
-    /* About Me Card Overlaying Hero */
-    .about-card {
-      background: #ffffff;
-      margin-top: -80px;
-      position: relative;
-      z-index: 10;
-      padding: 45px;
-      border-radius: 16px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.03);
-    }
+/* PAGE SECTIONS - Hidden by default except the active view */
 
-    .section-title {
-      font-size: 2rem;
-      color: #1e293b;
-      margin-bottom: 5px;
-    }
+.page-section {
+    display: none;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 25px;
+    animation: fadeIn 0.4s ease-in-out;
+}
 
-    .section-subtitle {
-      font-size: 1rem;
-      color: #d97706;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 20px;
-    }
+.page-section.active {
+    display: block;
+}
 
-    .about-text {
-      color: #475569;
-      font-size: 1.05rem;
-      margin-bottom: 25px;
-      line-height: 1.8;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    /* Highlights & Skill Cards Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-      padding-top: 25px;
-      border-top: 1px solid #e2e8f0;
-    }
+.page-section h2 {
+    text-align: center;
+    font-size: 38px;
+    color: #1a3644;
+    margin-bottom: 40px;
+    position: relative;
+}
 
-    .card {
-      background-color: #f8fafc;
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 4px solid #d97706;
-    }
+.page-section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #48a9a6;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
 
-    .card h3 {
-      font-size: 1.1rem;
-      color: #1e293b;
-      margin-bottom: 8px;
-    }
+.section-intro {
+    max-width: 800px;
+    margin: -20px auto 40px;
+    text-align: center;
+    color: #5c7080;
+}
 
-    .card p {
-      font-size: 0.95rem;
-      color: #64748b;
-    }
+/* HERO / HOME SECTION VIEW */
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
+#home {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, rgba(26, 54, 68, 0.95), rgba(42, 85, 104, 0.95)), url('https://www.transparenttextures.com/patterns/topography.png');
+    color: white;
+    border-radius: 12px;
+    margin-top: 20px;
+}
 
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      nav {
-        padding: 20px;
-      }
-      .hero-title {
-        font-size: 2.2rem;
-      }
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-      .about-card {
-        padding: 25px;
-        margin-top: -50px;
-      }
+.hero-content {
+    max-width: 900px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 25px;
+    color: #a4c9d7;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 760px;
+    margin: auto;
+    font-weight: 300;
+}
+
+.buttons {
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    margin: 8px;
+    border-radius: 4px;
+    background: #48a9a6;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    border: 2px solid #48a9a6;
+    cursor: pointer;
+}
+
+.btn.secondary {
+    background: transparent;
+    color: #48a9a6;
+}
+
+.btn:hover {
+    background: #378b88;
+    border-color: #378b88;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ABOUT SECTION */
+
+.about-container {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-left: 6px solid #48a9a6;
+}
+
+.about-photo {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid #f4f7f6;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.about-text p {
+    font-size: 17px;
+    color: #455a64;
+    line-height: 1.8;
+}
+
+@media(max-width: 850px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
     }
-  </style>
+}
+
+/* CARDS & GRIDS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    transition: 0.3s;
+    border-top: 4px solid #1a3644;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    color: #1a3644;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* CREATIVE WORKS CONTAINER */
+
+.creative-container {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-left: 6px solid #48a9a6;
+}
+
+.creative-item h3 {
+    color: #1a3644;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.creative-item p {
+    color: #455a64;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.creative-media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.creative-media-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eef2f5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    text-align: center;
+}
+
+.creative-media-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    padding: 10px;
+    background: #ffffff;
+    display: block;
+}
+
+.creative-media-card .caption {
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a3644;
+}
+
+/* TIMELINE (Experience & Education) */
+
+.timeline {
+    border-left: 4px solid #c9d6df;
+    margin-left: 20px;
+    padding-left: 35px;
+    position: relative;
+}
+
+.timeline-item {
+    background: white;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -47px;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    background: #48a9a6;
+    border: 4px solid #f4f7f6;
+    border-radius: 50%;
+}
+
+.timeline-item h3 {
+    color: #1a3644;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.timeline-meta {
+    color: #788a98;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timeline-meta span {
+    background: #eef3f5;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.timeline-item p {
+    color: #455a64;
+    font-size: 15px;
+}
+
+.timeline-item a {
+    color: #48a9a6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SKILLS */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill {
+    background: white;
+    color: #1a3644;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e1e8ed;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: #1a3644;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* PROJECTS */
+
+.project-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    background: #dce5e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #718997;
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 4px solid #48a9a6;
+}
+
+.project-content {
+    padding: 30px;
+}
+
+.project-content h3 {
+    color: #1a3644;
+    margin-bottom: 10px;
+}
+
+/* PARTICIPATIONS & VOLUNTEERING CONTAINER */
+
+.participations-container,
+.volunteering-container {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 6px solid #1a3644;
+    margin-bottom: 40px;
+}
+
+.volunteering-container {
+    border-top-color: #48a9a6;
+}
+
+.part-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.part-item {
+    position: relative;
+    padding-left: 25px;
+}
+
+.part-item::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #48a9a6;
+    font-size: 14px;
+}
+
+.part-title {
+    font-weight: bold;
+    color: #1a3644;
+    font-size: 17px;
+}
+
+.part-meta {
+    font-size: 13px;
+    color: #788a98;
+    font-weight: 600;
+    margin: 2px 0 6px 0;
+}
+
+.part-desc {
+    color: #455a64;
+    font-size: 15px;
+}
+
+/* VOLUNTEERING MEDIA GRID */
+
+.volunteering-media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.volunteering-media-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: 0.3s;
+    border: 1px solid #eef2f5;
+}
+
+.volunteering-media-card:hover {
+    transform: translateY(-7px);
+}
+
+.volunteering-image {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid #eef2f5;
+}
+
+.volunteering-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.volunteering-info h3 {
+    color: #1a3644;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.volunteering-info p {
+    color: #788a98;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* CERTIFICATES */
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.certificate {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+.certificate:hover {
+    transform: translateY(-7px);
+}
+
+.certificate-image {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 15px;
+    display: block;
+    border-bottom: 1px solid #eef2f5;
+}
+
+.certificate-info {
+    padding: 20px;
+}
+
+.certificate-info h3 {
+    color: #1a3644;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.certificate-info p {
+    color: #788a98;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.certificate-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #f0f4f8;
+    color: #1a3644;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.certificate-link:hover {
+    background: #1a3644;
+    color: white;
+}
+
+/* CV & CONTACT */
+
+.contact-box {
+    text-align: center;
+    background: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    border-top: 6px solid #48a9a6;
+}
+
+.contact-links {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 18px;
+}
+
+.contact-links a {
+    color: #48a9a6;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    color: #1a3644;
+    text-decoration: underline;
+}
+
+/* FOOTER */
+
+footer {
+    background: #1a3644;
+    color: #a4c9d7;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media(max-width: 800px) {
+    nav { flex-direction: column; gap: 15px; }
+    nav ul { gap: 10px; }
+    .hero h1 { font-size: 40px; }
+    .hero h2 { font-size: 18px; }
+    .page-section { padding: 40px 15px; }
+}
+
+</style>
 </head>
+
+
 <body>
 
-  <!-- Header Navigation -->
-  <nav>
-    <a href="#" class="nav-logo">Saroj Sali</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#contact">Contact</a></li>
+<!-- NAVIGATION BAR -->
+<nav>
+    <div class="logo">Saroj <span>Salil</span></div>
+    <ul>
+        <li><a class="nav-link active" onclick="showSection('home', event)">Home</a></li>
+        <li><a class="nav-link" onclick="showSection('about', event)">About</a></li>
+        <li><a class="nav-link" onclick="showSection('experience', event)">Experience</a></li>
+        <li><a class="nav-link" onclick="showSection('education', event)">Education</a></li>
+        <li><a class="nav-link" onclick="showSection('skills', event)">Skills</a></li>
+        <li><a class="nav-link" onclick="showSection('projects', event)">Projects</a></li>
+        <li><a class="nav-link" onclick="showSection('creative', event)">Creative Works</a></li>
+        <li><a class="nav-link" onclick="showSection('participations', event)">Participations</a></li>
+        <li><a class="nav-link" onclick="showSection('volunteering', event)">Volunteering</a></li>
+        <li><a class="nav-link" onclick="showSection('certificates', event)">Certificates</a></li>
+        <li><a class="nav-link" onclick="showSection('cv', event)">CV</a></li>
     </ul>
-  </nav>
+</nav>
 
-  <!-- Hero Section with Custom Background Image -->
-  <header class="hero">
-    <div class="hero-overlay">
-      <h1 class="hero-title">Saroj Sali</h1>
-      <p class="hero-subtitle">Graduate Researcher | Hydro-Climatology, Geospatial Analytics & Earth Observation</p>
-      <a href="#about" class="hero-btn">Explore Research</a>
+<main>
+
+    <!-- HOME SECTION -->
+    <div class="page-section active" id="home">
+        <div class="hero-content">
+            <h1>Saroj Salil</h1>
+            <h2>Geography | GIS & Remote Sensing | Climate Research</h2>
+            <p>Geography researcher working at the intersection of climate variability, rainfall analysis, GIS, remote sensing, spatial analysis, and environmental research.</p>
+            <div class="buttons">
+                <button class="btn" onclick="showSection('about', event)">Explore My Work</button>
+                <button class="btn secondary" onclick="showSection('cv', event)">Download CV</button>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <!-- Main Content Area -->
-  <main class="container">
-    
-    <!-- About Me Section -->
-    <section id="about" class="about-card">
-      <h2 class="section-title">About Me</h2>
-      <p class="section-subtitle">Geography & Geoinformatics Specialist</p>
-      
-      <p class="about-text">
-        Welcome! I am a graduate researcher specializing in hydro-climatology, climate change impact analysis, and geomorphology. 
-        My research focuses on understanding long-term climate variability, extreme weather events, and spatial modeling using advanced satellite observation and climate datasets.
-      </p>
+    <!-- ABOUT SECTION -->
+    <div class="page-section" id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <img src="photo_2026-08-18_00-46-10.jpg" alt="Saroj Salil" class="about-photo">
+            <div class="about-text">
+                <p>Dedicated to leveraging my expertise in environmental science and climate change, with a focus on weather patterns in regions like the Himalayas, to drive sustainable solutions and community resilience. Committed to applying my knowledge and skills to address pressing environmental challenges, fostering a healthier planet through impactful, science-driven actions.</p>
+            </div>
+        </div>
+    </div>
 
-      <!-- Highlights Grid -->
-      <div class="grid">
-        <div class="card">
-          <h3>Research Specializations</h3>
-          <p>Hydro-climatology, climate trend analysis, coastal hazard assessment, and aeolian dune dynamics.</p>
+    <!-- EXPERIENCE SECTION -->
+    <div class="page-section" id="experience">
+        <h2>Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Research Assistant</h3>
+                <div class="timeline-meta">
+                    <span>IIT ISM DHANBAD</span>
+                    <span>Dhanbad, India</span>
+                    <span>01/07/2026 - Current</span>
+                </div>
+                <p>Working on the project: "Impact Assessment of PMKVY on Skill Acquisition and Entrepreneurial Development among Tribal Youth in Jharkhand: Systemic Barriers and Pathways".</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>GIS Engineer</h3>
+                <div class="timeline-meta">
+                    <span>RMSI Private Limited</span>
+                    <span>Delhi, India</span>
+                    <span>31/07/2025 - Current</span>
+                </div>
+                <p>In the NSG project based in the Middle East, my role primarily involves satellite interpretation of various thematic layers such as hydrography, vegetation, agriculture, transportation, and physiography. I am also responsible for performing quality control on the data received from the production team, analyzing it thoroughly, providing feedback, and making necessary corrections.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Intern at Atmospheric Science Group</h3>
+                <div class="timeline-meta">
+                    <span>National Center for Earth Science Studies (MoES, Govt of India)</span>
+                    <span>Thiruvananthapuram, Kerala</span>
+                    <span>01/02/2024 - 31/05/2024</span>
+                </div>
+                <p>Researched climate and rainfall variability, analyzing impacts across India (West Coast, North India, etc.) from 1901 to 2022. Utilized IMD gridded data (0.25° and 1°), CPC GPCC, and ERA5 to understand how climate variability influences rainfall patterns in different geographic regions. Identified long-term trends, fluctuations, and anomalies using statistical modeling, trend analysis, and spatial mapping. Compared finer vs. coarser resolution data to capture localized variations and analyzed intra-annual variability using CRU, CPC, GPCC, and ERA5 datasets.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Field Investigator</h3>
+                <div class="timeline-meta">
+                    <span>CV Raman Global University</span>
+                    <span>Bhubaneswar, India</span>
+                    <span>17/11/2023 - 31/01/2024</span>
+                </div>
+                <p>Worked on the ICSSR short-term empirical research project titled: "Survey of National Education Policy 2020 implementation using AI - ML Techniques: A study of Odisha and Jharkhand". Evaluated policy implementation in technical institutions by conducting field surveys, coordinating with institutional leaders (University VCs, IIT Directors, students), and analyzing the collected data using statistical tools like IBM SPSS and EXCEL.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDUCATION SECTION -->
+    <div class="page-section" id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>PG Diploma in Applied Geoinformatics</h3>
+                <div class="timeline-meta">
+                    <span>Jadavpur University at CAD Center</span>
+                    <span>Kolkata, India</span>
+                    <span>07/2024 - 07/2025</span>
+                </div>
+                <p><strong>Final Grade:</strong> 78.80%</p>
+                <p><strong>Thesis:</strong> Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</p>
+                <p>Website: <a href="https://www.cadcentreju.org/" target="_blank">cadcentreju.org</a></p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>M.A. Geography (Hons)</h3>
+                <div class="timeline-meta">
+                    <span>University of Mumbai</span>
+                    <span>Mumbai, India</span>
+                    <span>2021 - 2023</span>
+                </div>
+                <p><strong>Field of Study:</strong> Arts and Humanities</p>
+                <p><strong>Final Grade:</strong> 8.7 CGPI</p>
+                <p><strong>Thesis:</strong> Impact of climate change on rainfall variability on Bhima basin</p>
+                <p>Website: <a href="https://mu.ac.in/" target="_blank">mu.ac.in</a></p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>B.A. Geography (Hons)</h3>
+                <div class="timeline-meta">
+                    <span>University of Delhi</span>
+                    <span>India</span>
+                    <span>2018 - 2021</span>
+                </div>
+                <p><strong>Field of Study:</strong> Arts and Humanities</p>
+                <p><strong>Final Grade:</strong> 7.878 CGPA</p>
+                <p>Website: <a href="http://www.du.ac.in/" target="_blank">du.ac.in</a></p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>High School</h3>
+                <div class="timeline-meta">
+                    <span>KV Dipatoli</span>
+                    <span>India</span>
+                    <span>2016 - 2018</span>
+                </div>
+                <p><strong>Field of Study:</strong> Arts and Humanities</p>
+                <p><strong>Final Grade:</strong> 81.8%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <div class="page-section" id="skills">
+        <h2>Skills & Technical Expertise</h2>
+        <p class="section-intro">Comprehensive toolkit spanning spatial analysis, statistical modeling, and data management.</p>
+        
+        <div class="skills">
+            <span class="skill">ArcGIS</span>
+            <span class="skill">ArcGIS Pro</span>
+            <span class="skill">QGIS</span>
+            <span class="skill">Python</span>
+            <span class="skill">SQL</span>
+            <span class="skill">DBMS</span>
+            <span class="skill">Climate Data Operators (CDO)</span>
+            <span class="skill">GrADS</span>
+            <span class="skill">ERDAS Imagine</span>
+            <span class="skill">ARCSWAT</span>
+            <span class="skill">IBM SPSS</span>
+            <span class="skill">XLSTAT</span>
+            <span class="skill">Spyder</span>
+            <span class="skill">SNAP</span>
+            <span class="skill">Tera Sync</span>
+            <span class="skill">GNSS</span>
+            <span class="skill">DGPS</span>
+            <span class="skill">FLUS</span>
+            <span class="skill">AutoCAD</span>
+            <span class="skill">Adobe Photoshop</span>
+            <span class="skill">Adobe Illustrator</span>
+            <span class="skill">Adobe Lightroom</span>
+            <span class="skill">Microsoft Office</span>
+            <span class="skill">Stock Analysis</span>
+        </div>
+    </div>
+
+    <!-- PROJECTS SECTION -->
+    <div class="page-section" id="projects">
+        <h2>Projects & Spatial Analysis</h2>
+        <p class="section-intro">Selected research and geospatial projects.</p>
+        
+        <div class="grid">
+            <div class="project-card">
+                <div class="project-image">Future Bhima Basin Map Analysis</div>
+                <div class="project-content">
+                    <h3>Rainfall Variability in Bhima Basin</h3>
+                    <p>Long-term analysis of rainfall variability and trends using gridded rainfall data and statistical methods.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Future PMKVY Geographic Analysis</div>
+                <div class="project-content">
+                    <h3>PMKVY Spatial Analysis in Jharkhand</h3>
+                    <p>Geospatial investigation of skill-development centres, accessibility, terrain and spatial patterns among tribal youth.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Future GIS / Terrain Mapping</div>
+                <div class="project-content">
+                    <h3>GIS & Terrain Analysis Portfolio</h3>
+                    <p>A collection of GIS, DEM, Remote Sensing and spatial-analysis projects will be presented here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CREATIVE WORKS SECTION -->
+    <div class="page-section" id="creative">
+        <h2>Creative Works</h2>
+        <div class="creative-container">
+            <div class="creative-item">
+                <h3>Achievement | 2019</h3>
+                <p>
+                    Received appreciation from FM Fever Radio 104.0 and Gautam Gambhir (Member of Parliament, East Delhi Constituency) for the innovative idea of refusing single-use plastic to beat plastic pollution—specifically, bringing reusable steel cutlery for daily lunch and refreshments. Featured in <em>Punjab Kesari</em> newspaper for outstanding work in a cleanliness drive in DDA Flats, as part of the <strong>Swachh Bharat Se Swasth Bharat</strong> campaign. The primary objective was driving behavioral change, as human behavior plays a critical role in environmental sustainability.
+                </p>
+                
+                <div class="creative-media-grid">
+                    <div class="creative-media-card">
+                        <a href="Screenshot 2026-08-18 220818.png" target="_blank">
+                            <img src="Screenshot 2026-08-18 220818.png" alt="Cleanliness Drive Coverage">
+                        </a>
+                        <div class="caption">News Feature / Document</div>
+                    </div>
+                    
+                    <div class="creative-media-card">
+                        <a href="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" target="_blank">
+                            <img src="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" alt="Fever FM / Gautam Gambhir Appreciation Event">
+                        </a>
+                        <div class="caption">Appreciation Event / Campaign Photo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTICIPATIONS SECTION -->
+    <div class="page-section" id="participations">
+        <h2>Participations</h2>
+        <p class="section-intro">Conferences, seminars, community workshops, and event volunteering.</p>
+
+        <div class="participations-container">
+            <ul class="part-list">
+                <li class="part-item">
+                    <div class="part-title">Student Volunteer & Technical Assistant | Asia Oceania Geosciences Society (AOGS) Conference 2025</div>
+                    <div class="part-meta">27/07/2025 – 31/07/2025 | Singapore</div>
+                    <div class="part-desc">Worked as Technical Assistant and Student Volunteer assisting international delegates, session organization, and logistics during the annual geosciences conference.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Participant | Sensitization Program on Prevention of Drug Abuse</div>
+                    <div class="part-meta">ARSD College, University of Delhi</div>
+                    <div class="part-desc">Participated in a one-day awareness initiative jointly organized by the National Institute of Social Defence (NISD), Ministry of Social Justice and Empowerment, and the NSS Unit, ARSD College.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Participant & Volunteer | MTNL Perfect Health Mela</div>
+                    <div class="part-meta">Talkatora Stadium, New Delhi</div>
+                    <div class="part-desc">Engaged in community health and wellness outreach campaigns organized by the Heart Care Foundation of India (HCFI) in collaboration with the Government of NCT of Delhi.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Participant | Digital Transformation: An India Story</div>
+                    <div class="part-meta">2023 | New Delhi</div>
+                    <div class="part-desc">Attended discussions on technological innovation and digital public infrastructure, organized by Carnegie India in collaboration with Meta India under the G20 framework.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Participant | Youth Vision for Circular Economy</div>
+                    <div class="part-meta">2023 | IIT Delhi</div>
+                    <div class="part-desc">Contributed to youth climate action dialogues on sustainable resource frameworks, organized by the Indian Youth Climate Network (IYCN) in partnership with EU-Resource Efficiency and IIT Delhi.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- VOLUNTEERING SECTION -->
+    <div class="page-section" id="volunteering">
+        <h2>Volunteering & Community Service</h2>
+        <p class="section-intro">National Service Scheme (NSS) social initiatives, disaster relief, sports volunteering, and environmental drives.</p>
+
+        <div class="volunteering-container">
+            <div class="timeline-meta" style="margin-bottom: 20px;">
+                <span><strong>Organization:</strong> National Service Scheme (NSS)</span>
+                <span><strong>Period:</strong> 2018 - 2020</span>
+                <span><strong>Location:</strong> Delhi, India</span>
+            </div>
+
+            <ul class="part-list">
+                <li class="part-item">
+                    <div class="part-title">Kerala Flood Relief Drive & PMO Appreciation</div>
+                    <div class="part-desc">Participated in the Kerala flood relief donation drive, collected ₹21,000/- for flood victims, and received an appreciation letter from the Prime Minister's Office (PMO).</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Khelo India Sports Event Volunteering</div>
+                    <div class="part-desc">Participated and volunteered in Khelo India, organized under the Government Scheme of the Ministry of Youth Affairs and Sports.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">NSS Seven-Day Special Camp</div>
+                    <div class="part-desc">Successfully participated in the 7-day Special NSS Camp dedicated to community service, rural development, and youth leadership.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Road Safety Panel Discussion | IIT Delhi</div>
+                    <div class="part-desc">Participated in a panel discussion on "Role of Youth in Road Safety" organized by the Indian Road Safety Campaign held at IIT Delhi.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Swachhata Hi Seva & Cleanliness Drives</div>
+                    <div class="part-desc">Led and participated in cleanliness drives in Sheikh Sarai, Swachhata Hi Seva campaign in college campus, and local environmental awareness drives.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Plantation & Cloth Donation Drives</div>
+                    <div class="part-desc">Organized and participated in tree plantation drives across the college campus and conducted cloth donation drives in slum areas near Okhla, Delhi.</div>
+                </li>
+            </ul>
         </div>
 
-        <div class="card">
-          <h3>Technical Expertise</h3>
-          <p>Python (Pandas, NumPy, Matplotlib), CDO (Climate Data Operators), ArcGIS, QGIS, and GrADS.</p>
+        <!-- VOLUNTEERING GALLERY -->
+        <div class="volunteering-media-grid">
+            <div class="volunteering-media-card">
+                <a href="1.jpeg" target="_blank">
+                    <img class="volunteering-image" src="1.jpeg" alt="NSS Volunteering Photo 1">
+                </a>
+                <div class="volunteering-info">
+                    <h3>NSS Activity Photo 1</h3>
+                    <p>NSS Volunteering & Drives</p>
+                    <a class="certificate-link" href="1.jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="volunteering-media-card">
+                <a href="2.jpeg" target="_blank">
+                    <img class="volunteering-image" src="2.jpeg" alt="NSS Volunteering Photo 2">
+                </a>
+                <div class="volunteering-info">
+                    <h3>NSS Activity Photo 2</h3>
+                    <p>NSS Volunteering & Drives</p>
+                    <a class="certificate-link" href="2.jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="volunteering-media-card">
+                <a href="3.jpeg" target="_blank">
+                    <img class="volunteering-image" src="3.jpeg" alt="NSS Volunteering Photo 3">
+                </a>
+                <div class="volunteering-info">
+                    <h3>NSS Activity Photo 3</h3>
+                    <p>NSS Volunteering & Drives</p>
+                    <a class="certificate-link" href="3.jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="volunteering-media-card">
+                <a href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">
+                    <img class="volunteering-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" alt="NSS Volunteering Photo 4">
+                </a>
+                <div class="volunteering-info">
+                    <h3>NSS Activity Photo 4</h3>
+                    <p>NSS Volunteering & Drives</p>
+                    <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="card">
-          <h3>Data & Modeling</h3>
-          <p>Hands-on work with high-resolution climate repositories including ERA5, IMD, CRU, GPCC, and CMIP6 models.</p>
+    <!-- CERTIFICATES SECTION -->
+    <div class="page-section" id="certificates">
+        <h2>Certificates & Training Documents</h2>
+        <p class="section-intro">Professional training, academic learning, GIS, Remote Sensing, climate and Earth observation certificates.</p>
+
+        <div class="certificate-grid">
+            <div class="certificate">
+                <a href="gis-for-climate-action.jpg" target="_blank">
+                    <img class="certificate-image" src="gis-for-climate-action.jpg" alt="GIS for Climate Action">
+                </a>
+                <div class="certificate-info">
+                    <h3>GIS for Climate Action</h3>
+                    <p>Esri | GIS & Climate Action</p>
+                    <a class="certificate-link" href="gis-for-climate-action.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="geospatial-modelling-watershed-management.jpg" target="_blank">
+                    <img class="certificate-image" src="geospatial-modelling-watershed-management.jpg" alt="Watershed Management">
+                </a>
+                <div class="certificate-info">
+                    <h3>Geospatial Modelling for Watershed Management</h3>
+                    <p>IIRS / ISRO</p>
+                    <a class="certificate-link" href="geospatial-modelling-watershed-management.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="nasa-arset-flood-training.jpg" target="_blank">
+                    <img class="certificate-image" src="nasa-arset-flood-training.jpg" alt="NASA ARSET Flood Training">
+                </a>
+                <div class="certificate-info">
+                    <h3>Monitoring and Predicting Floods Using Earth Observations</h3>
+                    <p>NASA ARSET</p>
+                    <a class="certificate-link" href="nasa-arset-flood-training.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="wekeo-for-climate-change.jpg" target="_blank">
+                    <img class="certificate-image" src="wekeo-for-climate-change.jpg" alt="WEkEO for Climate Change">
+                </a>
+                <div class="certificate-info">
+                    <h3>WEkEO for Climate Change</h3>
+                    <p>Copernicus / Mercator Ocean International</p>
+                    <a class="certificate-link" href="wekeo-for-climate-change.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="enso-weather-training.jpg" target="_blank">
+                    <img class="certificate-image" src="enso-weather-training.jpg" alt="El Niño Training">
+                </a>
+                <div class="certificate-info">
+                    <h3>Monitoring the El Niño–Southern Oscillation</h3>
+                    <p>Climate & Weather Training</p>
+                    <a class="certificate-link" href="enso-weather-training.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="climate-justice-climate-law.jpg" target="_blank">
+                    <img class="certificate-image" src="climate-justice-climate-law.jpg" alt="Climate Law">
+                </a>
+                <div class="certificate-info">
+                    <h3>Climate Justice and Climate Law</h3>
+                    <p>NLU Delhi & SOAS</p>
+                    <a class="certificate-link" href="climate-justice-climate-law.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="ncess-research-internship.jpg" target="_blank">
+                    <img class="certificate-image" src="ncess-research-internship.jpg" alt="NCESS Internship">
+                </a>
+                <div class="certificate-info">
+                    <h3>Research Internship</h3>
+                    <p>National Centre for Earth Science Studies</p>
+                    <a class="certificate-link" href="ncess-research-internship.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="field-investigator-cgu.jpg" target="_blank">
+                    <img class="certificate-image" src="field-investigator-cgu.jpg" alt="Field Investigator">
+                </a>
+                <div class="certificate-info">
+                    <h3>Field Investigator</h3>
+                    <p>CV Raman Global University</p>
+                    <a class="certificate-link" href="field-investigator-cgu.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="rmsi-gis-engineer-experience.jpg" target="_blank">
+                    <img class="certificate-image" src="rmsi-gis-engineer-experience.jpg" alt="RMSI Experience">
+                </a>
+                <div class="certificate-info">
+                    <h3>GIS Engineer Experience</h3>
+                    <p>RMSI</p>
+                    <a class="certificate-link" href="rmsi-gis-engineer-experience.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="certificate-appreciation-2025.jpg" target="_blank">
+                    <img class="certificate-image" src="certificate-appreciation-2025.jpg" alt="Appreciation">
+                </a>
+                <div class="certificate-info">
+                    <h3>Certificate of Appreciation</h3>
+                    <p>Academic / Professional Recognition</p>
+                    <a class="certificate-link" href="certificate-appreciation-2025.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="training-certificate-2025.jpg" target="_blank">
+                    <img class="certificate-image" src="training-certificate-2025.jpg" alt="Training 2025">
+                </a>
+                <div class="certificate-info">
+                    <h3>Professional Training</h3>
+                    <p>Training Certificate | 2025</p>
+                    <a class="certificate-link" href="training-certificate-2025.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="Certificate_of_Completion.pdf" target="_blank">
+                    <img class="certificate-image" src="Certificate_of_Completion.png" alt="Machine Learning for Earth Systems">
+                </a>
+                <div class="certificate-info">
+                    <h3>Machine Learning for Earth Systems Modelling</h3>
+                    <p>ECMWF | Destination Earth</p>
+                    <a class="certificate-link" href="Certificate_of_Completion.pdf" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">
+                    <img class="certificate-image" src="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" alt="NISD Drug Abuse Prevention Certificate">
+                </a>
+                <div class="certificate-info">
+                    <h3>Drug Abuse Prevention Sensitization</h3>
+                    <p>NISD | Ministry of Social Justice & Empowerment</p>
+                    <a class="certificate-link" href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="nss.png" target="_blank">
+                    <img class="certificate-image" src="nss.png" alt="NSS Volunteer Certificate">
+                </a>
+                <div class="certificate-info">
+                    <h3>National Service Scheme (NSS) Volunteer</h3>
+                    <p>NSS Unit | ARSD College, University of Delhi</p>
+                    <a class="certificate-link" href="nss.png" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="summer_internship.png" target="_blank">
+                    <img class="certificate-image" src="summer_internship.png" alt="Swachh Bharat Summer Internship Certificate">
+                </a>
+                <div class="certificate-info">
+                    <h3>Swachh Bharat Summer Internship</h3>
+                    <p>Ministry of Jal Shakti / Youth Affairs & Sports</p>
+                    <a class="certificate-link" href="summer_internship.png" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" target="_blank">
+                    <img class="certificate-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" alt="Certificate of Participation / Training">
+                </a>
+                <div class="certificate-info">
+                    <h3>Training / Participation Certificate</h3>
+                    <p>Academic & Professional Training</p>
+                    <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
 
-  </main>
+    <!-- CV SECTION -->
+    <div class="page-section" id="cv">
+        <h2>Curriculum Vitae & Contact</h2>
+        <div class="contact-box">
+            <p>My academic background, research experience, professional timeline, and technical skills.</p>
+            
+            <a class="btn" href="cv.pdf" target="_blank" download style="margin-bottom: 20px;">View / Download Full CV</a>
 
-  <footer>
-    <p>&copy; 2026 Saroj Sali. All Rights Reserved.</p>
-  </footer>
+            <div class="contact-links">
+                <p>✉️ <strong>Email:</strong> <a href="mailto:arojsalil5@gmail.com">arojsalil5@gmail.com</a> | <a href="mailto:sarojsalil12@gmail.com">sarojsalil12@gmail.com</a></p>
+                <p>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saroj-salil/" target="_blank">Saroj Salil | LinkedIn</a></p>
+                <p>📍 <strong>Location:</strong> Dhanbad, Jharkhand, India</p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Saroj Salil | Geography • GIS • Remote Sensing • Climate Research</p>
+</footer>
+
+<!-- JAVASCRIPT FOR SECTION SWITCHING -->
+<script>
+function showSection(sectionId, evt) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.page-section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Remove active state from nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Show targeted section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
+    }
+
+    // Highlight corresponding nav item if event is passed
+    if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add('active');
+    }
+
+    // Scroll smoothly to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
