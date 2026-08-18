@@ -13,7 +13,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -24,6 +23,9 @@ body {
     background-size: 40px 40px;
     color: #2c3e50;
     line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* NAVIGATION */
@@ -54,7 +56,7 @@ nav .logo span {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -64,25 +66,81 @@ nav ul li a {
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
-nav ul li a:hover {
-    color: #48a9a6;
+nav ul li a:hover,
+nav ul li a.active {
+    background: #48a9a6;
+    color: white;
 }
 
-/* HERO / HOME SECTION */
+/* MAIN CONTENT VIEW CONTAINER */
 
-.hero {
-    min-height: 100vh;
+main {
+    flex: 1;
+}
+
+/* PAGE SECTIONS - Hidden by default except the active view */
+
+.page-section {
+    display: none;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 25px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-section h2 {
+    text-align: center;
+    font-size: 38px;
+    color: #1a3644;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.page-section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #48a9a6;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.section-intro {
+    max-width: 800px;
+    margin: -20px auto 40px;
+    text-align: center;
+    color: #5c7080;
+}
+
+/* HERO / HOME SECTION VIEW */
+
+#home {
+    min-height: calc(100vh - 140px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 70px 20px;
-    /* Geographic terrain gradient */
     background: linear-gradient(135deg, rgba(26, 54, 68, 0.95), rgba(42, 85, 104, 0.95)), url('https://www.transparenttextures.com/patterns/topography.png');
     color: white;
+    border-radius: 12px;
+    margin-top: 20px;
 }
 
 .hero-content {
@@ -117,7 +175,7 @@ nav ul li a:hover {
     display: inline-block;
     padding: 14px 30px;
     margin: 8px;
-    border-radius: 4px; /* More structured, map-legend feel */
+    border-radius: 4px;
     background: #48a9a6;
     color: white;
     text-decoration: none;
@@ -125,6 +183,7 @@ nav ul li a:hover {
     letter-spacing: 1px;
     transition: 0.3s;
     border: 2px solid #48a9a6;
+    cursor: pointer;
 }
 
 .btn.secondary {
@@ -139,44 +198,7 @@ nav ul li a:hover {
     transform: translateY(-3px);
 }
 
-/* SECTIONS (DISTINCT FULL VIEWS) */
-
-section {
-    min-height: 100vh;
-    max-width: 1200px;
-    margin: auto;
-    padding: 100px 25px 60px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-section h2 {
-    text-align: center;
-    font-size: 38px;
-    color: #1a3644;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-section h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: #48a9a6;
-    margin: 15px auto 0;
-    border-radius: 2px;
-}
-
-.section-intro {
-    max-width: 800px;
-    margin: -20px auto 40px;
-    text-align: center;
-    color: #5c7080;
-}
-
-/* ABOUT SECTION (WITH IMAGE) */
+/* ABOUT SECTION */
 
 .about-container {
     background: white;
@@ -212,7 +234,7 @@ section h2::after {
     }
 }
 
-/* CARDS (Research, Projects, Creative Works) */
+/* CARDS & GRIDS */
 
 .grid {
     display: grid;
@@ -312,7 +334,6 @@ section h2::after {
     position: relative;
 }
 
-/* Timeline dot / Map marker */
 .timeline-item::before {
     content: "";
     position: absolute;
@@ -419,21 +440,18 @@ section h2::after {
 
 /* PARTICIPATIONS & VOLUNTEERING CONTAINER */
 
-.participations-container {
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-top: 6px solid #1a3644;
-}
-
+.participations-container,
 .volunteering-container {
     background: white;
     border-radius: 12px;
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-top: 6px solid #48a9a6;
+    border-top: 6px solid #1a3644;
     margin-bottom: 40px;
+}
+
+.volunteering-container {
+    border-top-color: #48a9a6;
 }
 
 .part-list {
@@ -589,7 +607,7 @@ section h2::after {
 
 /* CV & CONTACT */
 
-.cv-box, .contact-box {
+.contact-box {
     text-align: center;
     background: white;
     padding: 50px;
@@ -624,18 +642,19 @@ footer {
     background: #1a3644;
     color: #a4c9d7;
     text-align: center;
-    padding: 30px;
+    padding: 25px;
     font-size: 14px;
+    margin-top: auto;
 }
 
 /* MOBILE RESPONSIVENESS */
 
 @media(max-width: 800px) {
     nav { flex-direction: column; gap: 15px; }
-    nav ul { gap: 12px; }
-    .hero h1 { font-size: 45px; }
-    .hero h2 { font-size: 20px; }
-    section { padding: 80px 15px 40px 15px; min-height: auto; }
+    nav ul { gap: 10px; }
+    .hero h1 { font-size: 40px; }
+    .hero h2 { font-size: 18px; }
+    .page-section { padding: 40px 15px; }
 }
 
 </style>
@@ -644,645 +663,605 @@ footer {
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAVIGATION BAR -->
 <nav>
     <div class="logo">Saroj <span>Salil</span></div>
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#creative">Creative Works</a></li>
-        <li><a href="#participations">Participations</a></li>
-        <li><a href="#volunteering">Volunteering</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#cv">CV</a></li>
+        <li><a class="nav-link active" onclick="showSection('home', event)">Home</a></li>
+        <li><a class="nav-link" onclick="showSection('about', event)">About</a></li>
+        <li><a class="nav-link" onclick="showSection('experience', event)">Experience</a></li>
+        <li><a class="nav-link" onclick="showSection('education', event)">Education</a></li>
+        <li><a class="nav-link" onclick="showSection('skills', event)">Skills</a></li>
+        <li><a class="nav-link" onclick="showSection('projects', event)">Projects</a></li>
+        <li><a class="nav-link" onclick="showSection('creative', event)">Creative Works</a></li>
+        <li><a class="nav-link" onclick="showSection('participations', event)">Participations</a></li>
+        <li><a class="nav-link" onclick="showSection('volunteering', event)">Volunteering</a></li>
+        <li><a class="nav-link" onclick="showSection('certificates', event)">Certificates</a></li>
+        <li><a class="nav-link" onclick="showSection('cv', event)">CV</a></li>
     </ul>
 </nav>
 
-<!-- HOME -->
-<header class="hero" id="home">
-    <div class="hero-content">
-        <h1>Saroj Salil</h1>
-        <h2>Geography | GIS & Remote Sensing | Climate Research</h2>
-        <p>Geography researcher working at the intersection of climate variability, rainfall analysis, GIS, remote sensing, spatial analysis, and environmental research.</p>
-        <div class="buttons">
-            <a class="btn" href="#about">Explore My Work</a>
-            <a class="btn secondary" href="#cv">Download CV</a>
-        </div>
-    </div>
-</header>
+<main>
 
-
-<!-- ABOUT -->
-<section id="about">
-    <h2>About Me</h2>
-    <div class="about-container">
-        <!-- Profile Image -->
-        <img src="photo_2026-08-18_00-46-10.jpg" alt="Saroj Salil" class="about-photo">
-        <div class="about-text">
-            <p>Dedicated to leveraging my expertise in environmental science and climate change, with a focus on weather patterns in regions like the Himalayas, to drive sustainable solutions and community resilience. Committed to applying my knowledge and skills to address pressing environmental challenges, fostering a healthier planet through impactful, science-driven actions.</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- EXPERIENCE -->
-<section id="experience">
-    <h2>Work Experience</h2>
-    <div class="timeline">
-
-        <!-- Role 1 -->
-        <div class="timeline-item">
-            <h3>Research Assistant</h3>
-            <div class="timeline-meta">
-                <span>IIT ISM DHANBAD</span>
-                <span>Dhanbad, India</span>
-                <span>01/07/2026 - Current</span>
-            </div>
-            <p>
-                Working on the project: "Impact Assessment of PMKVY on Skill Acquisition and Entrepreneurial Development among Tribal Youth in Jharkhand: Systemic Barriers and Pathways".
-            </p>
-        </div>
-
-        <!-- Role 2 -->
-        <div class="timeline-item">
-            <h3>GIS Engineer</h3>
-            <div class="timeline-meta">
-                <span>RMSI Private Limited</span>
-                <span>Delhi, India</span>
-                <span>31/07/2025 - Current</span>
-            </div>
-            <p>
-                In the NSG project based in the Middle East, my role primarily involves satellite interpretation of various thematic layers such as hydrography, vegetation, agriculture, transportation, and physiography. I am also responsible for performing quality control on the data received from the production team, analyzing it thoroughly, providing feedback, and making necessary corrections.
-            </p>
-        </div>
-
-        <!-- Role 3 -->
-        <div class="timeline-item">
-            <h3>Intern at Atmospheric Science Group</h3>
-            <div class="timeline-meta">
-                <span>National Center for Earth Science Studies (MoES, Govt of India)</span>
-                <span>Thiruvananthapuram, Kerala</span>
-                <span>01/02/2024 - 31/05/2024</span>
-            </div>
-            <p>
-                Researched climate and rainfall variability, analyzing impacts across India (West Coast, North India, etc.) from 1901 to 2022. Utilized IMD gridded data (0.25° and 1°), CPC GPCC, and ERA5 to understand how climate variability influences rainfall patterns in different geographic regions. Identified long-term trends, fluctuations, and anomalies using statistical modeling, trend analysis, and spatial mapping. Compared finer vs. coarser resolution data to capture localized variations and analyzed intra-annual variability using CRU, CPC, GPCC, and ERA5 datasets.
-            </p>
-        </div>
-
-        <!-- Role 4 -->
-        <div class="timeline-item">
-            <h3>Field Investigator</h3>
-            <div class="timeline-meta">
-                <span>CV Raman Global University</span>
-                <span>Bhubaneswar, India</span>
-                <span>17/11/2023 - 31/01/2024</span>
-            </div>
-            <p>
-                Worked on the ICSSR short-term empirical research project titled: "Survey of National Education Policy 2020 implementation using AI - ML Techniques: A study of Odisha and Jharkhand". Evaluated policy implementation in technical institutions by conducting field surveys, coordinating with institutional leaders (University VCs, IIT Directors, students), and analyzing the collected data using statistical tools like IBM SPSS and EXCEL.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- EDUCATION -->
-<section id="education">
-    <h2>Education</h2>
-    <div class="timeline">
-
-        <!-- Degree 1 -->
-        <div class="timeline-item">
-            <h3>PG Diploma in Applied Geoinformatics</h3>
-            <div class="timeline-meta">
-                <span>Jadavpur University at CAD Center</span>
-                <span>Kolkata, India</span>
-                <span>07/2024 - 07/2025</span>
-            </div>
-            <p><strong>Final Grade:</strong> 78.80%</p>
-            <p><strong>Thesis:</strong> Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</p>
-            <p>Website: <a href="https://www.cadcentreju.org/" target="_blank">cadcentreju.org</a></p>
-        </div>
-
-        <!-- Degree 2 -->
-        <div class="timeline-item">
-            <h3>M.A. Geography (Hons)</h3>
-            <div class="timeline-meta">
-                <span>University of Mumbai</span>
-                <span>Mumbai, India</span>
-                <span>2021 - 2023</span>
-            </div>
-            <p><strong>Field of Study:</strong> Arts and Humanities</p>
-            <p><strong>Final Grade:</strong> 8.7 CGPI</p>
-            <p><strong>Thesis:</strong> Impact of climate change on rainfall variability on Bhima basin</p>
-            <p>Website: <a href="https://mu.ac.in/" target="_blank">mu.ac.in</a></p>
-        </div>
-
-        <!-- Degree 3 -->
-        <div class="timeline-item">
-            <h3>B.A. Geography (Hons)</h3>
-            <div class="timeline-meta">
-                <span>University of Delhi</span>
-                <span>India</span>
-                <span>2018 - 2021</span>
-            </div>
-            <p><strong>Field of Study:</strong> Arts and Humanities</p>
-            <p><strong>Final Grade:</strong> 7.878 CGPA</p>
-            <p>Website: <a href="http://www.du.ac.in/" target="_blank">du.ac.in</a></p>
-        </div>
-
-        <!-- High School -->
-        <div class="timeline-item">
-            <h3>High School</h3>
-            <div class="timeline-meta">
-                <span>KV Dipatoli</span>
-                <span>India</span>
-                <span>2016 - 2018</span>
-            </div>
-            <p><strong>Field of Study:</strong> Arts and Humanities</p>
-            <p><strong>Final Grade:</strong> 81.8%</p>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- SKILLS -->
-<section id="skills">
-    <h2>Skills & Technical Expertise</h2>
-    <p class="section-intro">Comprehensive toolkit spanning spatial analysis, statistical modeling, and data management.</p>
-    
-    <div class="skills">
-        <span class="skill">ArcGIS</span>
-        <span class="skill">ArcGIS Pro</span>
-        <span class="skill">QGIS</span>
-        <span class="skill">Python</span>
-        <span class="skill">SQL</span>
-        <span class="skill">DBMS</span>
-        <span class="skill">Climate Data Operators (CDO)</span>
-        <span class="skill">GrADS</span>
-        <span class="skill">ERDAS Imagine</span>
-        <span class="skill">ARCSWAT</span>
-        <span class="skill">IBM SPSS</span>
-        <span class="skill">XLSTAT</span>
-        <span class="skill">Spyder</span>
-        <span class="skill">SNAP</span>
-        <span class="skill">Tera Sync</span>
-        <span class="skill">GNSS</span>
-        <span class="skill">DGPS</span>
-        <span class="skill">FLUS</span>
-        <span class="skill">AutoCAD</span>
-        <span class="skill">Adobe Photoshop</span>
-        <span class="skill">Adobe Illustrator</span>
-        <span class="skill">Adobe Lightroom</span>
-        <span class="skill">Microsoft Office</span>
-        <span class="skill">Stock Analysis</span>
-    </div>
-</section>
-
-
-<!-- RESEARCH -->
-<section id="research">
-    <h2>Research Interests</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>🌧 Climate Variability</h3>
-            <p>Rainfall variability, long-term trends, climate variability and changing hydro-climatic conditions.</p>
-        </div>
-        <div class="card">
-            <h3>🌧 Rainfall & Extreme Events</h3>
-            <p>Rainfall anomalies, extreme precipitation, rainfall erosivity and statistical trend analysis.</p>
-        </div>
-        <div class="card">
-            <h3>💧 Hydrology & Water Resources</h3>
-            <p>Geospatial analysis of watersheds, terrain, drainage and water-resource systems.</p>
-        </div>
-        <div class="card">
-            <h3>📍 Spatial Research</h3>
-            <p>GIS-based investigation of geographical patterns, accessibility and environmental systems.</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- PROJECTS -->
-<section id="projects">
-    <h2>Projects & Spatial Analysis</h2>
-    <p class="section-intro">Selected research and geospatial projects. Analysis images will be added to this portfolio as the work is documented.</p>
-    
-    <div class="grid">
-        <div class="project-card">
-            <div class="project-image">Future Bhima Basin Map Analysis</div>
-            <div class="project-content">
-                <h3>Rainfall Variability in Bhima Basin</h3>
-                <p>Long-term analysis of rainfall variability and trends using gridded rainfall data and statistical methods.</p>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">Future PMKVY Geographic Analysis</div>
-            <div class="project-content">
-                <h3>PMKVY Spatial Analysis in Jharkhand</h3>
-                <p>Geospatial investigation of skill-development centres, accessibility, terrain and spatial patterns among tribal youth.</p>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">Future GIS / Terrain Mapping</div>
-            <div class="project-content">
-                <h3>GIS & Terrain Analysis Portfolio</h3>
-                <p>A collection of GIS, DEM, Remote Sensing and spatial-analysis projects will be presented here.</p>
+    <!-- HOME SECTION -->
+    <div class="page-section active" id="home">
+        <div class="hero-content">
+            <h1>Saroj Salil</h1>
+            <h2>Geography | GIS & Remote Sensing | Climate Research</h2>
+            <p>Geography researcher working at the intersection of climate variability, rainfall analysis, GIS, remote sensing, spatial analysis, and environmental research.</p>
+            <div class="buttons">
+                <button class="btn" onclick="showSection('about', event)">Explore My Work</button>
+                <button class="btn secondary" onclick="showSection('cv', event)">Download CV</button>
             </div>
         </div>
     </div>
-</section>
 
+    <!-- ABOUT SECTION -->
+    <div class="page-section" id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <img src="photo_2026-08-18_00-46-10.jpg" alt="Saroj Salil" class="about-photo">
+            <div class="about-text">
+                <p>Dedicated to leveraging my expertise in environmental science and climate change, with a focus on weather patterns in regions like the Himalayas, to drive sustainable solutions and community resilience. Committed to applying my knowledge and skills to address pressing environmental challenges, fostering a healthier planet through impactful, science-driven actions.</p>
+            </div>
+        </div>
+    </div>
 
-<!-- CREATIVE WORKS -->
-<section id="creative">
-    <h2>Creative Works</h2>
-    <div class="creative-container">
-        <div class="creative-item">
-            <h3>Achievement | 2019</h3>
-            <p>
-                Received appreciation from FM Fever Radio 104.0 and Gautam Gambhir (Member of Parliament, East Delhi Constituency) for the innovative idea of refusing single-use plastic to beat plastic pollution—specifically, bringing reusable steel cutlery for daily lunch and refreshments. Featured in <em>Punjab Kesari</em> newspaper for outstanding work in a cleanliness drive in DDA Flats, as part of the <strong>Swachh Bharat Se Swasth Bharat</strong> campaign. The primary objective was driving behavioral change, as human behavior plays a critical role in environmental sustainability.
-            </p>
-            
-            <div class="creative-media-grid">
-                <div class="creative-media-card">
-                    <a href="Screenshot 2026-08-18 220818.png" target="_blank">
-                        <img src="Screenshot 2026-08-18 220818.png" alt="Cleanliness Drive Coverage">
-                    </a>
-                    <div class="caption">News Feature / Document</div>
+    <!-- EXPERIENCE SECTION -->
+    <div class="page-section" id="experience">
+        <h2>Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Research Assistant</h3>
+                <div class="timeline-meta">
+                    <span>IIT ISM DHANBAD</span>
+                    <span>Dhanbad, India</span>
+                    <span>01/07/2026 - Current</span>
                 </div>
-                
-                <div class="creative-media-card">
-                    <a href="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" target="_blank">
-                        <img src="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" alt="Fever FM / Gautam Gambhir Appreciation Event">
-                    </a>
-                    <div class="caption">Appreciation Event / Campaign Photo</div>
+                <p>Working on the project: "Impact Assessment of PMKVY on Skill Acquisition and Entrepreneurial Development among Tribal Youth in Jharkhand: Systemic Barriers and Pathways".</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>GIS Engineer</h3>
+                <div class="timeline-meta">
+                    <span>RMSI Private Limited</span>
+                    <span>Delhi, India</span>
+                    <span>31/07/2025 - Current</span>
                 </div>
+                <p>In the NSG project based in the Middle East, my role primarily involves satellite interpretation of various thematic layers such as hydrography, vegetation, agriculture, transportation, and physiography. I am also responsible for performing quality control on the data received from the production team, analyzing it thoroughly, providing feedback, and making necessary corrections.</p>
             </div>
-        </div>
-    </div>
-</section>
 
-
-<!-- PARTICIPATIONS -->
-<section id="participations">
-    <h2>Participations</h2>
-    <p class="section-intro">Conferences, seminars, community workshops, and event volunteering.</p>
-
-    <div class="participations-container">
-        <ul class="part-list">
-            <li class="part-item">
-                <div class="part-title">Student Volunteer & Technical Assistant | Asia Oceania Geosciences Society (AOGS) Conference 2025</div>
-                <div class="part-meta">27/07/2025 – 31/07/2025 | Singapore</div>
-                <div class="part-desc">Worked as Technical Assistant and Student Volunteer assisting international delegates, session organization, and logistics during the annual geosciences conference.</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">Participant | Sensitization Program on Prevention of Drug Abuse</div>
-                <div class="part-meta">ARSD College, University of Delhi</div>
-                <div class="part-desc">Participated in a one-day awareness initiative jointly organized by the National Institute of Social Defence (NISD), Ministry of Social Justice and Empowerment, and the NSS Unit, ARSD College.</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">Participant & Volunteer | MTNL Perfect Health Mela</div>
-                <div class="part-meta">Talkatora Stadium, New Delhi</div>
-                <div class="part-desc">Engaged in community health and wellness outreach campaigns organized by the Heart Care Foundation of India (HCFI) in collaboration with the Government of NCT of Delhi.</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">Participant | Digital Transformation: An India Story</div>
-                <div class="part-meta">2023 | New Delhi</div>
-                <div class="part-desc">Attended discussions on technological innovation and digital public infrastructure, organized by Carnegie India in collaboration with Meta India under the G20 framework.</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">Participant | Youth Vision for Circular Economy</div>
-                <div class="part-meta">2023 | IIT Delhi</div>
-                <div class="part-desc">Contributed to youth climate action dialogues on sustainable resource frameworks, organized by the Indian Youth Climate Network (IYCN) in partnership with EU-Resource Efficiency and IIT Delhi.</div>
-            </li>
-        </ul>
-    </div>
-</section>
-
-
-<!-- VOLUNTEERING -->
-<section id="volunteering">
-    <h2>Volunteering & Community Service</h2>
-    <p class="section-intro">National Service Scheme (NSS) social initiatives, disaster relief, sports volunteering, and environmental drives.</p>
-
-    <div class="volunteering-container">
-        <div class="timeline-meta" style="margin-bottom: 20px;">
-            <span><strong>Organization:</strong> National Service Scheme (NSS)</span>
-            <span><strong>Period:</strong> 2018 - 2020</span>
-            <span><strong>Location:</strong> Delhi, India</span>
-        </div>
-
-        <ul class="part-list">
-            <li class="part-item">
-                <div class="part-title">Kerala Flood Relief Drive & PMO Appreciation</div>
-                <div class="part-desc">Participated in the Kerala flood relief donation drive, collected ₹21,000/- for flood victims, and received an appreciation letter from the Prime Minister's Office (PMO).</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">Khelo India Sports Event Volunteering</div>
-                <div class="part-desc">Participated and volunteered in Khelo India, organized under the Government Scheme of the Ministry of Youth Affairs and Sports.</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">NSS Seven-Day Special Camp</div>
-                <div class="part-desc">Successfully participated in the 7-day Special NSS Camp dedicated to community service, rural development, and youth leadership.</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">Road Safety Panel Discussion | IIT Delhi</div>
-                <div class="part-desc">Participated in a panel discussion on "Role of Youth in Road Safety" organized by the Indian Road Safety Campaign held at IIT Delhi.</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">Swachhata Hi Seva & Cleanliness Drives</div>
-                <div class="part-desc">Led and participated in cleanliness drives in Sheikh Sarai, Swachhata Hi Seva campaign in college campus, and local environmental awareness drives.</div>
-            </li>
-            <li class="part-item">
-                <div class="part-title">Plantation & Cloth Donation Drives</div>
-                <div class="part-desc">Organized and participated in tree plantation drives across the college campus and conducted cloth donation drives in slum areas near Okhla, Delhi.</div>
-            </li>
-        </ul>
-    </div>
-
-    <!-- VOLUNTEERING IMAGE GALLERY -->
-    <div class="volunteering-media-grid">
-        <div class="volunteering-media-card">
-            <a href="1.jpeg" target="_blank">
-                <img class="volunteering-image" src="1.jpeg" alt="NSS Volunteering Photo 1">
-            </a>
-            <div class="volunteering-info">
-                <h3>NSS Activity Photo 1</h3>
-                <p>NSS Volunteering & Drives</p>
-                <a class="certificate-link" href="1.jpeg" target="_blank">View Document</a>
+            <div class="timeline-item">
+                <h3>Intern at Atmospheric Science Group</h3>
+                <div class="timeline-meta">
+                    <span>National Center for Earth Science Studies (MoES, Govt of India)</span>
+                    <span>Thiruvananthapuram, Kerala</span>
+                    <span>01/02/2024 - 31/05/2024</span>
+                </div>
+                <p>Researched climate and rainfall variability, analyzing impacts across India (West Coast, North India, etc.) from 1901 to 2022. Utilized IMD gridded data (0.25° and 1°), CPC GPCC, and ERA5 to understand how climate variability influences rainfall patterns in different geographic regions. Identified long-term trends, fluctuations, and anomalies using statistical modeling, trend analysis, and spatial mapping. Compared finer vs. coarser resolution data to capture localized variations and analyzed intra-annual variability using CRU, CPC, GPCC, and ERA5 datasets.</p>
             </div>
-        </div>
 
-        <div class="volunteering-media-card">
-            <a href="2.jpeg" target="_blank">
-                <img class="volunteering-image" src="2.jpeg" alt="NSS Volunteering Photo 2">
-            </a>
-            <div class="volunteering-info">
-                <h3>NSS Activity Photo 2</h3>
-                <p>NSS Volunteering & Drives</p>
-                <a class="certificate-link" href="2.jpeg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <div class="volunteering-media-card">
-            <a href="3.jpeg" target="_blank">
-                <img class="volunteering-image" src="3.jpeg" alt="NSS Volunteering Photo 3">
-            </a>
-            <div class="volunteering-info">
-                <h3>NSS Activity Photo 3</h3>
-                <p>NSS Volunteering & Drives</p>
-                <a class="certificate-link" href="3.jpeg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <div class="volunteering-media-card">
-            <a href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">
-                <img class="volunteering-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" alt="NSS Volunteering Photo 4">
-            </a>
-            <div class="volunteering-info">
-                <h3>NSS Activity Photo 4</h3>
-                <p>NSS Volunteering & Drives</p>
-                <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">View Document</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- CERTIFICATES -->
-<section id="certificates">
-    <h2>Certificates & Training Documents</h2>
-    <p class="section-intro">Professional training, academic learning, GIS, Remote Sensing, climate and Earth observation certificates.</p>
-
-    <div class="certificate-grid">
-
-        <!-- 1 -->
-        <div class="certificate">
-            <a href="gis-for-climate-action.jpg" target="_blank">
-                <img class="certificate-image" src="gis-for-climate-action.jpg" alt="GIS for Climate Action">
-            </a>
-            <div class="certificate-info">
-                <h3>GIS for Climate Action</h3>
-                <p>Esri | GIS & Climate Action</p>
-                <a class="certificate-link" href="gis-for-climate-action.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="certificate">
-            <a href="geospatial-modelling-watershed-management.jpg" target="_blank">
-                <img class="certificate-image" src="geospatial-modelling-watershed-management.jpg" alt="Watershed Management">
-            </a>
-            <div class="certificate-info">
-                <h3>Geospatial Modelling for Watershed Management</h3>
-                <p>IIRS / ISRO</p>
-                <a class="certificate-link" href="geospatial-modelling-watershed-management.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="certificate">
-            <a href="nasa-arset-flood-training.jpg" target="_blank">
-                <img class="certificate-image" src="nasa-arset-flood-training.jpg" alt="NASA ARSET Flood Training">
-            </a>
-            <div class="certificate-info">
-                <h3>Monitoring and Predicting Floods Using Earth Observations</h3>
-                <p>NASA ARSET</p>
-                <a class="certificate-link" href="nasa-arset-flood-training.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="certificate">
-            <a href="wekeo-for-climate-change.jpg" target="_blank">
-                <img class="certificate-image" src="wekeo-for-climate-change.jpg" alt="WEkEO for Climate Change">
-            </a>
-            <div class="certificate-info">
-                <h3>WEkEO for Climate Change</h3>
-                <p>Copernicus / Mercator Ocean International</p>
-                <a class="certificate-link" href="wekeo-for-climate-change.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="certificate">
-            <a href="enso-weather-training.jpg" target="_blank">
-                <img class="certificate-image" src="enso-weather-training.jpg" alt="El Niño Training">
-            </a>
-            <div class="certificate-info">
-                <h3>Monitoring the El Niño–Southern Oscillation</h3>
-                <p>Climate & Weather Training</p>
-                <a class="certificate-link" href="enso-weather-training.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="certificate">
-            <a href="climate-justice-climate-law.jpg" target="_blank">
-                <img class="certificate-image" src="climate-justice-climate-law.jpg" alt="Climate Law">
-            </a>
-            <div class="certificate-info">
-                <h3>Climate Justice and Climate Law</h3>
-                <p>NLU Delhi & SOAS</p>
-                <a class="certificate-link" href="climate-justice-climate-law.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 7 -->
-        <div class="certificate">
-            <a href="ncess-research-internship.jpg" target="_blank">
-                <img class="certificate-image" src="ncess-research-internship.jpg" alt="NCESS Internship">
-            </a>
-            <div class="certificate-info">
-                <h3>Research Internship</h3>
-                <p>National Centre for Earth Science Studies</p>
-                <a class="certificate-link" href="ncess-research-internship.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="certificate">
-            <a href="field-investigator-cgu.jpg" target="_blank">
-                <img class="certificate-image" src="field-investigator-cgu.jpg" alt="Field Investigator">
-            </a>
-            <div class="certificate-info">
+            <div class="timeline-item">
                 <h3>Field Investigator</h3>
-                <p>CV Raman Global University</p>
-                <a class="certificate-link" href="field-investigator-cgu.jpg" target="_blank">View Document</a>
+                <div class="timeline-meta">
+                    <span>CV Raman Global University</span>
+                    <span>Bhubaneswar, India</span>
+                    <span>17/11/2023 - 31/01/2024</span>
+                </div>
+                <p>Worked on the ICSSR short-term empirical research project titled: "Survey of National Education Policy 2020 implementation using AI - ML Techniques: A study of Odisha and Jharkhand". Evaluated policy implementation in technical institutions by conducting field surveys, coordinating with institutional leaders (University VCs, IIT Directors, students), and analyzing the collected data using statistical tools like IBM SPSS and EXCEL.</p>
             </div>
         </div>
-
-        <!-- 9 -->
-        <div class="certificate">
-            <a href="rmsi-gis-engineer-experience.jpg" target="_blank">
-                <img class="certificate-image" src="rmsi-gis-engineer-experience.jpg" alt="RMSI Experience">
-            </a>
-            <div class="certificate-info">
-                <h3>GIS Engineer Experience</h3>
-                <p>RMSI</p>
-                <a class="certificate-link" href="rmsi-gis-engineer-experience.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 10 -->
-        <div class="certificate">
-            <a href="certificate-appreciation-2025.jpg" target="_blank">
-                <img class="certificate-image" src="certificate-appreciation-2025.jpg" alt="Appreciation">
-            </a>
-            <div class="certificate-info">
-                <h3>Certificate of Appreciation</h3>
-                <p>Academic / Professional Recognition</p>
-                <a class="certificate-link" href="certificate-appreciation-2025.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 11 -->
-        <div class="certificate">
-            <a href="training-certificate-2025.jpg" target="_blank">
-                <img class="certificate-image" src="training-certificate-2025.jpg" alt="Training 2025">
-            </a>
-            <div class="certificate-info">
-                <h3>Professional Training</h3>
-                <p>Training Certificate | 2025</p>
-                <a class="certificate-link" href="training-certificate-2025.jpg" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 12 -->
-        <div class="certificate">
-            <a href="Certificate_of_Completion.pdf" target="_blank">
-                <img class="certificate-image" src="Certificate_of_Completion.png" alt="Machine Learning for Earth Systems">
-            </a>
-            <div class="certificate-info">
-                <h3>Machine Learning for Earth Systems Modelling</h3>
-                <p>ECMWF | Destination Earth</p>
-                <a class="certificate-link" href="Certificate_of_Completion.pdf" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 13: NISD Drug Abuse Prevention -->
-        <div class="certificate">
-            <a href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">
-                <img class="certificate-image" src="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" alt="NISD Drug Abuse Prevention Certificate">
-            </a>
-            <div class="certificate-info">
-                <h3>Drug Abuse Prevention Sensitization</h3>
-                <p>NISD | Ministry of Social Justice & Empowerment</p>
-                <a class="certificate-link" href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 14: NSS Volunteer -->
-        <div class="certificate">
-            <a href="nss.png" target="_blank">
-                <img class="certificate-image" src="nss.png" alt="NSS Volunteer Certificate">
-            </a>
-            <div class="certificate-info">
-                <h3>National Service Scheme (NSS) Volunteer</h3>
-                <p>NSS Unit | ARSD College, University of Delhi</p>
-                <a class="certificate-link" href="nss.png" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 15: Swachh Bharat Summer Internship -->
-        <div class="certificate">
-            <a href="summer_internship.png" target="_blank">
-                <img class="certificate-image" src="summer_internship.png" alt="Swachh Bharat Summer Internship Certificate">
-            </a>
-            <div class="certificate-info">
-                <h3>Swachh Bharat Summer Internship</h3>
-                <p>Ministry of Jal Shakti / Youth Affairs & Sports</p>
-                <a class="certificate-link" href="summer_internship.png" target="_blank">View Document</a>
-            </div>
-        </div>
-
-        <!-- 16: WhatsApp Image Certificate -->
-        <div class="certificate">
-            <a href="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" target="_blank">
-                <img class="certificate-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" alt="Certificate of Participation / Training">
-            </a>
-            <div class="certificate-info">
-                <h3>Training / Participation Certificate</h3>
-                <p>Academic & Professional Training</p>
-                <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" target="_blank">View Document</a>
-            </div>
-        </div>
-
     </div>
-</section>
 
+    <!-- EDUCATION SECTION -->
+    <div class="page-section" id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>PG Diploma in Applied Geoinformatics</h3>
+                <div class="timeline-meta">
+                    <span>Jadavpur University at CAD Center</span>
+                    <span>Kolkata, India</span>
+                    <span>07/2024 - 07/2025</span>
+                </div>
+                <p><strong>Final Grade:</strong> 78.80%</p>
+                <p><strong>Thesis:</strong> Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</p>
+                <p>Website: <a href="https://www.cadcentreju.org/" target="_blank">cadcentreju.org</a></p>
+            </div>
 
-<!-- CV & CONTACT AREA -->
-<section id="cv">
-    <h2>Curriculum Vitae & Contact</h2>
-    <div class="contact-box">
-        <p>My academic background, research experience, professional timeline, and technical skills.</p>
+            <div class="timeline-item">
+                <h3>M.A. Geography (Hons)</h3>
+                <div class="timeline-meta">
+                    <span>University of Mumbai</span>
+                    <span>Mumbai, India</span>
+                    <span>2021 - 2023</span>
+                </div>
+                <p><strong>Field of Study:</strong> Arts and Humanities</p>
+                <p><strong>Final Grade:</strong> 8.7 CGPI</p>
+                <p><strong>Thesis:</strong> Impact of climate change on rainfall variability on Bhima basin</p>
+                <p>Website: <a href="https://mu.ac.in/" target="_blank">mu.ac.in</a></p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>B.A. Geography (Hons)</h3>
+                <div class="timeline-meta">
+                    <span>University of Delhi</span>
+                    <span>India</span>
+                    <span>2018 - 2021</span>
+                </div>
+                <p><strong>Field of Study:</strong> Arts and Humanities</p>
+                <p><strong>Final Grade:</strong> 7.878 CGPA</p>
+                <p>Website: <a href="http://www.du.ac.in/" target="_blank">du.ac.in</a></p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>High School</h3>
+                <div class="timeline-meta">
+                    <span>KV Dipatoli</span>
+                    <span>India</span>
+                    <span>2016 - 2018</span>
+                </div>
+                <p><strong>Field of Study:</strong> Arts and Humanities</p>
+                <p><strong>Final Grade:</strong> 81.8%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <div class="page-section" id="skills">
+        <h2>Skills & Technical Expertise</h2>
+        <p class="section-intro">Comprehensive toolkit spanning spatial analysis, statistical modeling, and data management.</p>
         
-        <a class="btn" href="cv.pdf" target="_blank" download style="margin-bottom: 20px;">View / Download Full CV</a>
-
-        <div class="contact-links">
-            <p>✉️ <strong>Email:</strong> <a href="mailto:arojsalil5@gmail.com">arojsalil5@gmail.com</a> | <a href="mailto:sarojsalil12@gmail.com">sarojsalil12@gmail.com</a></p>
-            <p>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saroj-salil/" target="_blank">Saroj Salil | LinkedIn</a></p>
-            <p>📍 <strong>Location:</strong> Dhanbad, Jharkhand, India</p>
+        <div class="skills">
+            <span class="skill">ArcGIS</span>
+            <span class="skill">ArcGIS Pro</span>
+            <span class="skill">QGIS</span>
+            <span class="skill">Python</span>
+            <span class="skill">SQL</span>
+            <span class="skill">DBMS</span>
+            <span class="skill">Climate Data Operators (CDO)</span>
+            <span class="skill">GrADS</span>
+            <span class="skill">ERDAS Imagine</span>
+            <span class="skill">ARCSWAT</span>
+            <span class="skill">IBM SPSS</span>
+            <span class="skill">XLSTAT</span>
+            <span class="skill">Spyder</span>
+            <span class="skill">SNAP</span>
+            <span class="skill">Tera Sync</span>
+            <span class="skill">GNSS</span>
+            <span class="skill">DGPS</span>
+            <span class="skill">FLUS</span>
+            <span class="skill">AutoCAD</span>
+            <span class="skill">Adobe Photoshop</span>
+            <span class="skill">Adobe Illustrator</span>
+            <span class="skill">Adobe Lightroom</span>
+            <span class="skill">Microsoft Office</span>
+            <span class="skill">Stock Analysis</span>
         </div>
     </div>
-</section>
 
+    <!-- PROJECTS SECTION -->
+    <div class="page-section" id="projects">
+        <h2>Projects & Spatial Analysis</h2>
+        <p class="section-intro">Selected research and geospatial projects.</p>
+        
+        <div class="grid">
+            <div class="project-card">
+                <div class="project-image">Future Bhima Basin Map Analysis</div>
+                <div class="project-content">
+                    <h3>Rainfall Variability in Bhima Basin</h3>
+                    <p>Long-term analysis of rainfall variability and trends using gridded rainfall data and statistical methods.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Future PMKVY Geographic Analysis</div>
+                <div class="project-content">
+                    <h3>PMKVY Spatial Analysis in Jharkhand</h3>
+                    <p>Geospatial investigation of skill-development centres, accessibility, terrain and spatial patterns among tribal youth.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Future GIS / Terrain Mapping</div>
+                <div class="project-content">
+                    <h3>GIS & Terrain Analysis Portfolio</h3>
+                    <p>A collection of GIS, DEM, Remote Sensing and spatial-analysis projects will be presented here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CREATIVE WORKS SECTION -->
+    <div class="page-section" id="creative">
+        <h2>Creative Works</h2>
+        <div class="creative-container">
+            <div class="creative-item">
+                <h3>Achievement | 2019</h3>
+                <p>
+                    Received appreciation from FM Fever Radio 104.0 and Gautam Gambhir (Member of Parliament, East Delhi Constituency) for the innovative idea of refusing single-use plastic to beat plastic pollution—specifically, bringing reusable steel cutlery for daily lunch and refreshments. Featured in <em>Punjab Kesari</em> newspaper for outstanding work in a cleanliness drive in DDA Flats, as part of the <strong>Swachh Bharat Se Swasth Bharat</strong> campaign. The primary objective was driving behavioral change, as human behavior plays a critical role in environmental sustainability.
+                </p>
+                
+                <div class="creative-media-grid">
+                    <div class="creative-media-card">
+                        <a href="Screenshot 2026-08-18 220818.png" target="_blank">
+                            <img src="Screenshot 2026-08-18 220818.png" alt="Cleanliness Drive Coverage">
+                        </a>
+                        <div class="caption">News Feature / Document</div>
+                    </div>
+                    
+                    <div class="creative-media-card">
+                        <a href="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" target="_blank">
+                            <img src="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" alt="Fever FM / Gautam Gambhir Appreciation Event">
+                        </a>
+                        <div class="caption">Appreciation Event / Campaign Photo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTICIPATIONS SECTION -->
+    <div class="page-section" id="participations">
+        <h2>Participations</h2>
+        <p class="section-intro">Conferences, seminars, community workshops, and event volunteering.</p>
+
+        <div class="participations-container">
+            <ul class="part-list">
+                <li class="part-item">
+                    <div class="part-title">Student Volunteer & Technical Assistant | Asia Oceania Geosciences Society (AOGS) Conference 2025</div>
+                    <div class="part-meta">27/07/2025 – 31/07/2025 | Singapore</div>
+                    <div class="part-desc">Worked as Technical Assistant and Student Volunteer assisting international delegates, session organization, and logistics during the annual geosciences conference.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Participant | Sensitization Program on Prevention of Drug Abuse</div>
+                    <div class="part-meta">ARSD College, University of Delhi</div>
+                    <div class="part-desc">Participated in a one-day awareness initiative jointly organized by the National Institute of Social Defence (NISD), Ministry of Social Justice and Empowerment, and the NSS Unit, ARSD College.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Participant & Volunteer | MTNL Perfect Health Mela</div>
+                    <div class="part-meta">Talkatora Stadium, New Delhi</div>
+                    <div class="part-desc">Engaged in community health and wellness outreach campaigns organized by the Heart Care Foundation of India (HCFI) in collaboration with the Government of NCT of Delhi.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Participant | Digital Transformation: An India Story</div>
+                    <div class="part-meta">2023 | New Delhi</div>
+                    <div class="part-desc">Attended discussions on technological innovation and digital public infrastructure, organized by Carnegie India in collaboration with Meta India under the G20 framework.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Participant | Youth Vision for Circular Economy</div>
+                    <div class="part-meta">2023 | IIT Delhi</div>
+                    <div class="part-desc">Contributed to youth climate action dialogues on sustainable resource frameworks, organized by the Indian Youth Climate Network (IYCN) in partnership with EU-Resource Efficiency and IIT Delhi.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- VOLUNTEERING SECTION -->
+    <div class="page-section" id="volunteering">
+        <h2>Volunteering & Community Service</h2>
+        <p class="section-intro">National Service Scheme (NSS) social initiatives, disaster relief, sports volunteering, and environmental drives.</p>
+
+        <div class="volunteering-container">
+            <div class="timeline-meta" style="margin-bottom: 20px;">
+                <span><strong>Organization:</strong> National Service Scheme (NSS)</span>
+                <span><strong>Period:</strong> 2018 - 2020</span>
+                <span><strong>Location:</strong> Delhi, India</span>
+            </div>
+
+            <ul class="part-list">
+                <li class="part-item">
+                    <div class="part-title">Kerala Flood Relief Drive & PMO Appreciation</div>
+                    <div class="part-desc">Participated in the Kerala flood relief donation drive, collected ₹21,000/- for flood victims, and received an appreciation letter from the Prime Minister's Office (PMO).</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Khelo India Sports Event Volunteering</div>
+                    <div class="part-desc">Participated and volunteered in Khelo India, organized under the Government Scheme of the Ministry of Youth Affairs and Sports.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">NSS Seven-Day Special Camp</div>
+                    <div class="part-desc">Successfully participated in the 7-day Special NSS Camp dedicated to community service, rural development, and youth leadership.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Road Safety Panel Discussion | IIT Delhi</div>
+                    <div class="part-desc">Participated in a panel discussion on "Role of Youth in Road Safety" organized by the Indian Road Safety Campaign held at IIT Delhi.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Swachhata Hi Seva & Cleanliness Drives</div>
+                    <div class="part-desc">Led and participated in cleanliness drives in Sheikh Sarai, Swachhata Hi Seva campaign in college campus, and local environmental awareness drives.</div>
+                </li>
+                <li class="part-item">
+                    <div class="part-title">Plantation & Cloth Donation Drives</div>
+                    <div class="part-desc">Organized and participated in tree plantation drives across the college campus and conducted cloth donation drives in slum areas near Okhla, Delhi.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- VOLUNTEERING GALLERY -->
+        <div class="volunteering-media-grid">
+            <div class="volunteering-media-card">
+                <a href="1.jpeg" target="_blank">
+                    <img class="volunteering-image" src="1.jpeg" alt="NSS Volunteering Photo 1">
+                </a>
+                <div class="volunteering-info">
+                    <h3>NSS Activity Photo 1</h3>
+                    <p>NSS Volunteering & Drives</p>
+                    <a class="certificate-link" href="1.jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="volunteering-media-card">
+                <a href="2.jpeg" target="_blank">
+                    <img class="volunteering-image" src="2.jpeg" alt="NSS Volunteering Photo 2">
+                </a>
+                <div class="volunteering-info">
+                    <h3>NSS Activity Photo 2</h3>
+                    <p>NSS Volunteering & Drives</p>
+                    <a class="certificate-link" href="2.jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="volunteering-media-card">
+                <a href="3.jpeg" target="_blank">
+                    <img class="volunteering-image" src="3.jpeg" alt="NSS Volunteering Photo 3">
+                </a>
+                <div class="volunteering-info">
+                    <h3>NSS Activity Photo 3</h3>
+                    <p>NSS Volunteering & Drives</p>
+                    <a class="certificate-link" href="3.jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="volunteering-media-card">
+                <a href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">
+                    <img class="volunteering-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" alt="NSS Volunteering Photo 4">
+                </a>
+                <div class="volunteering-info">
+                    <h3>NSS Activity Photo 4</h3>
+                    <p>NSS Volunteering & Drives</p>
+                    <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATES SECTION -->
+    <div class="page-section" id="certificates">
+        <h2>Certificates & Training Documents</h2>
+        <p class="section-intro">Professional training, academic learning, GIS, Remote Sensing, climate and Earth observation certificates.</p>
+
+        <div class="certificate-grid">
+            <div class="certificate">
+                <a href="gis-for-climate-action.jpg" target="_blank">
+                    <img class="certificate-image" src="gis-for-climate-action.jpg" alt="GIS for Climate Action">
+                </a>
+                <div class="certificate-info">
+                    <h3>GIS for Climate Action</h3>
+                    <p>Esri | GIS & Climate Action</p>
+                    <a class="certificate-link" href="gis-for-climate-action.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="geospatial-modelling-watershed-management.jpg" target="_blank">
+                    <img class="certificate-image" src="geospatial-modelling-watershed-management.jpg" alt="Watershed Management">
+                </a>
+                <div class="certificate-info">
+                    <h3>Geospatial Modelling for Watershed Management</h3>
+                    <p>IIRS / ISRO</p>
+                    <a class="certificate-link" href="geospatial-modelling-watershed-management.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="nasa-arset-flood-training.jpg" target="_blank">
+                    <img class="certificate-image" src="nasa-arset-flood-training.jpg" alt="NASA ARSET Flood Training">
+                </a>
+                <div class="certificate-info">
+                    <h3>Monitoring and Predicting Floods Using Earth Observations</h3>
+                    <p>NASA ARSET</p>
+                    <a class="certificate-link" href="nasa-arset-flood-training.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="wekeo-for-climate-change.jpg" target="_blank">
+                    <img class="certificate-image" src="wekeo-for-climate-change.jpg" alt="WEkEO for Climate Change">
+                </a>
+                <div class="certificate-info">
+                    <h3>WEkEO for Climate Change</h3>
+                    <p>Copernicus / Mercator Ocean International</p>
+                    <a class="certificate-link" href="wekeo-for-climate-change.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="enso-weather-training.jpg" target="_blank">
+                    <img class="certificate-image" src="enso-weather-training.jpg" alt="El Niño Training">
+                </a>
+                <div class="certificate-info">
+                    <h3>Monitoring the El Niño–Southern Oscillation</h3>
+                    <p>Climate & Weather Training</p>
+                    <a class="certificate-link" href="enso-weather-training.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="climate-justice-climate-law.jpg" target="_blank">
+                    <img class="certificate-image" src="climate-justice-climate-law.jpg" alt="Climate Law">
+                </a>
+                <div class="certificate-info">
+                    <h3>Climate Justice and Climate Law</h3>
+                    <p>NLU Delhi & SOAS</p>
+                    <a class="certificate-link" href="climate-justice-climate-law.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="ncess-research-internship.jpg" target="_blank">
+                    <img class="certificate-image" src="ncess-research-internship.jpg" alt="NCESS Internship">
+                </a>
+                <div class="certificate-info">
+                    <h3>Research Internship</h3>
+                    <p>National Centre for Earth Science Studies</p>
+                    <a class="certificate-link" href="ncess-research-internship.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="field-investigator-cgu.jpg" target="_blank">
+                    <img class="certificate-image" src="field-investigator-cgu.jpg" alt="Field Investigator">
+                </a>
+                <div class="certificate-info">
+                    <h3>Field Investigator</h3>
+                    <p>CV Raman Global University</p>
+                    <a class="certificate-link" href="field-investigator-cgu.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="rmsi-gis-engineer-experience.jpg" target="_blank">
+                    <img class="certificate-image" src="rmsi-gis-engineer-experience.jpg" alt="RMSI Experience">
+                </a>
+                <div class="certificate-info">
+                    <h3>GIS Engineer Experience</h3>
+                    <p>RMSI</p>
+                    <a class="certificate-link" href="rmsi-gis-engineer-experience.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="certificate-appreciation-2025.jpg" target="_blank">
+                    <img class="certificate-image" src="certificate-appreciation-2025.jpg" alt="Appreciation">
+                </a>
+                <div class="certificate-info">
+                    <h3>Certificate of Appreciation</h3>
+                    <p>Academic / Professional Recognition</p>
+                    <a class="certificate-link" href="certificate-appreciation-2025.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="training-certificate-2025.jpg" target="_blank">
+                    <img class="certificate-image" src="training-certificate-2025.jpg" alt="Training 2025">
+                </a>
+                <div class="certificate-info">
+                    <h3>Professional Training</h3>
+                    <p>Training Certificate | 2025</p>
+                    <a class="certificate-link" href="training-certificate-2025.jpg" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="Certificate_of_Completion.pdf" target="_blank">
+                    <img class="certificate-image" src="Certificate_of_Completion.png" alt="Machine Learning for Earth Systems">
+                </a>
+                <div class="certificate-info">
+                    <h3>Machine Learning for Earth Systems Modelling</h3>
+                    <p>ECMWF | Destination Earth</p>
+                    <a class="certificate-link" href="Certificate_of_Completion.pdf" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">
+                    <img class="certificate-image" src="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" alt="NISD Drug Abuse Prevention Certificate">
+                </a>
+                <div class="certificate-info">
+                    <h3>Drug Abuse Prevention Sensitization</h3>
+                    <p>NISD | Ministry of Social Justice & Empowerment</p>
+                    <a class="certificate-link" href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="nss.png" target="_blank">
+                    <img class="certificate-image" src="nss.png" alt="NSS Volunteer Certificate">
+                </a>
+                <div class="certificate-info">
+                    <h3>National Service Scheme (NSS) Volunteer</h3>
+                    <p>NSS Unit | ARSD College, University of Delhi</p>
+                    <a class="certificate-link" href="nss.png" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="summer_internship.png" target="_blank">
+                    <img class="certificate-image" src="summer_internship.png" alt="Swachh Bharat Summer Internship Certificate">
+                </a>
+                <div class="certificate-info">
+                    <h3>Swachh Bharat Summer Internship</h3>
+                    <p>Ministry of Jal Shakti / Youth Affairs & Sports</p>
+                    <a class="certificate-link" href="summer_internship.png" target="_blank">View Document</a>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <a href="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" target="_blank">
+                    <img class="certificate-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" alt="Certificate of Participation / Training">
+                </a>
+                <div class="certificate-info">
+                    <h3>Training / Participation Certificate</h3>
+                    <p>Academic & Professional Training</p>
+                    <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" target="_blank">View Document</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV SECTION -->
+    <div class="page-section" id="cv">
+        <h2>Curriculum Vitae & Contact</h2>
+        <div class="contact-box">
+            <p>My academic background, research experience, professional timeline, and technical skills.</p>
+            
+            <a class="btn" href="cv.pdf" target="_blank" download style="margin-bottom: 20px;">View / Download Full CV</a>
+
+            <div class="contact-links">
+                <p>✉️ <strong>Email:</strong> <a href="mailto:arojsalil5@gmail.com">arojsalil5@gmail.com</a> | <a href="mailto:sarojsalil12@gmail.com">sarojsalil12@gmail.com</a></p>
+                <p>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saroj-salil/" target="_blank">Saroj Salil | LinkedIn</a></p>
+                <p>📍 <strong>Location:</strong> Dhanbad, Jharkhand, India</p>
+            </div>
+        </div>
+    </div>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
     <p>© 2026 Saroj Salil | Geography • GIS • Remote Sensing • Climate Research</p>
 </footer>
+
+<!-- JAVASCRIPT FOR SECTION SWITCHING -->
+<script>
+function showSection(sectionId, evt) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.page-section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Remove active state from nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Show targeted section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
+    }
+
+    // Highlight corresponding nav item if event is passed
+    if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add('active');
+    }
+
+    // Scroll smoothly to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
