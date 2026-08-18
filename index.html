@@ -133,14 +133,14 @@ main {
 #home {
     min-height: calc(100vh - 140px);
     display: flex;
-    flex-direction: column; /* Allows stacking the hero text and the about section */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 70px 20px;
     
-    /* UPDATED: Background Image from root folder with a dark gradient overlay for text readability */
-    background: linear-gradient(135deg, rgba(26, 54, 68, 0.85), rgba(42, 85, 104, 0.85)), url('photo_2026-08-12_19-29-10.jpg');
+    /* UPDATED: Removed blue gradient overlay, showing the pure color image */
+    background: url('photo_2026-08-12_19-29-10.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -148,11 +148,16 @@ main {
     color: white;
     border-radius: 12px;
     margin-top: 20px;
-    gap: 60px; /* Space between intro text and About Me box */
+    gap: 60px;
 }
 
 .hero-content {
     max-width: 900px;
+}
+
+/* Added text shadows so the text remains readable over the full-color background image */
+.hero h1, .hero h2, .hero p {
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.85);
 }
 
 .hero h1 {
@@ -165,7 +170,7 @@ main {
     font-size: 24px;
     font-weight: 300;
     margin-bottom: 25px;
-    color: #a4c9d7;
+    color: #e0f2f1;
 }
 
 .hero p {
@@ -192,11 +197,13 @@ main {
     transition: 0.3s;
     border: 2px solid #48a9a6;
     cursor: pointer;
+    text-shadow: none; /* Removes text shadow from button text */
 }
 
 .btn.secondary {
-    background: transparent;
-    color: #48a9a6;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-color: #ffffff;
 }
 
 .btn:hover {
@@ -206,7 +213,7 @@ main {
     transform: translateY(-3px);
 }
 
-/* ABOUT SECTION (Now inside Home) */
+/* ABOUT SECTION (Inside Home) */
 
 .about-container {
     background: white;
@@ -217,8 +224,9 @@ main {
     align-items: center;
     gap: 40px;
     border-left: 6px solid #48a9a6;
-    text-align: left; /* Ensures text stays left-aligned despite being in the center-aligned hero */
+    text-align: left;
     max-width: 1000px;
+    color: #2c3e50; /* Ensuring text stays dark inside the white box */
 }
 
 .about-photo {
@@ -236,16 +244,18 @@ main {
     color: #1a3644;
     font-size: 32px;
     margin-bottom: 15px;
+    text-shadow: none; /* Removed shadow from about heading */
 }
 
 .about-text h2::after {
-    margin: 15px 0 20px 0; /* Left align the underline */
+    margin: 15px 0 20px 0;
 }
 
 .about-text p {
     font-size: 17px;
     color: #455a64;
     line-height: 1.8;
+    text-shadow: none; /* Removed shadow from about text */
 }
 
 @media(max-width: 850px) {
@@ -695,7 +705,6 @@ footer {
     <div class="logo">Saroj <span>Salil</span></div>
     <ul>
         <li><a class="nav-link active" onclick="showSection('home', event)">Home</a></li>
-        <!-- The separate "About" tab was removed since it is now on the Home page -->
         <li><a class="nav-link" onclick="showSection('experience', event)">Experience</a></li>
         <li><a class="nav-link" onclick="showSection('education', event)">Education</a></li>
         <li><a class="nav-link" onclick="showSection('skills', event)">Skills</a></li>
@@ -717,7 +726,6 @@ footer {
             <h2>Geography | GIS & Remote Sensing | Climate Research</h2>
             <p>Geography researcher working at the intersection of climate variability, rainfall analysis, GIS, remote sensing, spatial analysis, and environmental research.</p>
             <div class="buttons">
-                <!-- Updated button to navigate to Experience since About is already here -->
                 <button class="btn" onclick="showSection('experience', event)">Explore My Work</button>
                 <button class="btn secondary" onclick="showSection('cv', event)">Download CV</button>
             </div>
@@ -1245,8 +1253,9 @@ footer {
             <a class="btn" href="cv.pdf" target="_blank" download style="margin-bottom: 20px;">View / Download Full CV</a>
 
             <div class="contact-links">
-                <p>✉️ <strong>Email:</strong> <a href="mailto:arojsalil5@gmail.com">arojsalil5@gmail.com</a> | <a href="mailto:sarojsalil12@gmail.com">sarojsalil12@gmail.com</a></p>
-                <p>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saroj-salil/" target="_blank">Saroj Salil | LinkedIn</a></p>
+                <p>✉️ <strong>Email:</strong> <a href="mailto:sarojsalil5@gmail.com">sarojsalil5@gmail.com</a> | <a href="mailto:sarojsalil12@gmail.com">sarojsalil12@gmail.com</a></p>
+                <p>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saroj-salil-493102147/" target="_blank">Saroj Salil | LinkedIn</a></p>
+                <p>▶️ <strong>YouTube:</strong> <a href="https://www.youtube.com/@The_geographer_man" target="_blank">The_geographer_man</a></p>
                 <p>📍 <strong>Location:</strong> Dhanbad, Jharkhand, India</p>
             </div>
         </div>
