@@ -133,14 +133,22 @@ main {
 #home {
     min-height: calc(100vh - 140px);
     display: flex;
+    flex-direction: column; /* Allows stacking the hero text and the about section */
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 70px 20px;
-    background: linear-gradient(135deg, rgba(26, 54, 68, 0.95), rgba(42, 85, 104, 0.95)), url('https://www.transparenttextures.com/patterns/topography.png');
+    
+    /* UPDATED: Background Image from root folder with a dark gradient overlay for text readability */
+    background: linear-gradient(135deg, rgba(26, 54, 68, 0.85), rgba(42, 85, 104, 0.85)), url('photo_2026-08-12_19-29-10.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
     color: white;
     border-radius: 12px;
     margin-top: 20px;
+    gap: 60px; /* Space between intro text and About Me box */
 }
 
 .hero-content {
@@ -198,17 +206,19 @@ main {
     transform: translateY(-3px);
 }
 
-/* ABOUT SECTION */
+/* ABOUT SECTION (Now inside Home) */
 
 .about-container {
     background: white;
     border-radius: 12px;
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     display: flex;
     align-items: center;
     gap: 40px;
     border-left: 6px solid #48a9a6;
+    text-align: left; /* Ensures text stays left-aligned despite being in the center-aligned hero */
+    max-width: 1000px;
 }
 
 .about-photo {
@@ -221,6 +231,17 @@ main {
     flex-shrink: 0;
 }
 
+.about-text h2 {
+    text-align: left;
+    color: #1a3644;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.about-text h2::after {
+    margin: 15px 0 20px 0; /* Left align the underline */
+}
+
 .about-text p {
     font-size: 17px;
     color: #455a64;
@@ -231,6 +252,12 @@ main {
     .about-container {
         flex-direction: column;
         text-align: center;
+    }
+    .about-text h2 {
+        text-align: center;
+    }
+    .about-text h2::after {
+        margin: 15px auto 20px auto;
     }
 }
 
@@ -668,7 +695,7 @@ footer {
     <div class="logo">Saroj <span>Salil</span></div>
     <ul>
         <li><a class="nav-link active" onclick="showSection('home', event)">Home</a></li>
-        <li><a class="nav-link" onclick="showSection('about', event)">About</a></li>
+        <!-- The separate "About" tab was removed since it is now on the Home page -->
         <li><a class="nav-link" onclick="showSection('experience', event)">Experience</a></li>
         <li><a class="nav-link" onclick="showSection('education', event)">Education</a></li>
         <li><a class="nav-link" onclick="showSection('skills', event)">Skills</a></li>
@@ -683,29 +710,29 @@ footer {
 
 <main>
 
-    <!-- HOME SECTION -->
+    <!-- HOME SECTION (Now includes Background Image & About Me) -->
     <div class="page-section active" id="home">
         <div class="hero-content">
             <h1>Saroj Salil</h1>
             <h2>Geography | GIS & Remote Sensing | Climate Research</h2>
             <p>Geography researcher working at the intersection of climate variability, rainfall analysis, GIS, remote sensing, spatial analysis, and environmental research.</p>
             <div class="buttons">
-                <button class="btn" onclick="showSection('about', event)">Explore My Work</button>
+                <!-- Updated button to navigate to Experience since About is already here -->
+                <button class="btn" onclick="showSection('experience', event)">Explore My Work</button>
                 <button class="btn secondary" onclick="showSection('cv', event)">Download CV</button>
             </div>
         </div>
-    </div>
 
-    <!-- ABOUT SECTION -->
-    <div class="page-section" id="about">
-        <h2>About Me</h2>
+        <!-- ABOUT CONTENT INTEGRATED INTO HOME -->
         <div class="about-container">
             <img src="photo_2026-08-18_00-46-10.jpg" alt="Saroj Salil" class="about-photo">
             <div class="about-text">
+                <h2>About Me</h2>
                 <p>Dedicated to leveraging my expertise in environmental science and climate change, with a focus on weather patterns in regions like the Himalayas, to drive sustainable solutions and community resilience. Committed to applying my knowledge and skills to address pressing environmental challenges, fostering a healthier planet through impactful, science-driven actions.</p>
             </div>
         </div>
     </div>
+
 
     <!-- EXPERIENCE SECTION -->
     <div class="page-section" id="experience">
