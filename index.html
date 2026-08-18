@@ -359,6 +359,55 @@ section h2::after {
     margin-bottom: 10px;
 }
 
+/* PARTICIPATIONS */
+
+.participations-container {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 6px solid #1a3644;
+}
+
+.part-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.part-item {
+    position: relative;
+    padding-left: 25px;
+}
+
+.part-item::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #48a9a6;
+    font-size: 14px;
+}
+
+.part-title {
+    font-weight: bold;
+    color: #1a3644;
+    font-size: 17px;
+}
+
+.part-meta {
+    font-size: 13px;
+    color: #788a98;
+    font-weight: 600;
+    margin: 2px 0 6px 0;
+}
+
+.part-desc {
+    color: #455a64;
+    font-size: 15px;
+}
+
 /* CERTIFICATES */
 
 .certificate-grid {
@@ -491,6 +540,7 @@ footer {
         <li><a href="#skills">Skills</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#participations">Participations</a></li>
         <li><a href="#certificates">Certificates</a></li>
         <li><a href="#cv">CV</a></li>
     </ul>
@@ -736,9 +786,46 @@ footer {
 </section>
 
 
+<!-- PARTICIPATIONS -->
+<section id="participations">
+    <h2>Participations</h2>
+    <p class="section-intro">Conferences, seminars, community workshops, and event volunteering.</p>
+
+    <div class="participations-container">
+        <ul class="part-list">
+            <li class="part-item">
+                <div class="part-title">Student Volunteer & Technical Assistant | Asia Oceania Geosciences Society (AOGS) Conference 2025</div>
+                <div class="part-meta">27/07/2025 – 31/07/2025 | Singapore</div>
+                <div class="part-desc">Worked as Technical Assistant and Student Volunteer assisting international delegates, session organization, and logistics during the annual geosciences conference.</div>
+            </li>
+            <li class="part-item">
+                <div class="part-title">Participant | Sensitization Program on Prevention of Drug Abuse</div>
+                <div class="part-meta">ARSD College, University of Delhi</div>
+                <div class="part-desc">Participated in a one-day awareness initiative jointly organized by the National Institute of Social Defence (NISD), Ministry of Social Justice and Empowerment, and the NSS Unit, ARSD College.</div>
+            </li>
+            <li class="part-item">
+                <div class="part-title">Participant & Volunteer | MTNL Perfect Health Mela</div>
+                <div class="part-meta">Talkatora Stadium, New Delhi</div>
+                <div class="part-desc">Engaged in community health and wellness outreach campaigns organized by the Heart Care Foundation of India (HCFI) in collaboration with the Government of NCT of Delhi.</div>
+            </li>
+            <li class="part-item">
+                <div class="part-title">Participant | Digital Transformation: An India Story</div>
+                <div class="part-meta">2023 | New Delhi</div>
+                <div class="part-desc">Attended discussions on technological innovation and digital public infrastructure, organized by Carnegie India in collaboration with Meta India under the G20 framework.</div>
+            </li>
+            <li class="part-item">
+                <div class="part-title">Participant | Youth Vision for Circular Economy</div>
+                <div class="part-meta">2023 | IIT Delhi</div>
+                <div class="part-desc">Contributed to youth climate action dialogues on sustainable resource frameworks, organized by the Indian Youth Climate Network (IYCN) in partnership with EU-Resource Efficiency and IIT Delhi.</div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
 <!-- CERTIFICATES -->
 <section id="certificates">
-    <h2>Certificates & Training</h2>
+    <h2>Certificates & Training Documents</h2>
     <p class="section-intro">Professional training, academic learning, GIS, Remote Sensing, climate and Earth observation certificates.</p>
 
     <div class="certificate-grid">
