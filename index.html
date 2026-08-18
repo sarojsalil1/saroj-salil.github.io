@@ -71,10 +71,10 @@ nav ul li a:hover {
     color: #48a9a6;
 }
 
-/* HERO */
+/* HERO / HOME SECTION */
 
 .hero {
-    min-height: 85vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,19 +139,23 @@ nav ul li a:hover {
     transform: translateY(-3px);
 }
 
-/* SECTIONS */
+/* SECTIONS (DISTINCT FULL VIEWS) */
 
 section {
+    min-height: 100vh;
     max-width: 1200px;
     margin: auto;
-    padding: 90px 25px;
+    padding: 100px 25px 60px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 section h2 {
     text-align: center;
     font-size: 38px;
     color: #1a3644;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     position: relative;
 }
 
@@ -429,6 +433,7 @@ section h2::after {
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border-top: 6px solid #48a9a6;
+    margin-bottom: 40px;
 }
 
 .part-list {
@@ -468,6 +473,54 @@ section h2::after {
 .part-desc {
     color: #455a64;
     font-size: 15px;
+}
+
+/* VOLUNTEERING MEDIA GRID */
+
+.volunteering-media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.volunteering-media-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: 0.3s;
+    border: 1px solid #eef2f5;
+}
+
+.volunteering-media-card:hover {
+    transform: translateY(-7px);
+}
+
+.volunteering-image {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid #eef2f5;
+}
+
+.volunteering-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.volunteering-info h3 {
+    color: #1a3644;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.volunteering-info p {
+    color: #788a98;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 /* CERTIFICATES */
@@ -575,14 +628,14 @@ footer {
     font-size: 14px;
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVENESS */
 
 @media(max-width: 800px) {
     nav { flex-direction: column; gap: 15px; }
     nav ul { gap: 12px; }
     .hero h1 { font-size: 45px; }
     .hero h2 { font-size: 20px; }
-    section { padding: 60px 15px; }
+    section { padding: 80px 15px 40px 15px; min-height: auto; }
 }
 
 </style>
@@ -955,6 +1008,53 @@ footer {
                 <div class="part-desc">Organized and participated in tree plantation drives across the college campus and conducted cloth donation drives in slum areas near Okhla, Delhi.</div>
             </li>
         </ul>
+    </div>
+
+    <!-- VOLUNTEERING IMAGE GALLERY -->
+    <div class="volunteering-media-grid">
+        <div class="volunteering-media-card">
+            <a href="1.jpeg" target="_blank">
+                <img class="volunteering-image" src="1.jpeg" alt="NSS Volunteering Photo 1">
+            </a>
+            <div class="volunteering-info">
+                <h3>NSS Activity Photo 1</h3>
+                <p>NSS Volunteering & Drives</p>
+                <a class="certificate-link" href="1.jpeg" target="_blank">View Document</a>
+            </div>
+        </div>
+
+        <div class="volunteering-media-card">
+            <a href="2.jpeg" target="_blank">
+                <img class="volunteering-image" src="2.jpeg" alt="NSS Volunteering Photo 2">
+            </a>
+            <div class="volunteering-info">
+                <h3>NSS Activity Photo 2</h3>
+                <p>NSS Volunteering & Drives</p>
+                <a class="certificate-link" href="2.jpeg" target="_blank">View Document</a>
+            </div>
+        </div>
+
+        <div class="volunteering-media-card">
+            <a href="3.jpeg" target="_blank">
+                <img class="volunteering-image" src="3.jpeg" alt="NSS Volunteering Photo 3">
+            </a>
+            <div class="volunteering-info">
+                <h3>NSS Activity Photo 3</h3>
+                <p>NSS Volunteering & Drives</p>
+                <a class="certificate-link" href="3.jpeg" target="_blank">View Document</a>
+            </div>
+        </div>
+
+        <div class="volunteering-media-card">
+            <a href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">
+                <img class="volunteering-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" alt="NSS Volunteering Photo 4">
+            </a>
+            <div class="volunteering-info">
+                <h3>NSS Activity Photo 4</h3>
+                <p>NSS Volunteering & Drives</p>
+                <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">View Document</a>
+            </div>
+        </div>
     </div>
 </section>
 
