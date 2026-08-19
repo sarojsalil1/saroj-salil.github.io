@@ -398,23 +398,11 @@ main {
 
 .project-card img.project-img {
     width: 100%;
-    height: auto;
+    height: 240px;
+    object-fit: cover;
     display: block;
     border-bottom: 4px solid #48a9a6;
-}
-
-.project-image {
-    width: 100%;
-    height: 220px;
     background: #dce5e9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #718997;
-    font-size: 18px;
-    text-align: center;
-    padding: 20px;
-    border-bottom: 4px solid #48a9a6;
 }
 
 .project-content {
@@ -742,7 +730,6 @@ footer {
         </div>
 
         <div class="about-container">
-            <!-- Used zoomable image for profile pic too! -->
             <img src="photo_2026-08-18_00-46-10.jpg" alt="Saroj Salil" class="about-photo zoomable" onclick="openModal(this.src, this.alt)">
             <div class="about-text">
                 <h2>About Me</h2>
@@ -902,7 +889,7 @@ footer {
                     <p>This graph displays the datasets, highlighting the impact of the Urban Heat Island (UHI) effect. The graph clearly shows that temperatures have increased over time in both areas; however, the average temperature in Lucknow city is consistently higher than in the peripheral regions. This indicates the presence of the UHI effect. If we analyse the pattern, it is apparent that in the early years, the temperatures in the city and surrounding areas were more similar. However, after 2000, the city’s temperature became consistently higher, reflecting increased urbanization, reduced vegetation, and significant land use changes. Furthermore, the growing gap between the average temperatures of urban and rural areas suggests that factors like global warming are contributing to rising temperatures overall. This, in turn, intensifies the UHI effect and could potentially lead to more frequent and severe heat waves in the region. The trend clearly shows an upward trajectory, reinforcing the concern over rising urban temperatures.</p>
                     
                     <!-- Second Image -->
-                    <img class="zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Mann-Kendall Trend Analysis Graph" style="width: 100%; margin: 20px 0; border: 1px solid #eef2f5; border-radius: 6px;" onclick="openModal(this.src, this.alt)">
+                    <img class="zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Mann-Kendall Trend Analysis Graph" style="width: 100%; margin: 20px 0; border: 1px solid #eef2f5; border-radius: 6px; cursor: zoom-in;" onclick="openModal(this.src, this.alt)">
                     
                     <p>To validate whether there is an actual trend in the previous graph, we applied the Mann-Kendall test to determine if the trend is increasing, decreasing, or non-existent. Additionally, we used Sen’s slope estimation to assess the magnitude of change over time. In the given graph, we observe a positive Tau value of 0.06. Although this indicates a weak upward trend, it is very close to zero and not statistically significant. Since the p-value is 0.551, which is greater than the commonly used significance level of 0.05, we conclude that the trend is not statistically significant. This means we fail to reject the null hypothesis, which states that there is no trend, and we do not accept the alternative hypothesis of a significant trend. The estimated magnitude of change over the last 44 years is 0.006°C for Lucknow city and 0.007°C for the peripheral region. Observing the entire graph, we notice considerable interannual variability, particularly after 2000. Prominent temperature spikes are observed around 2009, 2016, and 2023, possibly related to extreme weather events or El Niño years. Conversely, lower temperature clusters appear in the early 1980s and around 2020, which may be associated with La Niña or other cooling events.</p>
                     
@@ -912,27 +899,30 @@ footer {
                 </div>
             </div>
 
-            <!-- Project 2 -->
+            <!-- Project 2 (Now ready for an image with the click-to-enlarge option) -->
             <div class="project-card">
-                <div class="project-image">Future Bhima Basin Map Analysis</div>
+                <!-- Replace 'https://placehold.co/...' with your actual image name when ready (e.g., src="bhima_basin.jpg") -->
+                <img class="project-img zoomable" src="https://placehold.co/800x450/dce5e9/718997?text=Future+Bhima+Basin+Map+Analysis" alt="Bhima Basin Map Analysis" onclick="openModal(this.src, this.alt)">
                 <div class="project-content">
                     <h3>Rainfall Variability in Bhima Basin</h3>
                     <p>Long-term analysis of rainfall variability and trends using gridded rainfall data and statistical methods.</p>
                 </div>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Project 3 (Now ready for an image with the click-to-enlarge option) -->
             <div class="project-card">
-                <div class="project-image">Future PMKVY Geographic Analysis</div>
+                <!-- Replace 'https://placehold.co/...' with your actual image name when ready -->
+                <img class="project-img zoomable" src="https://placehold.co/800x450/dce5e9/718997?text=Future+PMKVY+Geographic+Analysis" alt="PMKVY Spatial Analysis in Jharkhand" onclick="openModal(this.src, this.alt)">
                 <div class="project-content">
                     <h3>PMKVY Spatial Analysis in Jharkhand</h3>
                     <p>Geospatial investigation of skill-development centres, accessibility, terrain and spatial patterns among tribal youth.</p>
                 </div>
             </div>
 
-            <!-- Project 4 -->
+            <!-- Project 4 (Now ready for an image with the click-to-enlarge option) -->
             <div class="project-card">
-                <div class="project-image">Future GIS / Terrain Mapping</div>
+                <!-- Replace 'https://placehold.co/...' with your actual image name when ready -->
+                <img class="project-img zoomable" src="https://placehold.co/800x450/dce5e9/718997?text=Future+GIS+/+Terrain+Mapping" alt="GIS & Terrain Analysis Portfolio" onclick="openModal(this.src, this.alt)">
                 <div class="project-content">
                     <h3>GIS & Terrain Analysis Portfolio</h3>
                     <p>A collection of GIS, DEM, Remote Sensing and spatial-analysis projects will be presented here.</p>
