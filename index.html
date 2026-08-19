@@ -381,6 +381,20 @@ main {
     border-top: 6px solid #48a9a6;
 }
 
+/* Project Header specifically for titles above images */
+.stacked-project-header {
+    padding: 30px 40px;
+    background: white;
+    border-bottom: 1px solid #eef2f5;
+}
+
+.stacked-project-header h3 {
+    color: #1a3644;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
 .stacked-project-card img.stacked-project-img {
     width: 100%;
     height: auto;
@@ -388,7 +402,7 @@ main {
     object-fit: cover;
     display: block;
     background: #eef2f5;
-    border-bottom: 1px solid #dce5e9;
+    border-bottom: 1px solid #eef2f5;
 }
 
 /* For secondary/inline images within the project content */
@@ -407,13 +421,6 @@ main {
     text-align: left;
     font-size: 16px;
     line-height: 1.8;
-}
-
-.stacked-project-content h3 {
-    color: #1a3644;
-    font-size: 26px;
-    margin-bottom: 20px;
-    font-weight: bold;
 }
 
 .stacked-project-content h4 {
@@ -699,7 +706,7 @@ footer {
     .hero h1 { font-size: 40px; }
     .hero h2 { font-size: 18px; }
     .page-section { padding: 40px 15px; }
-    .stacked-project-content { padding: 25px; }
+    .stacked-project-content, .stacked-project-header { padding: 25px; }
 }
 
 </style>
@@ -890,11 +897,13 @@ footer {
         
             <!-- Project 1: Urban Heat Island -->
             <div class="stacked-project-card">
+                <div class="stacked-project-header">
+                    <h3>Project - Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</h3>
+                </div>
+                
                 <img class="stacked-project-img zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Temperature Comparison Graph" onclick="openModal(this.src, this.alt)">
                 
                 <div class="stacked-project-content">
-                    <h3>Project - Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</h3>
-                    
                     <p>This graph displays the datasets, highlighting the impact of the Urban Heat Island (UHI) effect. The graph clearly shows that temperatures have increased over time in both areas; however, the average temperature in Lucknow city is consistently higher than in the peripheral regions. This indicates the presence of the UHI effect. If we analyse the pattern, it is apparent that in the early years, the temperatures in the city and surrounding areas were more similar. However, after 2000, the city’s temperature became consistently higher, reflecting increased urbanization, reduced vegetation, and significant land use changes. Furthermore, the growing gap between the average temperatures of urban and rural areas suggests that factors like global warming are contributing to rising temperatures overall. This, in turn, intensifies the UHI effect and could potentially lead to more frequent and severe heat waves in the region. The trend clearly shows an upward trajectory, reinforcing the concern over rising urban temperatures.</p>
                     
                     <img class="inline-img zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Mann-Kendall Trend Analysis Graph" onclick="openModal(this.src, this.alt)">
@@ -928,10 +937,13 @@ footer {
 
             <!-- Project 2: Comfort Zone Map of Lucknow -->
             <div class="stacked-project-card">
+                <div class="stacked-project-header">
+                    <h3>Project - Comfort Zone Map of Lucknow City (1999-2025)</h3>
+                </div>
+                
                 <img class="stacked-project-img zoomable" src="urban_comfort zone map.jpg" alt="Comfort Zone Map of Lucknow City" onclick="openModal(this.src, this.alt)">
                 
                 <div class="stacked-project-content">
-                    <h3>Project - Comfort Zone Map of Lucknow City (1999-2025)</h3>
                     <p>The "Comfort Zone Map of Lucknow City" illustrates the spatial and temporal changes in thermal comfort levels across the city over four distinct years: 1999, 2009, 2017, and 2025 (projected). The maps use a detailed color-coded legend ranging from "Very High Comfort Zone" (deep green) to "Extremely Discomfort Zone" (deep red), helping visualize shifts in environmental conditions over time.</p>
                     
                     <ul>
@@ -967,9 +979,13 @@ footer {
 
             <!-- Project 3: Bhima Basin -->
             <div class="stacked-project-card">
+                <div class="stacked-project-header">
+                    <h3>Project - Impact of Climate Change on Rainfall Variability in Bhima Basin</h3>
+                </div>
+                
                 <img class="stacked-project-img zoomable" src="pci.png" alt="Precipitation Concentration Index (PCI) Map" onclick="openModal(this.src, this.alt)">
+                
                 <div class="stacked-project-content">
-                    <h3>Project - Rainfall Variability in Bhima Basin</h3>
                     <p>The Precipitation Concentration Index (PCI) across the basin, with values remaining consistently elevated throughout the entire study area. All 49 monitoring stations exceeded the baseline threshold of 21, placing the entire region firmly within the very high rainfall concentration category.</p>
                     <p>This indicates that precipitation is delivered highly unevenly over time. Station 999 recorded the highest PCI value in the dataset (24.79), followed closely by Stations 865 and 909. Such intense temporal concentration directly contributes to hydrological extremes, increasing the risk of flash flooding, prolonging dry periods, and accelerating soil erosion through rapid runoff generation.</p>
                     <p>Stations 867, 826, and 827 recorded the lowest PCI values in the dataset; however, even these minimums remain well above the severe concentration threshold, confirming that well-distributed rainfall is entirely absent from the basin.</p>
@@ -979,18 +995,26 @@ footer {
 
             <!-- Project 4: PMKVY -->
             <div class="stacked-project-card">
-                <img class="stacked-project-img zoomable" src="https://placehold.co/1000x500/eef2f5/718997?text=Future+PMKVY+Geographic+Analysis" alt="PMKVY Spatial Analysis in Jharkhand" onclick="openModal(this.src, this.alt)">
-                <div class="stacked-project-content">
+                <div class="stacked-project-header">
                     <h3>Project - PMKVY Spatial Analysis in Jharkhand</h3>
+                </div>
+                
+                <img class="stacked-project-img zoomable" src="https://placehold.co/1000x500/eef2f5/718997?text=Future+PMKVY+Geographic+Analysis" alt="PMKVY Spatial Analysis in Jharkhand" onclick="openModal(this.src, this.alt)">
+                
+                <div class="stacked-project-content">
                     <p>Geospatial investigation of skill-development centres, accessibility, terrain and spatial patterns among tribal youth.</p>
                 </div>
             </div>
 
             <!-- Project 5: GIS/Terrain Portfolio -->
             <div class="stacked-project-card">
-                <img class="stacked-project-img zoomable" src="https://placehold.co/1000x500/eef2f5/718997?text=Future+GIS+/+Terrain+Mapping" alt="GIS & Terrain Analysis Portfolio" onclick="openModal(this.src, this.alt)">
-                <div class="stacked-project-content">
+                <div class="stacked-project-header">
                     <h3>Project - GIS & Terrain Analysis Portfolio</h3>
+                </div>
+                
+                <img class="stacked-project-img zoomable" src="https://placehold.co/1000x500/eef2f5/718997?text=Future+GIS+/+Terrain+Mapping" alt="GIS & Terrain Analysis Portfolio" onclick="openModal(this.src, this.alt)">
+                
+                <div class="stacked-project-content">
                     <p>A collection of GIS, DEM, Remote Sensing and spatial-analysis projects will be presented here.</p>
                 </div>
             </div>
