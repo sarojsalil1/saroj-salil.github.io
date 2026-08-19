@@ -139,7 +139,7 @@ main {
     text-align: center;
     padding: 70px 20px;
     
-    /* UPDATED: Removed blue gradient overlay, showing the pure color image */
+    /* Removed blue gradient overlay, showing the pure color image */
     background: url('photo_2026-08-12_19-29-10.jpg');
     background-size: cover;
     background-position: center;
@@ -226,7 +226,7 @@ main {
     border-left: 6px solid #48a9a6;
     text-align: left;
     max-width: 1000px;
-    color: #2c3e50; /* Ensuring text stays dark inside the white box */
+    color: #2c3e50;
 }
 
 .about-photo {
@@ -244,7 +244,7 @@ main {
     color: #1a3644;
     font-size: 32px;
     margin-bottom: 15px;
-    text-shadow: none; /* Removed shadow from about heading */
+    text-shadow: none;
 }
 
 .about-text h2::after {
@@ -255,7 +255,7 @@ main {
     font-size: 17px;
     color: #455a64;
     line-height: 1.8;
-    text-shadow: none; /* Removed shadow from about text */
+    text-shadow: none;
 }
 
 @media(max-width: 850px) {
@@ -452,6 +452,13 @@ main {
     box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
+.project-card img.project-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 4px solid #48a9a6;
+}
+
 .project-image {
     width: 100%;
     height: 220px;
@@ -472,7 +479,19 @@ main {
 
 .project-content h3 {
     color: #1a3644;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.project-content p {
+    color: #455a64;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.project-content p:last-child {
+    margin-bottom: 0;
 }
 
 /* PARTICIPATIONS & VOLUNTEERING CONTAINER */
@@ -881,6 +900,29 @@ footer {
         <p class="section-intro">Selected research and geospatial projects.</p>
         
         <div class="grid">
+        
+            <!-- Project 1: Urban Heat Island (Standard Card Format) -->
+            <div class="project-card">
+                <!-- First Image -->
+                <img class="project-img" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Temperature Comparison Graph">
+                
+                <div class="project-content">
+                    <h3>Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</h3>
+                    
+                    <p>This graph displays the datasets, highlighting the impact of the Urban Heat Island (UHI) effect. The graph clearly shows that temperatures have increased over time in both areas; however, the average temperature in Lucknow city is consistently higher than in the peripheral regions. This indicates the presence of the UHI effect. If we analyse the pattern, it is apparent that in the early years, the temperatures in the city and surrounding areas were more similar. However, after 2000, the city’s temperature became consistently higher, reflecting increased urbanization, reduced vegetation, and significant land use changes. Furthermore, the growing gap between the average temperatures of urban and rural areas suggests that factors like global warming are contributing to rising temperatures overall. This, in turn, intensifies the UHI effect and could potentially lead to more frequent and severe heat waves in the region. The trend clearly shows an upward trajectory, reinforcing the concern over rising urban temperatures.</p>
+                    
+                    <!-- Second Image -->
+                    <img src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Mann-Kendall Trend Analysis Graph" style="width: 100%; margin: 20px 0; border: 1px solid #eef2f5; border-radius: 6px;">
+                    
+                    <p>To validate whether there is an actual trend in the previous graph, we applied the Mann-Kendall test to determine if the trend is increasing, decreasing, or non-existent. Additionally, we used Sen’s slope estimation to assess the magnitude of change over time. In the given graph, we observe a positive Tau value of 0.06. Although this indicates a weak upward trend, it is very close to zero and not statistically significant. Since the p-value is 0.551, which is greater than the commonly used significance level of 0.05, we conclude that the trend is not statistically significant. This means we fail to reject the null hypothesis, which states that there is no trend, and we do not accept the alternative hypothesis of a significant trend. The estimated magnitude of change over the last 44 years is 0.006°C for Lucknow city and 0.007°C for the peripheral region. Observing the entire graph, we notice considerable interannual variability, particularly after 2000. Prominent temperature spikes are observed around 2009, 2016, and 2023, possibly related to extreme weather events or El Niño years. Conversely, lower temperature clusters appear in the early 1980s and around 2020, which may be associated with La Niña or other cooling events.</p>
+                    
+                    <p>The given graph clearly illustrates the relationship between rainfall and Urban Heat Island Intensity (UHII), showing an inverse correlation between the two datasets. As rainfall decreases, UHII tends to increase, indicating that reduced precipitation may exacerbate urban warming.</p>
+                    
+                    <p>From the graph, it is evident that UHII has been increasing steadily since around 2005. Notably, peak UHII values occurred in the early 1990s, and again around 2015 and 2018, suggesting stronger urban heat effects during those monsoon years. This implies that even during traditionally cooler, rainier seasons, urban areas are experiencing elevated heat levels—possibly due to intensified urbanization and declining vegetation. However, in the past five years, there appears to be a decline or stabilization in UHII values. This trend may point to a temporary reduction in UHI intensity, potentially due to land use changes, increased green cover, or other climate adaptation measures. Overall, the observed pattern underscores the urgent need for climate-resilient urban planning and effective heat mitigation strategies, especially in monsoon-dependent regions.</p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
             <div class="project-card">
                 <div class="project-image">Future Bhima Basin Map Analysis</div>
                 <div class="project-content">
@@ -889,6 +931,7 @@ footer {
                 </div>
             </div>
 
+            <!-- Project 3 -->
             <div class="project-card">
                 <div class="project-image">Future PMKVY Geographic Analysis</div>
                 <div class="project-content">
@@ -897,6 +940,7 @@ footer {
                 </div>
             </div>
 
+            <!-- Project 4 -->
             <div class="project-card">
                 <div class="project-image">Future GIS / Terrain Mapping</div>
                 <div class="project-content">
@@ -904,6 +948,7 @@ footer {
                     <p>A collection of GIS, DEM, Remote Sensing and spatial-analysis projects will be presented here.</p>
                 </div>
             </div>
+            
         </div>
     </div>
 
