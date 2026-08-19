@@ -273,6 +273,34 @@ main {
     }
 }
 
+/* CARDS & GRIDS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    transition: 0.3s;
+    border-top: 4px solid #1a3644;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    color: #1a3644;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
 /* TIMELINE (Experience & Education) */
 
 .timeline {
@@ -363,7 +391,7 @@ main {
     transform: scale(1.05);
 }
 
-/* NEW STACKED PROJECTS LAYOUT (Light theme, big images) */
+/* STACKED PROJECTS LAYOUT */
 
 .stacked-projects-container {
     display: flex;
@@ -414,6 +442,13 @@ main {
     font-size: 26px;
     margin-bottom: 20px;
     font-weight: bold;
+}
+
+.stacked-project-content h4 {
+    color: #1a3644;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .stacked-project-content p {
@@ -720,7 +755,7 @@ footer {
 
 <main>
 
-    <!-- HOME SECTION (Now includes Background Image & About Me) -->
+    <!-- HOME SECTION -->
     <div class="page-section active" id="home">
         <div class="hero-content">
             <h1>Saroj Salil</h1>
@@ -897,6 +932,25 @@ footer {
                     <p>The given graph clearly illustrates the relationship between rainfall and Urban Heat Island Intensity (UHII), showing an inverse correlation between the two datasets. As rainfall decreases, UHII tends to increase, indicating that reduced precipitation may exacerbate urban warming.</p>
                     
                     <p>From the graph, it is evident that UHII has been increasing steadily since around 2005. Notably, peak UHII values occurred in the early 1990s, and again around 2015 and 2018, suggesting stronger urban heat effects during those monsoon years. This implies that even during traditionally cooler, rainier seasons, urban areas are experiencing elevated heat levels—possibly due to intensified urbanization and declining vegetation. However, in the past five years, there appears to be a decline or stabilization in UHII values. This trend may point to a temporary reduction in UHI intensity, potentially due to land use changes, increased green cover, or other climate adaptation measures. Overall, the observed pattern underscores the urgent need for climate-resilient urban planning and effective heat mitigation strategies, especially in monsoon-dependent regions.</p>
+                    
+                    <img class="inline-img zoomable" src="predicted map.jpg" alt="Predicted Land Cover Map 2033 Lucknow" onclick="openModal(this.src, this.alt)">
+                    
+                    <p>This map shows predicted land cover categories for the year 2033 in Lucknow, derived likely using cellular automata, Markov chain analysis, or agent-based modelling—common geo-simulation methods for urban growth prediction.</p>
+                    <ul>
+                        <li><strong>Urban Growth Trends:</strong> A noticeable spread of built-up area across most parts, particularly the central and north-western regions, indicates rapid urban expansion. This implies the city is likely undergoing horizontal growth, typical in low-density development patterns.</li>
+                        <li><strong>Vegetation Loss:</strong> Pockets of vegetation remain, especially in the southern and eastern zones, but many central and northern areas show a shift from green to grey. Suggests a likely conversion of green space to urban land, reflecting future environmental pressure.</li>
+                        <li><strong>Bare Land as Transitional Zones:</strong> Concentration of bare land in the north-eastern and southwestern fringes signals future hotspots for construction and infrastructure development.</li>
+                        <li><strong>Hydrological Impact:</strong> Water bodies (e.g., the river cutting through the city) are closely surrounded by built-up zones, pointing to potential floodplain encroachment or urban water stress scenarios.</li>
+                    </ul>
+                    
+                    <h4>Model Implications for Urban Planning:</h4>
+                    <ul>
+                        <li><strong>Land Use Regulation:</strong> Urban growth models must inform zoning policies to preserve green spaces and avoid unregulated sprawl.</li>
+                        <li><strong>Environmental Conservation:</strong> Prediction supports proactive measures to protect vegetation and water bodies.</li>
+                        <li><strong>Infrastructure Planning:</strong> Helps prioritize where to direct infrastructure investment, utilities, and transport corridors.</li>
+                        <li><strong>Disaster Management:</strong> Essential for flood risk mapping, especially where built-up areas encroach on rivers or low-lying bare land.</li>
+                    </ul>
+                    <p>This map is a predictive spatial planning tool based on geo-simulation models. It offers foresight into urban expansion trends, potential ecological stress zones, and planning challenges. Properly used, it can guide sustainable urban development policies in Lucknow and inform mitigation strategies for upcoming land use changes.</p>
                 </div>
             </div>
 
