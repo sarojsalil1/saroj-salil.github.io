@@ -139,7 +139,6 @@ main {
     text-align: center;
     padding: 70px 20px;
     
-    /* Removed blue gradient overlay, showing the pure color image */
     background: url('photo_2026-08-12_19-29-10.jpg');
     background-size: cover;
     background-position: center;
@@ -155,7 +154,6 @@ main {
     max-width: 900px;
 }
 
-/* Added text shadows so the text remains readable over the full-color background image */
 .hero h1, .hero h2, .hero p {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.85);
 }
@@ -197,7 +195,7 @@ main {
     transition: 0.3s;
     border: 2px solid #48a9a6;
     cursor: pointer;
-    text-shadow: none; /* Removes text shadow from button text */
+    text-shadow: none; 
 }
 
 .btn.secondary {
@@ -297,60 +295,6 @@ main {
     color: #1a3644;
     margin-bottom: 15px;
     font-size: 20px;
-}
-
-/* CREATIVE WORKS CONTAINER */
-
-.creative-container {
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-left: 6px solid #48a9a6;
-}
-
-.creative-item h3 {
-    color: #1a3644;
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.creative-item p {
-    color: #455a64;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 25px;
-}
-
-.creative-media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.creative-media-card {
-    background: #f8fafc;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #eef2f5;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-    text-align: center;
-}
-
-.creative-media-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
-    padding: 10px;
-    background: #ffffff;
-    display: block;
-}
-
-.creative-media-card .caption {
-    padding: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #1a3644;
 }
 
 /* TIMELINE (Experience & Education) */
@@ -494,8 +438,9 @@ main {
     margin-bottom: 0;
 }
 
-/* PARTICIPATIONS & VOLUNTEERING CONTAINER */
+/* CREATIVE WORKS, VOLUNTEERING, PARTICIPATIONS */
 
+.creative-container,
 .participations-container,
 .volunteering-container {
     background: white;
@@ -506,8 +451,96 @@ main {
     margin-bottom: 40px;
 }
 
-.volunteering-container {
-    border-top-color: #48a9a6;
+.creative-container { border-left: 6px solid #48a9a6; border-top: none; }
+.volunteering-container { border-top-color: #48a9a6; }
+
+.creative-item h3 {
+    color: #1a3644;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.creative-item p {
+    color: #455a64;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.creative-media-grid,
+.volunteering-media-grid,
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.creative-media-card,
+.volunteering-media-card,
+.certificate {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    transition: 0.3s;
+    border: 1px solid #eef2f5;
+}
+
+.creative-media-card:hover,
+.volunteering-media-card:hover,
+.certificate:hover {
+    transform: translateY(-6px);
+}
+
+.creative-media-card img,
+.volunteering-image,
+.certificate-image {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 15px;
+    display: block;
+    border-bottom: 1px solid #eef2f5;
+}
+
+.creative-media-card .caption,
+.volunteering-info,
+.certificate-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.volunteering-info h3,
+.certificate-info h3 {
+    color: #1a3644;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.volunteering-info p,
+.certificate-info p {
+    color: #788a98;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.certificate-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #f0f4f8;
+    color: #1a3644;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.certificate-link:hover {
+    background: #1a3644;
+    color: white;
 }
 
 .part-list {
@@ -549,117 +582,6 @@ main {
     font-size: 15px;
 }
 
-/* VOLUNTEERING MEDIA GRID */
-
-.volunteering-media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-}
-
-.volunteering-media-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    transition: 0.3s;
-    border: 1px solid #eef2f5;
-}
-
-.volunteering-media-card:hover {
-    transform: translateY(-7px);
-}
-
-.volunteering-image {
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-    background: #f8fafc;
-    padding: 10px;
-    display: block;
-    border-bottom: 1px solid #eef2f5;
-}
-
-.volunteering-info {
-    padding: 15px;
-    text-align: center;
-}
-
-.volunteering-info h3 {
-    color: #1a3644;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.volunteering-info p {
-    color: #788a98;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-/* CERTIFICATES */
-
-.certificate-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.certificate {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    transition: 0.3s;
-}
-
-.certificate:hover {
-    transform: translateY(-7px);
-}
-
-.certificate-image {
-    width: 100%;
-    height: 230px;
-    object-fit: contain;
-    background: #f8fafc;
-    padding: 15px;
-    display: block;
-    border-bottom: 1px solid #eef2f5;
-}
-
-.certificate-info {
-    padding: 20px;
-}
-
-.certificate-info h3 {
-    color: #1a3644;
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.certificate-info p {
-    color: #788a98;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.certificate-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 16px;
-    background: #f0f4f8;
-    color: #1a3644;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.certificate-link:hover {
-    background: #1a3644;
-    color: white;
-}
 
 /* CV & CONTACT */
 
@@ -690,6 +612,75 @@ main {
 .contact-links a:hover {
     color: #1a3644;
     text-decoration: underline;
+}
+
+/* IMAGE LIGHTBOX/MODAL STYLES */
+
+.zoomable {
+    cursor: zoom-in;
+    transition: 0.3s;
+}
+
+.zoomable:hover {
+    opacity: 0.8;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 9999; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 4px;
+    animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+#modalCaption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+    color: #ccc;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #48a9a6;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* FOOTER */
@@ -738,7 +729,7 @@ footer {
 
 <main>
 
-    <!-- HOME SECTION (Now includes Background Image & About Me) -->
+    <!-- HOME SECTION -->
     <div class="page-section active" id="home">
         <div class="hero-content">
             <h1>Saroj Salil</h1>
@@ -750,9 +741,9 @@ footer {
             </div>
         </div>
 
-        <!-- ABOUT CONTENT INTEGRATED INTO HOME -->
         <div class="about-container">
-            <img src="photo_2026-08-18_00-46-10.jpg" alt="Saroj Salil" class="about-photo">
+            <!-- Used zoomable image for profile pic too! -->
+            <img src="photo_2026-08-18_00-46-10.jpg" alt="Saroj Salil" class="about-photo zoomable" onclick="openModal(this.src, this.alt)">
             <div class="about-text">
                 <h2>About Me</h2>
                 <p>Dedicated to leveraging my expertise in environmental science and climate change, with a focus on weather patterns in regions like the Himalayas, to drive sustainable solutions and community resilience. Committed to applying my knowledge and skills to address pressing environmental challenges, fostering a healthier planet through impactful, science-driven actions.</p>
@@ -897,14 +888,13 @@ footer {
     <!-- PROJECTS SECTION -->
     <div class="page-section" id="projects">
         <h2>Projects & Spatial Analysis</h2>
-        <p class="section-intro">Selected research and geospatial projects.</p>
+        <p class="section-intro">Selected research and geospatial projects. Click on any map or graph to enlarge it.</p>
         
         <div class="grid">
         
-            <!-- Project 1: Urban Heat Island (Standard Card Format) -->
+            <!-- Project 1 -->
             <div class="project-card">
-                <!-- First Image -->
-                <img class="project-img" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Temperature Comparison Graph">
+                <img class="project-img zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Temperature Comparison Graph" onclick="openModal(this.src, this.alt)">
                 
                 <div class="project-content">
                     <h3>Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</h3>
@@ -912,7 +902,7 @@ footer {
                     <p>This graph displays the datasets, highlighting the impact of the Urban Heat Island (UHI) effect. The graph clearly shows that temperatures have increased over time in both areas; however, the average temperature in Lucknow city is consistently higher than in the peripheral regions. This indicates the presence of the UHI effect. If we analyse the pattern, it is apparent that in the early years, the temperatures in the city and surrounding areas were more similar. However, after 2000, the city’s temperature became consistently higher, reflecting increased urbanization, reduced vegetation, and significant land use changes. Furthermore, the growing gap between the average temperatures of urban and rural areas suggests that factors like global warming are contributing to rising temperatures overall. This, in turn, intensifies the UHI effect and could potentially lead to more frequent and severe heat waves in the region. The trend clearly shows an upward trajectory, reinforcing the concern over rising urban temperatures.</p>
                     
                     <!-- Second Image -->
-                    <img src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Mann-Kendall Trend Analysis Graph" style="width: 100%; margin: 20px 0; border: 1px solid #eef2f5; border-radius: 6px;">
+                    <img class="zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Mann-Kendall Trend Analysis Graph" style="width: 100%; margin: 20px 0; border: 1px solid #eef2f5; border-radius: 6px;" onclick="openModal(this.src, this.alt)">
                     
                     <p>To validate whether there is an actual trend in the previous graph, we applied the Mann-Kendall test to determine if the trend is increasing, decreasing, or non-existent. Additionally, we used Sen’s slope estimation to assess the magnitude of change over time. In the given graph, we observe a positive Tau value of 0.06. Although this indicates a weak upward trend, it is very close to zero and not statistically significant. Since the p-value is 0.551, which is greater than the commonly used significance level of 0.05, we conclude that the trend is not statistically significant. This means we fail to reject the null hypothesis, which states that there is no trend, and we do not accept the alternative hypothesis of a significant trend. The estimated magnitude of change over the last 44 years is 0.006°C for Lucknow city and 0.007°C for the peripheral region. Observing the entire graph, we notice considerable interannual variability, particularly after 2000. Prominent temperature spikes are observed around 2009, 2016, and 2023, possibly related to extreme weather events or El Niño years. Conversely, lower temperature clusters appear in the early 1980s and around 2020, which may be associated with La Niña or other cooling events.</p>
                     
@@ -964,16 +954,12 @@ footer {
                 
                 <div class="creative-media-grid">
                     <div class="creative-media-card">
-                        <a href="Screenshot 2026-08-18 220818.png" target="_blank">
-                            <img src="Screenshot 2026-08-18 220818.png" alt="Cleanliness Drive Coverage">
-                        </a>
+                        <img class="zoomable" src="Screenshot 2026-08-18 220818.png" alt="Cleanliness Drive Coverage" onclick="openModal(this.src, this.alt)">
                         <div class="caption">News Feature / Document</div>
                     </div>
                     
                     <div class="creative-media-card">
-                        <a href="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" target="_blank">
-                            <img src="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" alt="Fever FM / Gautam Gambhir Appreciation Event">
-                        </a>
+                        <img class="zoomable" src="WhatsApp Image 2026-08-18 at 22.02.17.jpeg" alt="Fever FM / Gautam Gambhir Appreciation Event" onclick="openModal(this.src, this.alt)">
                         <div class="caption">Appreciation Event / Campaign Photo</div>
                     </div>
                 </div>
@@ -1060,46 +1046,38 @@ footer {
         <!-- VOLUNTEERING GALLERY -->
         <div class="volunteering-media-grid">
             <div class="volunteering-media-card">
-                <a href="1.jpeg" target="_blank">
-                    <img class="volunteering-image" src="1.jpeg" alt="NSS Volunteering Photo 1">
-                </a>
+                <img class="volunteering-image zoomable" src="1.jpeg" alt="NSS Activity Photo 1" onclick="openModal(this.src, this.alt)">
                 <div class="volunteering-info">
                     <h3>NSS Activity Photo 1</h3>
                     <p>NSS Volunteering & Drives</p>
-                    <a class="certificate-link" href="1.jpeg" target="_blank">View Document</a>
+                    <a class="certificate-link" href="1.jpeg" target="_blank">View Raw Image</a>
                 </div>
             </div>
 
             <div class="volunteering-media-card">
-                <a href="2.jpeg" target="_blank">
-                    <img class="volunteering-image" src="2.jpeg" alt="NSS Volunteering Photo 2">
-                </a>
+                <img class="volunteering-image zoomable" src="2.jpeg" alt="NSS Activity Photo 2" onclick="openModal(this.src, this.alt)">
                 <div class="volunteering-info">
                     <h3>NSS Activity Photo 2</h3>
                     <p>NSS Volunteering & Drives</p>
-                    <a class="certificate-link" href="2.jpeg" target="_blank">View Document</a>
+                    <a class="certificate-link" href="2.jpeg" target="_blank">View Raw Image</a>
                 </div>
             </div>
 
             <div class="volunteering-media-card">
-                <a href="3.jpeg" target="_blank">
-                    <img class="volunteering-image" src="3.jpeg" alt="NSS Volunteering Photo 3">
-                </a>
+                <img class="volunteering-image zoomable" src="3.jpeg" alt="NSS Activity Photo 3" onclick="openModal(this.src, this.alt)">
                 <div class="volunteering-info">
                     <h3>NSS Activity Photo 3</h3>
                     <p>NSS Volunteering & Drives</p>
-                    <a class="certificate-link" href="3.jpeg" target="_blank">View Document</a>
+                    <a class="certificate-link" href="3.jpeg" target="_blank">View Raw Image</a>
                 </div>
             </div>
 
             <div class="volunteering-media-card">
-                <a href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">
-                    <img class="volunteering-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" alt="NSS Volunteering Photo 4">
-                </a>
+                <img class="volunteering-image zoomable" src="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" alt="NSS Activity Photo 4" onclick="openModal(this.src, this.alt)">
                 <div class="volunteering-info">
                     <h3>NSS Activity Photo 4</h3>
                     <p>NSS Volunteering & Drives</p>
-                    <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">View Document</a>
+                    <a class="certificate-link" href="WhatsApp Image 2026-08-18 at 22.39.52 (4).jpeg" target="_blank">View Raw Image</a>
                 </div>
             </div>
         </div>
@@ -1112,9 +1090,7 @@ footer {
 
         <div class="certificate-grid">
             <div class="certificate">
-                <a href="gis-for-climate-action.jpg" target="_blank">
-                    <img class="certificate-image" src="gis-for-climate-action.jpg" alt="GIS for Climate Action">
-                </a>
+                <img class="certificate-image zoomable" src="gis-for-climate-action.jpg" alt="GIS for Climate Action" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>GIS for Climate Action</h3>
                     <p>Esri | GIS & Climate Action</p>
@@ -1123,9 +1099,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="geospatial-modelling-watershed-management.jpg" target="_blank">
-                    <img class="certificate-image" src="geospatial-modelling-watershed-management.jpg" alt="Watershed Management">
-                </a>
+                <img class="certificate-image zoomable" src="geospatial-modelling-watershed-management.jpg" alt="Watershed Management" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Geospatial Modelling for Watershed Management</h3>
                     <p>IIRS / ISRO</p>
@@ -1134,9 +1108,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="nasa-arset-flood-training.jpg" target="_blank">
-                    <img class="certificate-image" src="nasa-arset-flood-training.jpg" alt="NASA ARSET Flood Training">
-                </a>
+                <img class="certificate-image zoomable" src="nasa-arset-flood-training.jpg" alt="NASA ARSET Flood Training" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Monitoring and Predicting Floods Using Earth Observations</h3>
                     <p>NASA ARSET</p>
@@ -1145,9 +1117,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="wekeo-for-climate-change.jpg" target="_blank">
-                    <img class="certificate-image" src="wekeo-for-climate-change.jpg" alt="WEkEO for Climate Change">
-                </a>
+                <img class="certificate-image zoomable" src="wekeo-for-climate-change.jpg" alt="WEkEO for Climate Change" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>WEkEO for Climate Change</h3>
                     <p>Copernicus / Mercator Ocean International</p>
@@ -1156,9 +1126,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="enso-weather-training.jpg" target="_blank">
-                    <img class="certificate-image" src="enso-weather-training.jpg" alt="El Niño Training">
-                </a>
+                <img class="certificate-image zoomable" src="enso-weather-training.jpg" alt="El Niño Training" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Monitoring the El Niño–Southern Oscillation</h3>
                     <p>Climate & Weather Training</p>
@@ -1167,9 +1135,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="climate-justice-climate-law.jpg" target="_blank">
-                    <img class="certificate-image" src="climate-justice-climate-law.jpg" alt="Climate Law">
-                </a>
+                <img class="certificate-image zoomable" src="climate-justice-climate-law.jpg" alt="Climate Law" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Climate Justice and Climate Law</h3>
                     <p>NLU Delhi & SOAS</p>
@@ -1178,9 +1144,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="ncess-research-internship.jpg" target="_blank">
-                    <img class="certificate-image" src="ncess-research-internship.jpg" alt="NCESS Internship">
-                </a>
+                <img class="certificate-image zoomable" src="ncess-research-internship.jpg" alt="NCESS Internship" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Research Internship</h3>
                     <p>National Centre for Earth Science Studies</p>
@@ -1189,9 +1153,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="field-investigator-cgu.jpg" target="_blank">
-                    <img class="certificate-image" src="field-investigator-cgu.jpg" alt="Field Investigator">
-                </a>
+                <img class="certificate-image zoomable" src="field-investigator-cgu.jpg" alt="Field Investigator" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Field Investigator</h3>
                     <p>CV Raman Global University</p>
@@ -1200,9 +1162,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="rmsi-gis-engineer-experience.jpg" target="_blank">
-                    <img class="certificate-image" src="rmsi-gis-engineer-experience.jpg" alt="RMSI Experience">
-                </a>
+                <img class="certificate-image zoomable" src="rmsi-gis-engineer-experience.jpg" alt="RMSI Experience" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>GIS Engineer Experience</h3>
                     <p>RMSI</p>
@@ -1211,9 +1171,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="certificate-appreciation-2025.jpg" target="_blank">
-                    <img class="certificate-image" src="certificate-appreciation-2025.jpg" alt="Appreciation">
-                </a>
+                <img class="certificate-image zoomable" src="certificate-appreciation-2025.jpg" alt="Appreciation" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Certificate of Appreciation</h3>
                     <p>Academic / Professional Recognition</p>
@@ -1222,9 +1180,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="training-certificate-2025.jpg" target="_blank">
-                    <img class="certificate-image" src="training-certificate-2025.jpg" alt="Training 2025">
-                </a>
+                <img class="certificate-image zoomable" src="training-certificate-2025.jpg" alt="Training 2025" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Professional Training</h3>
                     <p>Training Certificate | 2025</p>
@@ -1233,20 +1189,16 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="Certificate_of_Completion.pdf" target="_blank">
-                    <img class="certificate-image" src="Certificate_of_Completion.png" alt="Machine Learning for Earth Systems">
-                </a>
+                <img class="certificate-image zoomable" src="Certificate_of_Completion.png" alt="Machine Learning for Earth Systems" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Machine Learning for Earth Systems Modelling</h3>
                     <p>ECMWF | Destination Earth</p>
-                    <a class="certificate-link" href="Certificate_of_Completion.pdf" target="_blank">View Document</a>
+                    <a class="certificate-link" href="Certificate_of_Completion.pdf" target="_blank">View Document (PDF)</a>
                 </div>
             </div>
 
             <div class="certificate">
-                <a href="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" target="_blank">
-                    <img class="certificate-image" src="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" alt="NISD Drug Abuse Prevention Certificate">
-                </a>
+                <img class="certificate-image zoomable" src="National Institute of Social Defence Ministry of Social Justice and Empowerment.png" alt="NISD Drug Abuse Prevention Certificate" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Drug Abuse Prevention Sensitization</h3>
                     <p>NISD | Ministry of Social Justice & Empowerment</p>
@@ -1255,9 +1207,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="nss.png" target="_blank">
-                    <img class="certificate-image" src="nss.png" alt="NSS Volunteer Certificate">
-                </a>
+                <img class="certificate-image zoomable" src="nss.png" alt="NSS Volunteer Certificate" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>National Service Scheme (NSS) Volunteer</h3>
                     <p>NSS Unit | ARSD College, University of Delhi</p>
@@ -1266,9 +1216,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="summer_internship.png" target="_blank">
-                    <img class="certificate-image" src="summer_internship.png" alt="Swachh Bharat Summer Internship Certificate">
-                </a>
+                <img class="certificate-image zoomable" src="summer_internship.png" alt="Swachh Bharat Summer Internship Certificate" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Swachh Bharat Summer Internship</h3>
                     <p>Ministry of Jal Shakti / Youth Affairs & Sports</p>
@@ -1277,9 +1225,7 @@ footer {
             </div>
 
             <div class="certificate">
-                <a href="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" target="_blank">
-                    <img class="certificate-image" src="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" alt="Certificate of Participation / Training">
-                </a>
+                <img class="certificate-image zoomable" src="WhatsApp Image 2026-08-18 at 22.39.52 (3).jpeg" alt="Certificate of Participation / Training" onclick="openModal(this.src, this.alt)">
                 <div class="certificate-info">
                     <h3>Training / Participation Certificate</h3>
                     <p>Academic & Professional Training</p>
@@ -1313,34 +1259,55 @@ footer {
     <p>© 2026 Saroj Salil | Geography • GIS • Remote Sensing • Climate Research</p>
 </footer>
 
-<!-- JAVASCRIPT FOR SECTION SWITCHING -->
+<!-- IMAGE MODAL (LIGHTBOX) -->
+<div id="imageModal" class="modal" onclick="closeModal(event)">
+    <span class="close-modal" onclick="closeModal(event)">&times;</span>
+    <img class="modal-content" id="enlargedImg">
+    <div id="modalCaption"></div>
+</div>
+
+<!-- JAVASCRIPT FOR SECTION SWITCHING & LIGHTBOX -->
 <script>
+// Section Switching Logic
 function showSection(sectionId, evt) {
-    // Hide all sections
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => {
         section.classList.remove('active');
     });
 
-    // Remove active state from nav links
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.classList.remove('active');
     });
 
-    // Show targeted section
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.classList.add('active');
     }
 
-    // Highlight corresponding nav item if event is passed
     if (evt && evt.currentTarget) {
         evt.currentTarget.classList.add('active');
     }
 
-    // Scroll smoothly to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Lightbox Logic
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("enlargedImg");
+const captionText = document.getElementById("modalCaption");
+
+function openModal(src, alt) {
+    modal.style.display = "block";
+    modalImg.src = src;
+    captionText.innerHTML = alt || "";
+}
+
+function closeModal(event) {
+    // Only close if clicking outside the image itself or clicking the X
+    if (event.target !== modalImg) {
+        modal.style.display = "none";
+    }
 }
 </script>
 
