@@ -84,10 +84,10 @@ main {
     flex: 1;
 }
 
-/* PAGE SECTIONS - Hidden by default except the active view */
+/* PAGE SECTIONS */
 
 .page-section {
-    display: none;
+    display: none !important;
     max-width: 1200px;
     margin: auto;
     padding: 60px 25px;
@@ -95,7 +95,12 @@ main {
 }
 
 .page-section.active {
-    display: block;
+    display: block !important;
+}
+
+/* Specific fix for Home section flexbox */
+#home.active {
+    display: flex !important;
 }
 
 @keyframes fadeIn {
@@ -132,7 +137,6 @@ main {
 
 #home {
     min-height: calc(100vh - 140px);
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -269,34 +273,6 @@ main {
     }
 }
 
-/* CARDS & GRIDS */
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background: white;
-    padding: 35px;
-    border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-    transition: 0.3s;
-    border-top: 4px solid #1a3644;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-}
-
-.card h3 {
-    color: #1a3644;
-    margin-bottom: 15px;
-    font-size: 20px;
-}
-
 /* TIMELINE (Experience & Education) */
 
 .timeline {
@@ -387,43 +363,70 @@ main {
     transform: scale(1.05);
 }
 
-/* PROJECTS */
+/* NEW STACKED PROJECTS LAYOUT (Light theme, big images) */
 
-.project-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+.stacked-projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.project-card img.project-img {
+.stacked-project-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    border-top: 6px solid #48a9a6;
+}
+
+.stacked-project-card img.stacked-project-img {
     width: 100%;
-    height: 240px;
+    height: auto;
+    max-height: 600px;
     object-fit: cover;
     display: block;
-    border-bottom: 4px solid #48a9a6;
-    background: #dce5e9;
+    background: #eef2f5;
+    border-bottom: 1px solid #dce5e9;
 }
 
-.project-content {
-    padding: 30px;
+/* For secondary/inline images within the project content */
+.stacked-project-content img.inline-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 30px 0;
+    border: 1px solid #eef2f5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.project-content h3 {
-    color: #1a3644;
-    margin-bottom: 15px;
-    font-size: 20px;
-}
-
-.project-content p {
+.stacked-project-content {
+    padding: 40px;
     color: #455a64;
-    font-size: 15px;
+    text-align: left;
+    font-size: 16px;
     line-height: 1.8;
-    margin-bottom: 15px;
 }
 
-.project-content p:last-child {
-    margin-bottom: 0;
+.stacked-project-content h3 {
+    color: #1a3644;
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.stacked-project-content p {
+    margin-bottom: 20px;
+}
+
+.stacked-project-content ul {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.stacked-project-content li {
+    margin-bottom: 10px;
 }
 
 /* CREATIVE WORKS, VOLUNTEERING, PARTICIPATIONS */
@@ -570,7 +573,6 @@ main {
     font-size: 15px;
 }
 
-
 /* CV & CONTACT */
 
 .contact-box {
@@ -614,7 +616,7 @@ main {
 }
 
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed; 
     z-index: 9999; 
     padding-top: 60px; 
@@ -690,6 +692,7 @@ footer {
     .hero h1 { font-size: 40px; }
     .hero h2 { font-size: 18px; }
     .page-section { padding: 40px 15px; }
+    .stacked-project-content { padding: 25px; }
 }
 
 </style>
@@ -717,7 +720,7 @@ footer {
 
 <main>
 
-    <!-- HOME SECTION -->
+    <!-- HOME SECTION (Now includes Background Image & About Me) -->
     <div class="page-section active" id="home">
         <div class="hero-content">
             <h1>Saroj Salil</h1>
@@ -737,7 +740,6 @@ footer {
             </div>
         </div>
     </div>
-
 
     <!-- EXPERIENCE SECTION -->
     <div class="page-section" id="experience">
@@ -872,24 +874,23 @@ footer {
         </div>
     </div>
 
-    <!-- PROJECTS SECTION -->
+    <!-- PROJECTS SECTION (STACKED LAYOUT) -->
     <div class="page-section" id="projects">
         <h2>Projects & Spatial Analysis</h2>
         <p class="section-intro">Selected research and geospatial projects. Click on any map or graph to enlarge it.</p>
         
-        <div class="grid">
+        <div class="stacked-projects-container">
         
-            <!-- Project 1 -->
-            <div class="project-card">
-                <img class="project-img zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Temperature Comparison Graph" onclick="openModal(this.src, this.alt)">
+            <!-- Project 1: Urban Heat Island -->
+            <div class="stacked-project-card">
+                <img class="stacked-project-img zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Temperature Comparison Graph" onclick="openModal(this.src, this.alt)">
                 
-                <div class="project-content">
-                    <h3>Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</h3>
+                <div class="stacked-project-content">
+                    <h3>Project - Urban Heat Island Dynamics: Spatial Analysis and Predictive Simulation Modelling</h3>
                     
                     <p>This graph displays the datasets, highlighting the impact of the Urban Heat Island (UHI) effect. The graph clearly shows that temperatures have increased over time in both areas; however, the average temperature in Lucknow city is consistently higher than in the peripheral regions. This indicates the presence of the UHI effect. If we analyse the pattern, it is apparent that in the early years, the temperatures in the city and surrounding areas were more similar. However, after 2000, the city’s temperature became consistently higher, reflecting increased urbanization, reduced vegetation, and significant land use changes. Furthermore, the growing gap between the average temperatures of urban and rural areas suggests that factors like global warming are contributing to rising temperatures overall. This, in turn, intensifies the UHI effect and could potentially lead to more frequent and severe heat waves in the region. The trend clearly shows an upward trajectory, reinforcing the concern over rising urban temperatures.</p>
                     
-                    <!-- Second Image -->
-                    <img class="zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Mann-Kendall Trend Analysis Graph" style="width: 100%; margin: 20px 0; border: 1px solid #eef2f5; border-radius: 6px; cursor: zoom-in;" onclick="openModal(this.src, this.alt)">
+                    <img class="inline-img zoomable" src="Apr_Jul_Temp_Comparison_1980_2024_MK_Final.png" alt="Mann-Kendall Trend Analysis Graph" onclick="openModal(this.src, this.alt)">
                     
                     <p>To validate whether there is an actual trend in the previous graph, we applied the Mann-Kendall test to determine if the trend is increasing, decreasing, or non-existent. Additionally, we used Sen’s slope estimation to assess the magnitude of change over time. In the given graph, we observe a positive Tau value of 0.06. Although this indicates a weak upward trend, it is very close to zero and not statistically significant. Since the p-value is 0.551, which is greater than the commonly used significance level of 0.05, we conclude that the trend is not statistically significant. This means we fail to reject the null hypothesis, which states that there is no trend, and we do not accept the alternative hypothesis of a significant trend. The estimated magnitude of change over the last 44 years is 0.006°C for Lucknow city and 0.007°C for the peripheral region. Observing the entire graph, we notice considerable interannual variability, particularly after 2000. Prominent temperature spikes are observed around 2009, 2016, and 2023, possibly related to extreme weather events or El Niño years. Conversely, lower temperature clusters appear in the early 1980s and around 2020, which may be associated with La Niña or other cooling events.</p>
                     
@@ -899,32 +900,29 @@ footer {
                 </div>
             </div>
 
-            <!-- Project 2 (Now ready for an image with the click-to-enlarge option) -->
-            <div class="project-card">
-                <!-- Replace 'https://placehold.co/...' with your actual image name when ready (e.g., src="bhima_basin.jpg") -->
-                <img class="project-img zoomable" src="https://placehold.co/800x450/dce5e9/718997?text=Future+Bhima+Basin+Map+Analysis" alt="Bhima Basin Map Analysis" onclick="openModal(this.src, this.alt)">
-                <div class="project-content">
-                    <h3>Rainfall Variability in Bhima Basin</h3>
+            <!-- Project 2: Bhima Basin -->
+            <div class="stacked-project-card">
+                <img class="stacked-project-img zoomable" src="https://placehold.co/1000x500/eef2f5/718997?text=Future+Bhima+Basin+Map+Analysis" alt="Bhima Basin Map Analysis" onclick="openModal(this.src, this.alt)">
+                <div class="stacked-project-content">
+                    <h3>Project - Rainfall Variability in Bhima Basin</h3>
                     <p>Long-term analysis of rainfall variability and trends using gridded rainfall data and statistical methods.</p>
                 </div>
             </div>
 
-            <!-- Project 3 (Now ready for an image with the click-to-enlarge option) -->
-            <div class="project-card">
-                <!-- Replace 'https://placehold.co/...' with your actual image name when ready -->
-                <img class="project-img zoomable" src="https://placehold.co/800x450/dce5e9/718997?text=Future+PMKVY+Geographic+Analysis" alt="PMKVY Spatial Analysis in Jharkhand" onclick="openModal(this.src, this.alt)">
-                <div class="project-content">
-                    <h3>PMKVY Spatial Analysis in Jharkhand</h3>
+            <!-- Project 3: PMKVY -->
+            <div class="stacked-project-card">
+                <img class="stacked-project-img zoomable" src="https://placehold.co/1000x500/eef2f5/718997?text=Future+PMKVY+Geographic+Analysis" alt="PMKVY Spatial Analysis in Jharkhand" onclick="openModal(this.src, this.alt)">
+                <div class="stacked-project-content">
+                    <h3>Project - PMKVY Spatial Analysis in Jharkhand</h3>
                     <p>Geospatial investigation of skill-development centres, accessibility, terrain and spatial patterns among tribal youth.</p>
                 </div>
             </div>
 
-            <!-- Project 4 (Now ready for an image with the click-to-enlarge option) -->
-            <div class="project-card">
-                <!-- Replace 'https://placehold.co/...' with your actual image name when ready -->
-                <img class="project-img zoomable" src="https://placehold.co/800x450/dce5e9/718997?text=Future+GIS+/+Terrain+Mapping" alt="GIS & Terrain Analysis Portfolio" onclick="openModal(this.src, this.alt)">
-                <div class="project-content">
-                    <h3>GIS & Terrain Analysis Portfolio</h3>
+            <!-- Project 4: GIS/Terrain Portfolio -->
+            <div class="stacked-project-card">
+                <img class="stacked-project-img zoomable" src="https://placehold.co/1000x500/eef2f5/718997?text=Future+GIS+/+Terrain+Mapping" alt="GIS & Terrain Analysis Portfolio" onclick="openModal(this.src, this.alt)">
+                <div class="stacked-project-content">
+                    <h3>Project - GIS & Terrain Analysis Portfolio</h3>
                     <p>A collection of GIS, DEM, Remote Sensing and spatial-analysis projects will be presented here.</p>
                 </div>
             </div>
