@@ -98,11 +98,6 @@ main {
     display: block !important;
 }
 
-/* Specific fix for Home section flexbox */
-#home.active {
-    display: flex !important;
-}
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -133,28 +128,69 @@ main {
     color: #5c7080;
 }
 
-/* HERO / HOME SECTION VIEW */
+/* HERO / HOME SECTION - REDESIGNED FOR VIDEO & GIS ANIMATION */
 
 #home {
-    min-height: calc(100vh - 140px);
+    padding-top: 20px;
+}
+
+.hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 70px 20px;
-    
-    background: url('photo_2026-08-12_19-29-10.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    
+    padding: 40px 20px 100px 20px; /* Extra bottom padding for overlap */
     color: white;
-    border-radius: 12px;
-    margin-top: 20px;
-    gap: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* SATELLITE / RADAR SCAN OVERLAY ANIMATION */
+.gis-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(26, 54, 68, 0.75), rgba(15, 30, 40, 0.85));
+}
+
+.gis-overlay::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(to bottom, transparent 45%, rgba(72, 169, 166, 0.25) 50%, transparent 55%);
+    animation: scanline 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scanline {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50%); }
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 950px;
 }
 
@@ -273,7 +309,7 @@ main {
     100% { transform: translateY(-6px); }
 }
 
-/* ABOUT SECTION (Inside Home) */
+/* ABOUT SECTION (Overlapping Hero Banner) */
 
 .about-container {
     background: white;
@@ -287,7 +323,11 @@ main {
     text-align: left;
     max-width: 1000px;
     color: #2c3e50;
+    
+    /* Pulls the about box up to overlap the video */
+    margin: -60px auto 0 auto; 
     position: relative;
+    z-index: 10;
 }
 
 .about-photo {
@@ -329,6 +369,7 @@ main {
     .about-container {
         flex-direction: column;
         text-align: center;
+        margin-top: -30px;
     }
     .about-text h2 {
         text-align: center;
@@ -446,7 +487,6 @@ main {
     border-top: 6px solid #48a9a6;
 }
 
-/* Project Header specifically for titles above images */
 .stacked-project-header {
     padding: 30px 40px;
     background: white;
@@ -801,22 +841,34 @@ footer {
 
     <!-- HOME SECTION -->
     <div class="page-section active" id="home">
-        <div class="hero-content">
-            <h1>Saroj Salil</h1>
-            <h2>Geography | GIS & Remote Sensing | Climate Research</h2>
-            <p>Geography researcher working at the intersection of climate variability, rainfall analysis, GIS, remote sensing, spatial analysis, and environmental research.</p>
+        
+        <!-- NEW HERO BANNER WITH VIDEO & ANIMATED GIS OVERLAY -->
+        <div class="hero-banner">
+            <!-- VIDEO: Plays an Earth view. If you upload 'climate.mp4', it overrides this. Fallback is your image. -->
+            <video autoplay loop muted playsinline id="bg-video" poster="photo_2026-08-12_19-29-10.jpg">
+                <source src="climate.mp4" type="video/mp4">
+                <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c5/Earth_spin.webm/Earth_spin.webm.1080p.vp9.webm" type="video/webm">
+            </video>
             
-            <div class="buttons">
-                <button class="btn" onclick="showSection('experience', event)">Explore My Work</button>
-                <button class="btn secondary" onclick="showSection('cv', event)">Download CV</button>
-            </div>
+            <div class="gis-overlay"></div>
+            
+            <div class="hero-content">
+                <h1>Saroj Salil</h1>
+                <h2>Geography | GIS & Remote Sensing | Climate Research</h2>
+                <p>Geography researcher working at the intersection of climate variability, rainfall analysis, GIS, remote sensing, spatial analysis, and environmental research.</p>
+                
+                <div class="buttons">
+                    <button class="btn" onclick="showSection('experience', event)">Explore My Work</button>
+                    <button class="btn secondary" onclick="showSection('cv', event)">Download CV</button>
+                </div>
 
-            <!-- ANIMATED GIS & CLIMATE BADGES -->
-            <div class="geo-badge-container">
-                <span class="geo-badge"><i class="badge-dot"></i> Climate Analytics</span>
-                <span class="geo-badge"><i class="badge-dot"></i> Remote Sensing & GIS</span>
-                <span class="geo-badge"><i class="badge-dot"></i> Predictive Simulation</span>
-                <span class="geo-badge"><i class="badge-dot"></i> Spatial Hydrology</span>
+                <!-- ANIMATED GIS & CLIMATE BADGES -->
+                <div class="geo-badge-container">
+                    <span class="geo-badge"><i class="badge-dot"></i> Climate Analytics</span>
+                    <span class="geo-badge"><i class="badge-dot"></i> Remote Sensing & GIS</span>
+                    <span class="geo-badge"><i class="badge-dot"></i> Predictive Simulation</span>
+                    <span class="geo-badge"><i class="badge-dot"></i> Spatial Hydrology</span>
+                </div>
             </div>
         </div>
 
@@ -1007,6 +1059,7 @@ footer {
                     </ul>
                     <p>This map is a predictive spatial planning tool based on geo-simulation models. It offers foresight into urban expansion trends, potential ecological stress zones, and planning challenges. Properly used, it can guide sustainable urban development policies in Lucknow and inform mitigation strategies for upcoming land use changes.</p>
                     
+                    <!-- SATELLITE GIF SECTION -->
                     <img class="inline-img zoomable" src="clear_change_with_index.gif" alt="Satellite Image Time-Series 1990-2020 FCC" onclick="openModal(this.src, this.alt)">
                     
                     <p>A satellite image time-series spanning from 1990 to 2020 rendered in a Standard False Color Composite (FCC) using bands corresponding to Near-Infrared (NIR), Red, and Green (Layers 4, 3, 2—typical for Landsat 4-5 TM / Landsat 7 ETM+).</p>
