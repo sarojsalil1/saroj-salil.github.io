@@ -151,11 +151,11 @@ main {
     color: white;
     border-radius: 12px;
     margin-top: 20px;
-    gap: 60px;
+    gap: 50px;
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 950px;
 }
 
 .hero h1, .hero h2, .hero p {
@@ -215,6 +215,64 @@ main {
     transform: translateY(-3px);
 }
 
+/* GIS & CLIMATE ANIMATED BADGES IN HERO */
+
+.geo-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.geo-badge {
+    background: rgba(26, 54, 68, 0.75);
+    border: 1px solid rgba(72, 169, 166, 0.6);
+    backdrop-filter: blur(8px);
+    color: #e0f2f1;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    animation: floatBadge 4s ease-in-out infinite alternate;
+}
+
+.geo-badge:nth-child(2) { animation-delay: 0.8s; }
+.geo-badge:nth-child(3) { animation-delay: 1.6s; }
+.geo-badge:nth-child(4) { animation-delay: 2.4s; }
+
+.geo-badge:hover {
+    border-color: #48a9a6;
+    background: rgba(72, 169, 166, 0.35);
+    transform: translateY(-4px) scale(1.04);
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #48a9a6;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #48a9a6;
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.7); }
+}
+
+@keyframes floatBadge {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-6px); }
+}
+
 /* ABOUT SECTION (Inside Home) */
 
 .about-container {
@@ -229,6 +287,7 @@ main {
     text-align: left;
     max-width: 1000px;
     color: #2c3e50;
+    position: relative;
 }
 
 .about-photo {
@@ -237,8 +296,14 @@ main {
     object-fit: cover;
     border-radius: 50%;
     border: 8px solid #f4f7f6;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     flex-shrink: 0;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(72, 169, 166, 0.3);
 }
 
 .about-text h2 {
@@ -740,9 +805,18 @@ footer {
             <h1>Saroj Salil</h1>
             <h2>Geography | GIS & Remote Sensing | Climate Research</h2>
             <p>Geography researcher working at the intersection of climate variability, rainfall analysis, GIS, remote sensing, spatial analysis, and environmental research.</p>
+            
             <div class="buttons">
                 <button class="btn" onclick="showSection('experience', event)">Explore My Work</button>
                 <button class="btn secondary" onclick="showSection('cv', event)">Download CV</button>
+            </div>
+
+            <!-- ANIMATED GIS & CLIMATE BADGES -->
+            <div class="geo-badge-container">
+                <span class="geo-badge"><i class="badge-dot"></i> Climate Analytics</span>
+                <span class="geo-badge"><i class="badge-dot"></i> Remote Sensing & GIS</span>
+                <span class="geo-badge"><i class="badge-dot"></i> Predictive Simulation</span>
+                <span class="geo-badge"><i class="badge-dot"></i> Spatial Hydrology</span>
             </div>
         </div>
 
@@ -1019,10 +1093,11 @@ footer {
                     <h3>Project - PMKVY Spatial Analysis in Jharkhand</h3>
                 </div>
                 
-                <img class="stacked-project-img zoomable" src="https://placehold.co/1000x500/eef2f5/718997?text=Future+PMKVY+Geographic+Analysis" alt="PMKVY Spatial Analysis in Jharkhand" onclick="openModal(this.src, this.alt)">
+                <img class="stacked-project-img zoomable" src="Gumla_Barriers_Centres_Map.png" alt="PMKVY Spatial Analysis: Slope and TRI in Gumla, Jharkhand" onclick="openModal(this.src, this.alt)">
                 
                 <div class="stacked-project-content">
                     <p>Geospatial investigation of skill-development centres, accessibility, terrain and spatial patterns among tribal youth.</p>
+                    <p>In spatial analysis and environmental modelling, Slope and Terrain Ruggedness Index (TRI) are critical topographic metrics used to evaluate landform geometry, accessibility, and surface movement. Slope measures the rate of elevation change (steepness) in degrees or percentage, making it essential for assessing slope stability, soil erosion potential, landslides, surface runoff velocity, and land-use suitability for agriculture and urban development. In contrast, TRI quantifies elevation variation among neighboring grid cells to represent surface roughness; high TRI values indicate jagged, broken, or complex terrain, whereas low values signify smooth, flat topography. Together, these metrics are extensively applied in hydrological modelling, infrastructure planning, route optimization, ecological habitat suitability mapping, and spatial access analysis—such as identifying physical barriers to transport, healthcare, or educational facilities in rugged geographic regions.</p>
                 </div>
             </div>
 
