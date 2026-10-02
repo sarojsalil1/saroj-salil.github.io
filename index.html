@@ -389,7 +389,7 @@ main {
     }
 }
 
-/* TIMELINE (Experience & Education) */
+/* TIMELINE (Experience, Education, Publications) */
 
 .timeline {
     border-left: 4px solid #c9d6df;
@@ -444,6 +444,7 @@ main {
 .timeline-item p {
     color: #455a64;
     font-size: 15px;
+    margin-bottom: 10px;
 }
 
 .timeline-item a {
@@ -814,6 +815,14 @@ footer {
     margin-top: auto;
 }
 
+.visitor-counter {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
 /* MOBILE RESPONSIVENESS */
 
 @media(max-width: 800px) {
@@ -840,6 +849,7 @@ footer {
         <li><a class="nav-link" onclick="showSection('education', event)">Education</a></li>
         <li><a class="nav-link" onclick="showSection('skills', event)">Skills</a></li>
         <li><a class="nav-link" onclick="showSection('projects', event)">Projects</a></li>
+        <li><a class="nav-link" onclick="showSection('publications', event)">Publications</a></li>
         <li><a class="nav-link" onclick="showSection('creative', event)">Creative Works</a></li>
         <li><a class="nav-link" onclick="showSection('participations', event)">Participations</a></li>
         <li><a class="nav-link" onclick="showSection('volunteering', event)">Volunteering</a></li>
@@ -1188,6 +1198,26 @@ footer {
         </div>
     </div>
 
+    <!-- PUBLICATIONS SECTION -->
+    <div class="page-section" id="publications">
+        <h2>Publications</h2>
+        <p class="section-intro">Published research articles, book chapters, and academic contributions.</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Book Chapter / Research Article</h3>
+                <div class="timeline-meta">
+                    <span>Elsevier</span>
+                    <span>ScienceDirect</span>
+                </div>
+                <p><strong>Title:</strong> <span style="color: #455a64;">[Insert Exact Publication Title Here]</span></p>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.1016/B978-0-443-27590-6.00009-9" target="_blank">10.1016/B978-0-443-27590-6.00009-9</a></p>
+                <p style="margin-top: 10px;">A detailed study published by Elsevier, contributing to environmental research and spatial analysis methodologies.</p>
+                <a href="https://doi.org/10.1016/B978-0-443-27590-6.00009-9" target="_blank" class="btn" style="margin-top: 15px; padding: 10px 20px; font-size: 14px;">View on ScienceDirect</a>
+            </div>
+        </div>
+    </div>
+
     <!-- CREATIVE WORKS SECTION -->
     <div class="page-section" id="creative">
         <h2>Creative Works</h2>
@@ -1476,6 +1506,12 @@ footer {
 <!-- FOOTER -->
 <footer>
     <p>© 2026 Saroj Salil | Geography • GIS • Remote Sensing • Climate Research</p>
+    
+    <!-- VISITOR COUNTER WIDGET -->
+    <div class="visitor-counter">
+        <p style="margin-bottom: 5px; font-weight: bold;">Website Visitors</p>
+        <img src="https://api.visitorbadge.io/api/visitors?path=sarojsalil.portfolio&countColor=%2348a9a6&style=flat-square" alt="Visitor Count">
+    </div>
 </footer>
 
 <!-- IMAGE MODAL (LIGHTBOX) -->
